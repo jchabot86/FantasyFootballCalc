@@ -16,13 +16,16 @@
 		F2CEFF9A19571B0F00C937F1 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF9819571B0F00C937F1 /* Main_iPhone.storyboard */; };
 		F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */; };
 		F2CEFFA019571B0F00C937F1 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFF9F19571B0F00C937F1 /* FirstViewController.m */; };
-		F2CEFFA319571B0F00C937F1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFA219571B0F00C937F1 /* SecondViewController.m */; };
 		F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFFA419571B0F00C937F1 /* Images.xcassets */; };
 		F2CEFFAC19571B0F00C937F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFFAB19571B0F00C937F1 /* XCTest.framework */; };
 		F2CEFFAD19571B0F00C937F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8619571B0F00C937F1 /* Foundation.framework */; };
 		F2CEFFAE19571B0F00C937F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8A19571B0F00C937F1 /* UIKit.framework */; };
 		F2CEFFB619571B0F00C937F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFFB419571B0F00C937F1 /* InfoPlist.strings */; };
 		F2CEFFB819571B0F00C937F1 /* FantasyFootballCalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFB719571B0F00C937F1 /* FantasyFootballCalcTests.m */; };
+		F2CEFFC619571DF200C937F1 /* SelectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFC519571DF200C937F1 /* SelectionsController.m */; };
+		F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFC819571F0900C937F1 /* SelectionsCell.m */; };
+		F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFCB195721D700C937F1 /* SelectionDetailController.m */; };
+		F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFCE195722B100C937F1 /* SelectionDetailCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +53,20 @@
 		F2CEFF9C19571B0F00C937F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		F2CEFF9E19571B0F00C937F1 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		F2CEFF9F19571B0F00C937F1 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		F2CEFFA119571B0F00C937F1 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		F2CEFFA219571B0F00C937F1 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		F2CEFFA419571B0F00C937F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F2CEFFAA19571B0F00C937F1 /* FantasyFootballCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FantasyFootballCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CEFFAB19571B0F00C937F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F2CEFFB319571B0F00C937F1 /* FantasyFootballCalcTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FantasyFootballCalcTests-Info.plist"; sourceTree = "<group>"; };
 		F2CEFFB519571B0F00C937F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2CEFFB719571B0F00C937F1 /* FantasyFootballCalcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyFootballCalcTests.m; sourceTree = "<group>"; };
+		F2CEFFC419571DF200C937F1 /* SelectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionsController.h; sourceTree = "<group>"; };
+		F2CEFFC519571DF200C937F1 /* SelectionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionsController.m; sourceTree = "<group>"; };
+		F2CEFFC719571F0900C937F1 /* SelectionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionsCell.h; sourceTree = "<group>"; };
+		F2CEFFC819571F0900C937F1 /* SelectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionsCell.m; sourceTree = "<group>"; };
+		F2CEFFCA195721D700C937F1 /* SelectionDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionDetailController.h; sourceTree = "<group>"; };
+		F2CEFFCB195721D700C937F1 /* SelectionDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionDetailController.m; sourceTree = "<group>"; };
+		F2CEFFCD195722B100C937F1 /* SelectionDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionDetailCell.h; sourceTree = "<group>"; };
+		F2CEFFCE195722B100C937F1 /* SelectionDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionDetailCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +132,16 @@
 				F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */,
 				F2CEFF9E19571B0F00C937F1 /* FirstViewController.h */,
 				F2CEFF9F19571B0F00C937F1 /* FirstViewController.m */,
-				F2CEFFA119571B0F00C937F1 /* SecondViewController.h */,
-				F2CEFFA219571B0F00C937F1 /* SecondViewController.m */,
 				F2CEFFA419571B0F00C937F1 /* Images.xcassets */,
 				F2CEFF8D19571B0F00C937F1 /* Supporting Files */,
+				F2CEFFC419571DF200C937F1 /* SelectionsController.h */,
+				F2CEFFC519571DF200C937F1 /* SelectionsController.m */,
+				F2CEFFC719571F0900C937F1 /* SelectionsCell.h */,
+				F2CEFFC819571F0900C937F1 /* SelectionsCell.m */,
+				F2CEFFCA195721D700C937F1 /* SelectionDetailController.h */,
+				F2CEFFCB195721D700C937F1 /* SelectionDetailController.m */,
+				F2CEFFCD195722B100C937F1 /* SelectionDetailCell.h */,
+				F2CEFFCE195722B100C937F1 /* SelectionDetailCell.m */,
 			);
 			path = FantasyFootballCalc;
 			sourceTree = "<group>";
@@ -258,9 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2CEFFA319571B0F00C937F1 /* SecondViewController.m in Sources */,
 				F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */,
 				F2CEFFA019571B0F00C937F1 /* FirstViewController.m in Sources */,
+				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
+				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
+				F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */,
+				F2CEFFC619571DF200C937F1 /* SelectionsController.m in Sources */,
 				F2CEFF9319571B0F00C937F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
