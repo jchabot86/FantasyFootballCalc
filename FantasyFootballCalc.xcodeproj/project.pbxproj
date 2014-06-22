@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F2CEFF8719571B0F00C937F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8619571B0F00C937F1 /* Foundation.framework */; };
+		F2CEFF8919571B0F00C937F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */; };
+		F2CEFF8B19571B0F00C937F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8A19571B0F00C937F1 /* UIKit.framework */; };
+		F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF8F19571B0F00C937F1 /* InfoPlist.strings */; };
+		F2CEFF9319571B0F00C937F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFF9219571B0F00C937F1 /* main.m */; };
+		F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFF9619571B0F00C937F1 /* AppDelegate.m */; };
+		F2CEFF9A19571B0F00C937F1 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF9819571B0F00C937F1 /* Main_iPhone.storyboard */; };
+		F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */; };
+		F2CEFFA019571B0F00C937F1 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFF9F19571B0F00C937F1 /* FirstViewController.m */; };
+		F2CEFFA319571B0F00C937F1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFA219571B0F00C937F1 /* SecondViewController.m */; };
+		F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFFA419571B0F00C937F1 /* Images.xcassets */; };
+		F2CEFFAC19571B0F00C937F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFFAB19571B0F00C937F1 /* XCTest.framework */; };
+		F2CEFFAD19571B0F00C937F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8619571B0F00C937F1 /* Foundation.framework */; };
+		F2CEFFAE19571B0F00C937F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8A19571B0F00C937F1 /* UIKit.framework */; };
+		F2CEFFB619571B0F00C937F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFFB419571B0F00C937F1 /* InfoPlist.strings */; };
+		F2CEFFB819571B0F00C937F1 /* FantasyFootballCalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFB719571B0F00C937F1 /* FantasyFootballCalcTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F2CEFFAF19571B0F00C937F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2CEFF7B19571B0F00C937F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2CEFF8219571B0F00C937F1;
+			remoteInfo = FantasyFootballCalc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F2CEFF8319571B0F00C937F1 /* FantasyFootballCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyFootballCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2CEFF8619571B0F00C937F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F2CEFF8A19571B0F00C937F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F2CEFF8E19571B0F00C937F1 /* FantasyFootballCalc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FantasyFootballCalc-Info.plist"; sourceTree = "<group>"; };
+		F2CEFF9019571B0F00C937F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F2CEFF9219571B0F00C937F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F2CEFF9419571B0F00C937F1 /* FantasyFootballCalc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FantasyFootballCalc-Prefix.pch"; sourceTree = "<group>"; };
+		F2CEFF9519571B0F00C937F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F2CEFF9619571B0F00C937F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F2CEFF9919571B0F00C937F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F2CEFF9C19571B0F00C937F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		F2CEFF9E19571B0F00C937F1 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		F2CEFF9F19571B0F00C937F1 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		F2CEFFA119571B0F00C937F1 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		F2CEFFA219571B0F00C937F1 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		F2CEFFA419571B0F00C937F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F2CEFFAA19571B0F00C937F1 /* FantasyFootballCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FantasyFootballCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2CEFFAB19571B0F00C937F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F2CEFFB319571B0F00C937F1 /* FantasyFootballCalcTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FantasyFootballCalcTests-Info.plist"; sourceTree = "<group>"; };
+		F2CEFFB519571B0F00C937F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F2CEFFB719571B0F00C937F1 /* FantasyFootballCalcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyFootballCalcTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2CEFF8019571B0F00C937F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CEFF8919571B0F00C937F1 /* CoreGraphics.framework in Frameworks */,
+				F2CEFF8B19571B0F00C937F1 /* UIKit.framework in Frameworks */,
+				F2CEFF8719571B0F00C937F1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CEFFA719571B0F00C937F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CEFFAC19571B0F00C937F1 /* XCTest.framework in Frameworks */,
+				F2CEFFAE19571B0F00C937F1 /* UIKit.framework in Frameworks */,
+				F2CEFFAD19571B0F00C937F1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F2CEFF7A19571B0F00C937F1 = {
+			isa = PBXGroup;
+			children = (
+				F2CEFF8C19571B0F00C937F1 /* FantasyFootballCalc */,
+				F2CEFFB119571B0F00C937F1 /* FantasyFootballCalcTests */,
+				F2CEFF8519571B0F00C937F1 /* Frameworks */,
+				F2CEFF8419571B0F00C937F1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F2CEFF8419571B0F00C937F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2CEFF8319571B0F00C937F1 /* FantasyFootballCalc.app */,
+				F2CEFFAA19571B0F00C937F1 /* FantasyFootballCalcTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2CEFF8519571B0F00C937F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2CEFF8619571B0F00C937F1 /* Foundation.framework */,
+				F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */,
+				F2CEFF8A19571B0F00C937F1 /* UIKit.framework */,
+				F2CEFFAB19571B0F00C937F1 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F2CEFF8C19571B0F00C937F1 /* FantasyFootballCalc */ = {
+			isa = PBXGroup;
+			children = (
+				F2CEFF9519571B0F00C937F1 /* AppDelegate.h */,
+				F2CEFF9619571B0F00C937F1 /* AppDelegate.m */,
+				F2CEFF9819571B0F00C937F1 /* Main_iPhone.storyboard */,
+				F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */,
+				F2CEFF9E19571B0F00C937F1 /* FirstViewController.h */,
+				F2CEFF9F19571B0F00C937F1 /* FirstViewController.m */,
+				F2CEFFA119571B0F00C937F1 /* SecondViewController.h */,
+				F2CEFFA219571B0F00C937F1 /* SecondViewController.m */,
+				F2CEFFA419571B0F00C937F1 /* Images.xcassets */,
+				F2CEFF8D19571B0F00C937F1 /* Supporting Files */,
+			);
+			path = FantasyFootballCalc;
+			sourceTree = "<group>";
+		};
+		F2CEFF8D19571B0F00C937F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2CEFF8E19571B0F00C937F1 /* FantasyFootballCalc-Info.plist */,
+				F2CEFF8F19571B0F00C937F1 /* InfoPlist.strings */,
+				F2CEFF9219571B0F00C937F1 /* main.m */,
+				F2CEFF9419571B0F00C937F1 /* FantasyFootballCalc-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2CEFFB119571B0F00C937F1 /* FantasyFootballCalcTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2CEFFB719571B0F00C937F1 /* FantasyFootballCalcTests.m */,
+				F2CEFFB219571B0F00C937F1 /* Supporting Files */,
+			);
+			path = FantasyFootballCalcTests;
+			sourceTree = "<group>";
+		};
+		F2CEFFB219571B0F00C937F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2CEFFB319571B0F00C937F1 /* FantasyFootballCalcTests-Info.plist */,
+				F2CEFFB419571B0F00C937F1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2CEFF8219571B0F00C937F1 /* FantasyFootballCalc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2CEFFBB19571B0F00C937F1 /* Build configuration list for PBXNativeTarget "FantasyFootballCalc" */;
+			buildPhases = (
+				F2CEFF7F19571B0F00C937F1 /* Sources */,
+				F2CEFF8019571B0F00C937F1 /* Frameworks */,
+				F2CEFF8119571B0F00C937F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FantasyFootballCalc;
+			productName = FantasyFootballCalc;
+			productReference = F2CEFF8319571B0F00C937F1 /* FantasyFootballCalc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F2CEFFA919571B0F00C937F1 /* FantasyFootballCalcTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2CEFFBE19571B0F00C937F1 /* Build configuration list for PBXNativeTarget "FantasyFootballCalcTests" */;
+			buildPhases = (
+				F2CEFFA619571B0F00C937F1 /* Sources */,
+				F2CEFFA719571B0F00C937F1 /* Frameworks */,
+				F2CEFFA819571B0F00C937F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2CEFFB019571B0F00C937F1 /* PBXTargetDependency */,
+			);
+			name = FantasyFootballCalcTests;
+			productName = FantasyFootballCalcTests;
+			productReference = F2CEFFAA19571B0F00C937F1 /* FantasyFootballCalcTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F2CEFF7B19571B0F00C937F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Chabot;
+				TargetAttributes = {
+					F2CEFFA919571B0F00C937F1 = {
+						TestTargetID = F2CEFF8219571B0F00C937F1;
+					};
+				};
+			};
+			buildConfigurationList = F2CEFF7E19571B0F00C937F1 /* Build configuration list for PBXProject "FantasyFootballCalc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F2CEFF7A19571B0F00C937F1;
+			productRefGroup = F2CEFF8419571B0F00C937F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2CEFF8219571B0F00C937F1 /* FantasyFootballCalc */,
+				F2CEFFA919571B0F00C937F1 /* FantasyFootballCalcTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2CEFF8119571B0F00C937F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
+				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
+				F2CEFF9A19571B0F00C937F1 /* Main_iPhone.storyboard in Resources */,
+				F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CEFFA819571B0F00C937F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CEFFB619571B0F00C937F1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2CEFF7F19571B0F00C937F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CEFFA319571B0F00C937F1 /* SecondViewController.m in Sources */,
+				F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */,
+				F2CEFFA019571B0F00C937F1 /* FirstViewController.m in Sources */,
+				F2CEFF9319571B0F00C937F1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CEFFA619571B0F00C937F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CEFFB819571B0F00C937F1 /* FantasyFootballCalcTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2CEFFB019571B0F00C937F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2CEFF8219571B0F00C937F1 /* FantasyFootballCalc */;
+			targetProxy = F2CEFFAF19571B0F00C937F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F2CEFF8F19571B0F00C937F1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2CEFF9019571B0F00C937F1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F2CEFF9819571B0F00C937F1 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2CEFF9919571B0F00C937F1 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2CEFF9C19571B0F00C937F1 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		F2CEFFB419571B0F00C937F1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2CEFFB519571B0F00C937F1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F2CEFFB919571B0F00C937F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2CEFFBA19571B0F00C937F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2CEFFBC19571B0F00C937F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FantasyFootballCalc/FantasyFootballCalc-Prefix.pch";
+				INFOPLIST_FILE = "FantasyFootballCalc/FantasyFootballCalc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F2CEFFBD19571B0F00C937F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FantasyFootballCalc/FantasyFootballCalc-Prefix.pch";
+				INFOPLIST_FILE = "FantasyFootballCalc/FantasyFootballCalc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F2CEFFBF19571B0F00C937F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FantasyFootballCalc.app/FantasyFootballCalc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FantasyFootballCalc/FantasyFootballCalc-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FantasyFootballCalcTests/FantasyFootballCalcTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F2CEFFC019571B0F00C937F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FantasyFootballCalc.app/FantasyFootballCalc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FantasyFootballCalc/FantasyFootballCalc-Prefix.pch";
+				INFOPLIST_FILE = "FantasyFootballCalcTests/FantasyFootballCalcTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2CEFF7E19571B0F00C937F1 /* Build configuration list for PBXProject "FantasyFootballCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2CEFFB919571B0F00C937F1 /* Debug */,
+				F2CEFFBA19571B0F00C937F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2CEFFBB19571B0F00C937F1 /* Build configuration list for PBXNativeTarget "FantasyFootballCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2CEFFBC19571B0F00C937F1 /* Debug */,
+				F2CEFFBD19571B0F00C937F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F2CEFFBE19571B0F00C937F1 /* Build configuration list for PBXNativeTarget "FantasyFootballCalcTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2CEFFBF19571B0F00C937F1 /* Debug */,
+				F2CEFFC019571B0F00C937F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F2CEFF7B19571B0F00C937F1 /* Project object */;
+}
