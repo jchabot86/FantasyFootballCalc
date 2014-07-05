@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1076F098196855B3002B7F2A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1076F097196855B3002B7F2A /* libsqlite3.dylib */; };
+		1076F09B196859AC002B7F2A /* SQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1076F09A196859AC002B7F2A /* SQLiteHelper.m */; };
+		1076F09D1968683A002B7F2A /* FantasyFootballCalc.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */; };
 		F235431D1966118C004CD0CE /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235431C1966118C004CD0CE /* PlayersViewController.m */; };
 		F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23543221966F8DD004CD0CE /* PlayersCell.m */; };
 		F23543251967167B004CD0CE /* KrunchProjections.json in Resources */ = {isa = PBXBuildFile; fileRef = F23543241967167B004CD0CE /* KrunchProjections.json */; };
@@ -41,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1076F097196855B3002B7F2A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		1076F099196859AC002B7F2A /* SQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteHelper.h; sourceTree = "<group>"; };
+		1076F09A196859AC002B7F2A /* SQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteHelper.m; sourceTree = "<group>"; };
+		1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FantasyFootballCalc.sqlite; sourceTree = "<group>"; };
 		F235431B1966118C004CD0CE /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
 		F235431C1966118C004CD0CE /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
 		F23543211966F8DD004CD0CE /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
@@ -79,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1076F098196855B3002B7F2A /* libsqlite3.dylib in Frameworks */,
 				F2CEFF8919571B0F00C937F1 /* CoreGraphics.framework in Frameworks */,
 				F2CEFF8B19571B0F00C937F1 /* UIKit.framework in Frameworks */,
 				F2CEFF8719571B0F00C937F1 /* Foundation.framework in Frameworks */,
@@ -101,6 +109,7 @@
 		F2CEFF7A19571B0F00C937F1 = {
 			isa = PBXGroup;
 			children = (
+				1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */,
 				F2CEFF8C19571B0F00C937F1 /* FantasyFootballCalc */,
 				F2CEFFB119571B0F00C937F1 /* FantasyFootballCalcTests */,
 				F2CEFF8519571B0F00C937F1 /* Frameworks */,
@@ -120,6 +129,7 @@
 		F2CEFF8519571B0F00C937F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1076F097196855B3002B7F2A /* libsqlite3.dylib */,
 				F2CEFF8619571B0F00C937F1 /* Foundation.framework */,
 				F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */,
 				F2CEFF8A19571B0F00C937F1 /* UIKit.framework */,
@@ -149,6 +159,8 @@
 				F235431C1966118C004CD0CE /* PlayersViewController.m */,
 				F23543211966F8DD004CD0CE /* PlayersCell.h */,
 				F23543221966F8DD004CD0CE /* PlayersCell.m */,
+				1076F099196859AC002B7F2A /* SQLiteHelper.h */,
+				1076F09A196859AC002B7F2A /* SQLiteHelper.m */,
 			);
 			path = FantasyFootballCalc;
 			sourceTree = "<group>";
@@ -259,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1076F09D1968683A002B7F2A /* FantasyFootballCalc.sqlite in Resources */,
 				F23543251967167B004CD0CE /* KrunchProjections.json in Resources */,
 				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
 				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
@@ -284,6 +297,7 @@
 			files = (
 				F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */,
 				F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */,
+				1076F09B196859AC002B7F2A /* SQLiteHelper.m in Sources */,
 				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
 				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
 				F235431D1966118C004CD0CE /* PlayersViewController.m in Sources */,

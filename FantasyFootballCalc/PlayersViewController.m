@@ -8,6 +8,7 @@
 
 #import "PlayersViewController.h"
 #import "PlayersCell.h"
+#import "SQLiteHelper.h"
 
 @interface PlayersViewController ()
 
@@ -41,7 +42,22 @@
     //NSURL *url = [NSURL URLWithString:@"http://www.somethingrighthere.com/something.php"];
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"KrunchProjections" withExtension:@"json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
+    
+    
+   // NSString *dataStr = @"Cuteness beyond belief!";
+    
+   /* UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
+                                                   message: dataStr
+                                                  delegate: self
+                                         cancelButtonTitle:@"Cancel"
+                                         otherButtonTitles:@"OK",nil];
+    
+    
+    [alert show];*/
     
 }
 
