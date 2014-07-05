@@ -106,10 +106,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F2CEFF7A19571B0F00C937F1 = {
+		108731881968744E005477C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F2CEFF7A19571B0F00C937F1 = {
+			isa = PBXGroup;
+			children = (
+				108731881968744E005477C8 /* Resources */,
 				F2CEFF8C19571B0F00C937F1 /* FantasyFootballCalc */,
 				F2CEFFB119571B0F00C937F1 /* FantasyFootballCalcTests */,
 				F2CEFF8519571B0F00C937F1 /* Frameworks */,
