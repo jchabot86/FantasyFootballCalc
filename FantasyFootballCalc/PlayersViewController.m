@@ -59,7 +59,19 @@
     count = [filelist count];
     
     for (i = 0; i < count; i++)
-        NSLog (@"%@", [filelist objectAtIndex: i]);*/
+        NSLog (@"%@", [filelist objectAtIndex: i])
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
+    message: name
+    delegate: self
+    cancelButtonTitle:@"Cancel"
+    otherButtonTitles:@"OK",nil];
+    
+    
+    [alert show];
+
+    
+    ;*/
     
     SQLiteHelper *database = [[SQLiteHelper alloc] initWithPath:@"Users/justinport/Documents/Workspace/xcode/FantasyFootballCalc/FantasyFootballCalc.sqlite"];
     NSArray *result = [database performQuery:@"SELECT * FROM player"];
@@ -68,15 +80,7 @@
         NSString *name = [row objectAtIndex:1];
         NSLog(@"%d -- %@", pid, name);
         
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
-                                                       message: name
-                                                      delegate: self
-                                             cancelButtonTitle:@"Cancel"
-                                             otherButtonTitles:@"OK",nil];
         
-        
-        [alert show];
-
     }
     
 }
