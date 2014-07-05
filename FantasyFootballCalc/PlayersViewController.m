@@ -34,12 +34,42 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    _PID = @[@"1",@"2",@"3",];
-    _Player = @[@"Tom Brady",@"Calvin Johnson",@"Adrian Peterson",];
-    _Team = @[@"NE", @"DET",@"MIN",];
-    _Pos = @[@"QB", @"WR",@"RB",];
+    //this shows the user that something is being downloaded from network
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    //build connection - will need to replace URL String
+    //NSURL *url = [NSURL URLWithString:@"http://api.openweathermap.org/data/2.1/find/city?bbox=12,32,15,37,10&cluster=yes"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"KrunchProjections" withExtension:@"json"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    _data = [[NSMutableData alloc] init];
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData
+{
+    [_data appendData:theData];
+}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
+    _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
+    [self.tableView reloadData];
+    
+    
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    //TODO do something here
+    NSLog(@"Failed!!!");
+    //stop the networkActivityIndicator
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -57,7 +87,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return _Player.count;
+    return [_players count];
 }
 
 
@@ -66,16 +96,20 @@
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    int row = [indexPath row];
-    
+    //int row = [indexPath row];
+    /*
     cell.PIDLabel.text = _PID[row];
     cell.PlayerLabel.text = _Player[row];
     cell.TeamLabel.text = _Team[row];
-    cell.PosLabel.text = _Pos[row];
+    cell.PosLabel.text = _Pos[row];*/
+    cell.PlayerLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Player"];
+    cell.PosLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Pos"];
     
     return cell;
 }
 
+- (IBAction)getPlayerList:(id)sender {
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSArray *Team;
 @property (nonatomic, strong) NSArray *Pos;
 
+@property (nonatomic, strong) NSArray *players;
+@property (nonatomic, strong) NSMutableData *data;
 @end
