@@ -46,18 +46,18 @@
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     
+    SQLiteHelper *helper = [SQLiteHelper new];
     
+    NSString *dataStr = [helper test];
     
-   // NSString *dataStr = @"Cuteness beyond belief!";
-    
-   /* UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
                                                    message: dataStr
                                                   delegate: self
                                          cancelButtonTitle:@"Cancel"
                                          otherButtonTitles:@"OK",nil];
     
     
-    [alert show];*/
+    [alert show];
     
 }
 
