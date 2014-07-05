@@ -38,7 +38,7 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     //build connection - will need to replace URL String
-    //NSURL *url = [NSURL URLWithString:@"http://api.openweathermap.org/data/2.1/find/city?bbox=12,32,15,37,10&cluster=yes"];
+    //NSURL *url = [NSURL URLWithString:@"http://www.somethingrighthere.com/something.php"];
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"KrunchProjections" withExtension:@"json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
