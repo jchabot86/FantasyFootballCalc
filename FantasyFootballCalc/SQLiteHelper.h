@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <sqlite3.h>
 
 @interface SQLiteHelper : NSObject
     @property NSString *dbPath;
     @property NSString *dbName;
 
-    - (NSString *)test;
+    - (NSString *) test;
+    - (id)initWithPath:(NSString *)path;
+    - (NSArray *)performQuery:(NSString *)query;
 @end

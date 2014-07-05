@@ -45,19 +45,39 @@
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
+   
+   /* NSFileManager *filemgr;
+    NSString *currentpath;
+    NSArray *filelist;
+    int count;
+    int i;
     
-    SQLiteHelper *helper = [SQLiteHelper new];
+    filemgr = [NSFileManager defaultManager];
     
-    NSString *dataStr = [helper test];
+    filelist = [filemgr contentsOfDirectoryAtPath: @"Users/justinport/Documents/Workspace/xcode/FantasyFootballCalc/FantasyFootballCalc.sqlite" error: nil];
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
-                                                   message: dataStr
-                                                  delegate: self
-                                         cancelButtonTitle:@"Cancel"
-                                         otherButtonTitles:@"OK",nil];
+    count = [filelist count];
     
+    for (i = 0; i < count; i++)
+        NSLog (@"%@", [filelist objectAtIndex: i]);*/
     
-    [alert show];
+    SQLiteHelper *database = [[SQLiteHelper alloc] initWithPath:@"Users/justinport/Documents/Workspace/xcode/FantasyFootballCalc/FantasyFootballCalc.sqlite"];
+    NSArray *result = [database performQuery:@"SELECT * FROM player"];
+    for (NSArray *row in result) {
+        int pid = [[row objectAtIndex:0] intValue];
+        NSString *name = [row objectAtIndex:1];
+        NSLog(@"%d -- %@", pid, name);
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
+                                                       message: name
+                                                      delegate: self
+                                             cancelButtonTitle:@"Cancel"
+                                             otherButtonTitles:@"OK",nil];
+        
+        
+        [alert show];
+
+    }
     
 }
 
