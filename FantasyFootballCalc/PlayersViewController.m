@@ -96,14 +96,9 @@
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    //int row = [indexPath row];
-    /*
-    cell.PIDLabel.text = _PID[row];
-    cell.PlayerLabel.text = _Player[row];
-    cell.TeamLabel.text = _Team[row];
-    cell.PosLabel.text = _Pos[row];*/
     cell.PlayerLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Player"];
     cell.PosLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Pos"];
+    cell.TeamLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Team"];
     
     return cell;
 }
