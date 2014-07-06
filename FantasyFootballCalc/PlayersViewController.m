@@ -16,6 +16,7 @@
 {
     SQLite *database;
     NSArray *playerResults;
+    NSMutableArray *myTeamArray;
     
 }
 
@@ -117,6 +118,12 @@
         [database performQuery:refreshPlayers];
     }
     playerResults = [database performQuery: @"SELECT * FROM player"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
     [database closeConnection];
     [self.tableView reloadData];
 }
@@ -153,13 +160,17 @@
 {
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     
+    NSString *pid = (NSString *)[[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
+    if([myTeamArray containsObject:pid]) {
+        cell.AddToTeamButton.enabled = NO;
+    }
     // Configure the cell...
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
     cell.PosLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.TeamLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:3];
     
     cell.AddToTeamButton.tag = indexPath.row;
-    cell.AddToTeamButton.accessibilityIdentifier = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:0];
+    cell.AddToTeamButton.accessibilityIdentifier = pid;
     return cell;
 }
 
