@@ -10,5 +10,4 @@
 
 @interface Config : NSObject
     extern NSString *const DBPATH;
-    extern NSString *const SQL_SETTINGS_PROPERTYEXIST;
 @end
