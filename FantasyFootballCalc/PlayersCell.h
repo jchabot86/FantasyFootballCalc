@@ -15,4 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *TeamLabel;
 @property (strong, nonatomic) IBOutlet UILabel *PosLabel;
 
+@property (nonatomic, retain) IBOutlet UIButton *AddToTeamButton;
+
 @end
