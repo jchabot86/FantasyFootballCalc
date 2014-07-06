@@ -25,10 +25,22 @@
         SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
         NSArray *results = [database performQuery: sql];
         
+        int count = 0;
+        
+        for (NSArray *row in results) {
+            count = [[row objectAtIndex:0] intValue];
+            break;
+        }
         
         [database closeConnection];
         
-        return true;
+        if(count == 1){
+            return true;
+        }else{
+            return false;
+        }
+        
+
     }
 
 @end
