@@ -62,15 +62,19 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-46-cfE">
-                                            <rect key="frame" x="228" y="1" width="87" height="30"/>
+                                            <rect key="frame" x="228" y="1" width="87" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Add to Team">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="addToMyTeam:" destination="vi6-KF-lhx" eventType="touchUpInside" id="a8z-gc-tkh"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="AddToTeamButton" destination="h9c-46-cfE" id="dNu-nB-xCQ"/>
                                     <outlet property="PlayerLabel" destination="W2T-lZ-hrn" id="piV-FW-1w7"/>
                                     <outlet property="PosLabel" destination="x61-Mx-Ftd" id="gaV-Ec-UCr"/>
                                     <outlet property="TeamLabel" destination="T60-Wp-ZvL" id="5O7-eg-tnV"/>

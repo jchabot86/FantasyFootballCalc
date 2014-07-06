@@ -151,16 +151,10 @@
     cell.PosLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.TeamLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:3];
     
+    cell.AddToTeamButton.tag = indexPath.row;
+    cell.AddToTeamButton.accessibilityIdentifier = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:0];
     return cell;
 }
-
-- (NSString *) getDBPath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
-    NSString *documentsDir = [paths objectAtIndex:0];
-    return [documentsDir stringByAppendingPathComponent:@"FantasyFootballCalc.sqlite"];
-}
-
 
 /*
 // Override to support conditional editing of the table view.
