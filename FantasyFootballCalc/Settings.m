@@ -13,11 +13,11 @@
 @implementation Settings
     - (void) setProperty:(NSString *)property:(NSString *)value{
         NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO settings ('key','value') VALUES('%@','%@');", property,value];
-        NSString *sqlUpdate = [NSString stringWithFormat:@"UPDATE settings WHERE key = '%@' SET value = '%@'", property,value];
+        NSString *sqlUpdate = [NSString stringWithFormat:@"UPDATE settings SET value = '%@' WHERE key = '%@'", value,property];
         
         SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
         
-        BOOL *properyExists = [self propertyExists:property];
+        BOOL properyExists = [self propertyExists:property];
         
         if(properyExists){
             [database performQuery: sqlUpdate];
