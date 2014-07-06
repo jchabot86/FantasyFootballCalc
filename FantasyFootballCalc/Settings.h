@@ -12,7 +12,7 @@
 
  - (void) setProperty:(NSString *)property;
  - (NSString *)getProperty:(NSString *)property;
- - (bool)propertyExists:(NSString *)property;
+ - (bool)propertyExists:(NSString *)property;false//test
 
 
 @end

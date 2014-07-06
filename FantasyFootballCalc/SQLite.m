@@ -29,15 +29,6 @@
     return true;
 }
 
-- (BOOL)openConnection:(NSString *)path:(NSString *)path {
-        sqlite3 *dbConnection;
-        if (sqlite3_open([path UTF8String], &dbConnection) != SQLITE_OK) {
-            NSLog(@"[SQLITE] Unable to open database!");
-            return false;
-        }
-        database = dbConnection;
-        return true;
-}
 
 - (id)initWithPath:(NSString *)path {
     if (self = [super init]) {
