@@ -7,6 +7,8 @@
 //
 
 #import "Settings.h"
+#import "SQLite.h"
+#import "Config.h"
 
 @implementation Settings
     - (void) setProperty:(NSString *)property{
@@ -18,6 +20,14 @@
     }
 
     - (bool) propertyExists:(NSString *)property{
+        NSString *sql = [NSString stringWithFormat:@"SELECT count(key) as count FROM settings where key = '%@'", property];
+        
+        SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+        NSArray *results = [database performQuery: sql];
+        
+        
+        [database closeConnection];
+        
         return true;
     }
 

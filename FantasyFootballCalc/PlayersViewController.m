@@ -9,6 +9,8 @@
 #import "PlayersViewController.h"
 #import "PlayersCell.h"
 #import "SQLite.h"
+#import "Settings.h"
+#import "Config.h"
 
 @interface PlayersViewController ()
 {
@@ -50,6 +52,9 @@
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
+    Settings *s = [Settings new];
+    
+    [s propertyExists:@"test"];
    
    /* NSFileManager *filemgr;
     NSString *currentpath;
@@ -96,7 +101,7 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
-    database = [[SQLite alloc] initWithPath: @"/Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite"];
+    database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     [database performQuery:@"delete from player"];
     for(int i = 0; i< _players.count; i++)
     {
