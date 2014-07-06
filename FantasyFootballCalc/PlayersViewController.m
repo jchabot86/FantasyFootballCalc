@@ -11,6 +11,11 @@
 #import "SQLite.h"
 
 @interface PlayersViewController ()
+{
+    SQLite *database;
+    NSArray *playerResults;
+    
+}
 
 @end
 
@@ -91,51 +96,17 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
-    sqlite3_stmt *stmt;
-    sqlite3 *database;
-    const char *dbPath = [[self getDBPath] UTF8String];
-    if(sqlite3_open(dbPath, &database)==SQLITE_OK)
+    database = [[SQLite alloc] initWithPath: @"/Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite"];
+    [database performQuery:@"delete from player"];
+    for(int i = 0; i< _players.count; i++)
     {
-        for(int i = 0; i< _players.count; i++)
-        {
-            NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"]];
+        NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"]];
             
-            NSLog(@"%@",refreshPlayers);
-            const char *insert_stmt = [refreshPlayers UTF8String];
-            sqlite3_prepare_v2(database, insert_stmt, -1, &stmt, NULL);
-            
-            if(sqlite3_step(stmt)==SQLITE_DONE)
-            {
-                NSLog(@"insert success");
-            }
-            else
-            {
-                NSLog(@"insert un success");
-                NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(database));
-            }
-            int success=sqlite3_step(stmt);
-            
-            if (success == SQLITE_ERROR)
-            {
-                NSAssert1(0, @"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(database));
-            }        sqlite3_finalize(stmt);
-        }
-        
+        [database performQuery:refreshPlayers];
     }
-    sqlite3_close(database);
-
-    
-    /*NSArray *result = [database performQuery:@"SELECT * FROM player"];
-    for (NSArray *row in result) {
-        int pid = [[row objectAtIndex:0] intValue];
-        NSString *name = [row objectAtIndex:1];
-        NSLog(@"%d -- %@", pid, name);
-        
-    }*/
-
+    playerResults = [database performQuery: @"SELECT * FROM player"];
+    [database closeConnection];
     [self.tableView reloadData];
-    
-    
 }
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
@@ -162,7 +133,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_players count];
+    return [playerResults count];
 }
 
 
@@ -171,9 +142,9 @@
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.PlayerLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Player"];
-    cell.PosLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Pos"];
-    cell.TeamLabel.text = [[_players objectAtIndex: indexPath.row] objectForKey:@"Team"];
+    cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
+    cell.PosLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
+    cell.TeamLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:3];
     
     return cell;
 }

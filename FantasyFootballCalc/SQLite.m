@@ -47,7 +47,7 @@
     sqlite3_stmt *statement = nil;
     const char *sql = [query UTF8String];
     if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) != SQLITE_OK) {
-        NSLog(@"[SQLITE] Error when preparing query!");
+        NSLog(@"Error while creating add statement. '%s'", sqlite3_errmsg(database));
     } else {
         NSMutableArray *result = [NSMutableArray array];
         while (sqlite3_step(statement) == SQLITE_ROW) {
