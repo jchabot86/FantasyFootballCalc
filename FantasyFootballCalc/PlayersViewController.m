@@ -54,7 +54,14 @@
     
     Settings *s = [Settings new];
     
-    [s propertyExists:@"test"];
+    BOOL *exists = [s propertyExists:@"test"];
+    
+    if(exists){
+        NSLog(@"Property exists");
+    
+    }else{
+        NSLog(@"Property doesn't exists");
+    }
    
    /* NSFileManager *filemgr;
     NSString *currentpath;
