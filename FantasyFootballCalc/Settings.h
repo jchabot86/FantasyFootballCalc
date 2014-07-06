@@ -10,7 +10,7 @@
 
 @interface Settings : NSObject
 
- - (void) setProperty:(NSString *)property;
+ - (void) setProperty:(NSString *)property:(NSString *)value;
  - (NSString *)getProperty:(NSString *)property;
  - (bool)propertyExists:(NSString *)property;
 
