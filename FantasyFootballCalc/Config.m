@@ -12,4 +12,5 @@
     //JUSTIN: /Users/justinport/Desktop/FantasyFootballCalc.sqlite"
     //JON: fill in
     NSString *const DBPATH = @"/Users/justinport/Desktop/FantasyFootballCalc.sqlite";
+
 @end
