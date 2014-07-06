@@ -18,6 +18,8 @@
     }
 
     - (bool) propertyExists:(NSString *)property{
+        NSString *sql = [NSString stringWithFormat:@"SELECT count(key) as count FROM settings where key = '%@'", property];
+        
         return true;
     }
 
