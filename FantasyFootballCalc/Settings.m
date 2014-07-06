@@ -11,12 +11,41 @@
 #import "Config.h"
 
 @implementation Settings
-    - (void) setProperty:(NSString *)property{
+    - (void) setProperty:(NSString *)property:(NSString *)value{
+        NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO settings ('key','value') VALUES('%@','%@');", property,value];
+        NSString *sqlUpdate = [NSString stringWithFormat:@"UPDATE settings WHERE key = '%@' SET value = '%@'", property,value];
+        
+        SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+        
+        BOOL *properyExists = [self propertyExists:property];
+        
+        if(properyExists){
+            [database performQuery: sqlUpdate];
+        }else{
+            [database performQuery: sqlInsert];
+        }
+        
+        [database closeConnection];
         
     }
 
     - (NSString *)getProperty:(NSString *)property{
-        return @"test";
+        NSString *sql = [NSString stringWithFormat:@"SELECT value as count FROM settings where key = '%@'", property];
+        
+        SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+        NSArray *results = [database performQuery: sql];
+        
+        NSString *value = Nil;
+        
+        for (NSArray *row in results) {
+            value = [row objectAtIndex:0];
+            break;
+        }
+        
+        [database closeConnection];
+        
+        return value;
+
     }
 
     - (bool) propertyExists:(NSString *)property{
