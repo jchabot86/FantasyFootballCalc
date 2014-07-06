@@ -11,7 +11,8 @@
 @interface Settings : NSObject
 
  - (void) setProperty:(NSString *)property;
-
  - (NSString *)getProperty:(NSString *)property;
+ - (bool)propertyExists:(NSString *)property;
+
 
 @end

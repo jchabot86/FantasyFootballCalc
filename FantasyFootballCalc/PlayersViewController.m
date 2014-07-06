@@ -8,7 +8,7 @@
 
 #import "PlayersViewController.h"
 #import "PlayersCell.h"
-#import "SQLiteHelper.h"
+#import "SQLite.h"
 
 @interface PlayersViewController ()
 
@@ -72,16 +72,17 @@
 
     
     ;*/
-    
-    SQLiteHelper *database = [[SQLiteHelper alloc] initWithPath:@"Users/justinport/Documents/Workspace/xcode/FantasyFootballCalc/FantasyFootballCalc.sqlite"];
+  
+   SQLite *database = [[SQLite alloc] initWithPath:@"Users/justinport/Documents/Workspace/xcode/FantasyFootballCalc/FantasyFootballCalc.sqlite"];
     NSArray *result = [database performQuery:@"SELECT * FROM player"];
     for (NSArray *row in result) {
         int pid = [[row objectAtIndex:0] intValue];
         NSString *name = [row objectAtIndex:1];
         NSLog(@"%d -- %@", pid, name);
-        
-        
+    
     }
+        
+    
     
 }
 

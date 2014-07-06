@@ -16,4 +16,9 @@
     - (NSString *)getProperty:(NSString *)property{
         return @"test";
     }
+
+    - (bool) propertyExists:(NSString *)property{
+        return true;
+    }
+
 @end

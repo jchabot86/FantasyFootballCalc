@@ -6,15 +6,37 @@
 //  Copyright (c) 2014 Chabot. All rights reserved.
 //
 
-#import "SQLiteHelper.h"
+#import "SQLite.h"
 #import <sqlite3.h>
 
-@implementation SQLiteHelper
+@implementation SQLite
 
-    sqlite3 *database;
+ sqlite3 *database;
 
-- (NSString *) test{
-       return @"Test.";
+- (void) closeConnection{
+    sqlite3_close(database);
+}
+
+
+ - (bool)executeSQL:(NSString *)query{
+    sqlite3_stmt *statement = nil;
+     const char *sql = [query UTF8String];
+    
+     if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) != SQLITE_OK) {
+         NSLog(@"[SQLITE] Error when preparing query!");
+         return false;
+     }
+    return true;
+}
+
+- (BOOL)openConnection:(NSString *)path:(NSString *)path {
+        sqlite3 *dbConnection;
+        if (sqlite3_open([path UTF8String], &dbConnection) != SQLITE_OK) {
+            NSLog(@"[SQLITE] Unable to open database!");
+            return false;
+        }
+        database = dbConnection;
+        return true;
 }
 
 - (id)initWithPath:(NSString *)path {

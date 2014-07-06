@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1076F098196855B3002B7F2A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1076F097196855B3002B7F2A /* libsqlite3.dylib */; };
-		1076F09B196859AC002B7F2A /* SQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1076F09A196859AC002B7F2A /* SQLiteHelper.m */; };
+		1076F09B196859AC002B7F2A /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1076F09A196859AC002B7F2A /* SQLite.m */; };
 		1087318A19687FE5005477C8 /* FantasyFootballCalc.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */; };
 		108731931968BBF5005477C8 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 108731921968BBF5005477C8 /* Settings.m */; };
 		F235431D1966118C004CD0CE /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235431C1966118C004CD0CE /* PlayersViewController.m */; };
@@ -46,8 +46,8 @@
 
 /* Begin PBXFileReference section */
 		1076F097196855B3002B7F2A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		1076F099196859AC002B7F2A /* SQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteHelper.h; sourceTree = "<group>"; };
-		1076F09A196859AC002B7F2A /* SQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteHelper.m; sourceTree = "<group>"; };
+		1076F099196859AC002B7F2A /* SQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
+		1076F09A196859AC002B7F2A /* SQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLite.m; sourceTree = "<group>"; };
 		1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FantasyFootballCalc.sqlite; sourceTree = "<group>"; };
 		108731911968BBF5005477C8 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		108731921968BBF5005477C8 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		108731941968BBFE005477C8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1076F099196859AC002B7F2A /* SQLiteHelper.h */,
-				1076F09A196859AC002B7F2A /* SQLiteHelper.m */,
+				1076F099196859AC002B7F2A /* SQLite.h */,
+				1076F09A196859AC002B7F2A /* SQLite.m */,
 				108731911968BBF5005477C8 /* Settings.h */,
 				108731921968BBF5005477C8 /* Settings.m */,
 			);
@@ -319,7 +319,7 @@
 				F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */,
 				F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */,
 				108731931968BBF5005477C8 /* Settings.m in Sources */,
-				1076F09B196859AC002B7F2A /* SQLiteHelper.m in Sources */,
+				1076F09B196859AC002B7F2A /* SQLite.m in Sources */,
 				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
 				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
 				F235431D1966118C004CD0CE /* PlayersViewController.m in Sources */,
