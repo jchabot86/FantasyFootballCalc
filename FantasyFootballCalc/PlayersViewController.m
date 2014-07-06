@@ -101,7 +101,7 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
-    database = [[SQLite alloc] initWithPath: DBPATH];
+    database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     [database performQuery:@"delete from player"];
     for(int i = 0; i< _players.count; i++)
     {
