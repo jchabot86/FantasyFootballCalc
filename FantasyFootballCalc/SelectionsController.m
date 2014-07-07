@@ -39,7 +39,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    selections = [database performQuery:@"select key, count(key) from team where key != '0' group by key order by key desc"];
+    selections = [database performQuery:@"select key, count(key) from team where key != 0 group by key order by key desc"];
 
 }
 
