@@ -11,6 +11,29 @@
 #import "Config.h"
 
 @implementation Settings
+    NSString *const PASSING_YARDS = @"PassingYards";
+    NSString *const PASSING_COMPLETION = @"PassingCompletion";
+    NSString *const PASSING_ATTEMPTS = @"PassingAttempts";
+    NSString *const PASSING_TD = @"PassingTd";
+    NSString *const PASSING_INT = @"PassingInt";
+    NSString *const RUSHING_YARDS = @"RushingYards";
+    NSString *const RUSHING_TD = @"RushingTd";
+    NSString *const RUSHING_ATTEMPS = @"RushingAttempts";
+    NSString *const RECEIVING_YARDS = @"ReceivingYards";
+    NSString *const RECEIVING_RECEPTIONS = @"ReceivingReceptions";
+    NSString *const RECEIVING_TD = @"ReceivingTd";
+    NSString *const KICKING_XP = @"KickingXp";
+    NSString *const KICKING_FG = @"KickingFg";
+    NSString *const KICKING_FG50 = @"KickingFg50";
+    NSString *const DEFENSE_TD = @"DefenseTd";
+    NSString *const DEFENSE_INTERCEPTION = @"DefenseInterception";
+    NSString *const DEFENSE_SACK = @"DefenseSack";
+    NSString *const DEFENSE_SAFETY =@"DefenseSafety";
+
+    - (void) resetTable{
+        
+    }
+
     - (void) setProperty:(NSString *)property:(NSString *)value{
         NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO settings ('key','value') VALUES('%@','%@');", property,value];
         NSString *sqlUpdate = [NSString stringWithFormat:@"UPDATE settings SET value = '%@' WHERE key = '%@'", value,property];
