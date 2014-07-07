@@ -224,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="649" y="513"/>
         </scene>
-        <!--View Controller - Settings-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="yvO-Hm-ZtL">
             <objects>
-                <viewController id="jYg-BS-RZT" sceneMemberID="viewController">
+                <viewController id="jYg-BS-RZT" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sgq-Re-llk"/>
                         <viewControllerLayoutGuide type="bottom" id="VqK-Cd-9dB"/>
@@ -242,6 +242,9 @@
                                 <state key="normal" title="Cut All Players">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cutAllPlayers:" destination="jYg-BS-RZT" eventType="touchUpInside" id="8wB-4y-d8S"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QZ6-Wf-JoC">
                                 <rect key="frame" x="209" y="84" width="97" height="30"/>
@@ -298,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRA-XM-5r0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="1129"/>
+            <point key="canvasLocation" x="661" y="1119"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

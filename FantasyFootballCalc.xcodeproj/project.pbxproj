@@ -15,6 +15,7 @@
 		F235431D1966118C004CD0CE /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235431C1966118C004CD0CE /* PlayersViewController.m */; };
 		F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23543221966F8DD004CD0CE /* PlayersCell.m */; };
 		F23543251967167B004CD0CE /* KrunchProjections.json in Resources */ = {isa = PBXBuildFile; fileRef = F23543241967167B004CD0CE /* KrunchProjections.json */; };
+		F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB04E196A150200A626E0 /* SettingsViewController.m */; };
 		F2CEFF8719571B0F00C937F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8619571B0F00C937F1 /* Foundation.framework */; };
 		F2CEFF8919571B0F00C937F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */; };
 		F2CEFF8B19571B0F00C937F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8A19571B0F00C937F1 /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 		F23543211966F8DD004CD0CE /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
 		F23543221966F8DD004CD0CE /* PlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersCell.m; sourceTree = "<group>"; };
 		F23543241967167B004CD0CE /* KrunchProjections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = KrunchProjections.json; path = ../../../../Desktop/KrunchProjections.json; sourceTree = "<group>"; };
+		F24BB04D196A150200A626E0 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		F24BB04E196A150200A626E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		F2CEFF8319571B0F00C937F1 /* FantasyFootballCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyFootballCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CEFF8619571B0F00C937F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,8 @@
 				F235431C1966118C004CD0CE /* PlayersViewController.m */,
 				F23543211966F8DD004CD0CE /* PlayersCell.h */,
 				F23543221966F8DD004CD0CE /* PlayersCell.m */,
+				F24BB04D196A150200A626E0 /* SettingsViewController.h */,
+				F24BB04E196A150200A626E0 /* SettingsViewController.m */,
 			);
 			path = FantasyFootballCalc;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */,
 				F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */,
 				108731931968BBF5005477C8 /* Settings.m in Sources */,
+				F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */,
 				1076F09B196859AC002B7F2A /* SQLite.m in Sources */,
 				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
 				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
