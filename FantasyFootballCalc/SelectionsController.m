@@ -39,7 +39,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    selections = [database performQuery:@"select key, count(key) from team where key != '0' group by key"];
+    selections = [database performQuery:@"select key, count(key) from team where key != '0' group by key order by key desc"];
 
 }
 
@@ -60,7 +60,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return selections.count;
+    return [selections count];
 }
 
 
@@ -69,12 +69,14 @@
     SelectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionsCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.IDLabel.text = [[selections objectAtIndex: indexPath.row] objectAtIndex:0];
-    cell.TitleLabel.text = [NSString stringWithFormat:@"%@%@",@"Selection ",[[selections objectAtIndex: indexPath.row] objectAtIndex:0]];
-    NSString *numPlayers = (NSString *)[[selections objectAtIndex: indexPath.row] objectAtIndex:1];
+    NSString *selectionKey = [[[selections objectAtIndex: indexPath.row] objectAtIndex:0] stringValue];
+    NSString *numPlayers = [[[selections objectAtIndex: indexPath.row] objectAtIndex:1] stringValue];
+
+    cell.IDLabel.text = selectionKey;
+    cell.TitleLabel.text = [NSString stringWithFormat:@"%@%@",@"Selection ",selectionKey];
     NSLog(@"%@", numPlayers);
+    NSLog(@"%@", selectionKey);
     cell.NumPlayersLabel.text = [NSString stringWithFormat:@"%@%@", numPlayers, @" Players"];
-    
     return cell;
 }
 
@@ -82,8 +84,9 @@
     if([[segue identifier] isEqualToString:@"ShowDetails"]){
         SelectionDetailController *selDetailController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-        selDetailController.SelectionID = [[selections objectAtIndex: myIndexPath.row] objectAtIndex:0];
-        selDetailController.SelectionTitle = [NSString stringWithFormat:@"%@%@",@"Selection ",[[selections objectAtIndex: myIndexPath.row] objectAtIndex:0]];
+        NSString *selectionKey = [[[selections objectAtIndex: myIndexPath.row] objectAtIndex:0] stringValue];
+        selDetailController.SelectionID = selectionKey;
+        selDetailController.SelectionTitle = [NSString stringWithFormat:@"%@%@",@"Selection ",selectionKey];
     }
 }
 
