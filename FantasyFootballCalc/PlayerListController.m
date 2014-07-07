@@ -48,7 +48,6 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,7 +109,6 @@
     return [playerResults count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
@@ -125,6 +123,7 @@
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
     cell.PosLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.TeamLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:3];
+    cell.pid = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:0];
     
     cell.AddToTeamButton.tag = indexPath.row;
     cell.AddToTeamButton.accessibilityIdentifier = pid;
@@ -134,22 +133,36 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    PlayersCell *playersCell = (PlayersCell *) selectedCell;
     
     if ([selectedCell accessoryType] == UITableViewCellAccessoryNone) {
         [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        [_selectedIndexes addObject:[NSNumber numberWithInt:indexPath.row]];
+        [_selectedIndexes addObject:playersCell];
     } else {
         [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
-        [_selectedIndexes removeObject:[NSNumber numberWithInt:indexPath.row]];
+        [_selectedIndexes removeObject:playersCell];
     }
-    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
 - (IBAction)calculateSelections:(id)sender {
-    for(NSNumber *indexPath in _selectedIndexes){
-        NSLog(@"%@",indexPath);
+    database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSArray *result = [database performQuery:@"select max(key) from team"];
+    NSNumber *maxKey;
+    if(result != nil && result.count>0){
+        maxKey = (NSNumber *)[[result objectAtIndex:0] objectAtIndex:0];
+    } else {
+        maxKey = 0;
     }
+    int value = [maxKey intValue];
+    value = value +1;
+    for(PlayersCell *cell in _selectedIndexes){
+        [database performQuery:[NSString stringWithFormat:@"insert into team (pid, key) values(\"%@\",%d)",cell.pid, value]];
+        ;
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
+    [_selectedIndexes removeAllObjects];
+    [database closeConnection];
 }
 
 /*
