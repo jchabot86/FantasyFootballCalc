@@ -24,19 +24,10 @@
 
 @implementation PlayersViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    _selectedIndexes = [[NSMutableArray alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -52,48 +43,6 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    Settings *s = [Settings new];
-    
-    BOOL *exists = [s propertyExists:@"test"];
-    
-    if(exists){
-        NSLog(@"Property exists");
-    
-    }else{
-        NSLog(@"Property doesn't exists");
-    }
-   
-   /* NSFileManager *filemgr;
-    NSString *currentpath;
-    NSArray *filelist;
-    int count;
-    int i;
-    
-    filemgr = [NSFileManager defaultManager];
-    
-    filelist = [filemgr contentsOfDirectoryAtPath: @"Users/justinport/Documents/Workspace/xcode/FantasyFootballCalc/FantasyFootballCalc.sqlite" error: nil];
-    
-    count = [filelist count];
-    
-    for (i = 0; i < count; i++)
-        NSLog (@"%@", [filelist objectAtIndex: i])
-    
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Test"
-    message: name
-    delegate: self
-    cancelButtonTitle:@"Cancel"
-    otherButtonTitles:@"OK",nil];
-    
-    
-    [alert show];
-
-    
-    ;*/
-  
-    
-    
-    
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -117,7 +66,7 @@
             
         [database performQuery:refreshPlayers];
     }
-    playerResults = [database performQuery: @"SELECT * FROM player"];
+    playerResults = [database performQuery: @"SELECT * FROM player limit 20"];
     myTeamArray = [[NSMutableArray alloc] init];
     NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team"];
     for(int i=0; i<myTeamResults.count; i++){
@@ -125,7 +74,7 @@
         [myTeamArray addObject:pid];
     }
     [database closeConnection];
-    [self.tableView reloadData];
+    [_tableView reloadData];
 }
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
@@ -159,9 +108,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
-    
+    NSLog(@"The row: %d",indexPath.row);
     NSString *pid = (NSString *)[[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
+    NSLog(@"Player: %@", pid);
     if([myTeamArray containsObject:pid]) {
+        NSLog(@"Player already added: %@", pid);
         cell.AddToTeamButton.enabled = NO;
     }
     // Configure the cell...
@@ -172,6 +123,22 @@
     cell.AddToTeamButton.tag = indexPath.row;
     cell.AddToTeamButton.accessibilityIdentifier = pid;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([selectedCell accessoryType] == UITableViewCellAccessoryNone) {
+        [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [_selectedIndexes addObject:[NSNumber numberWithInt:indexPath.row]];
+    } else {
+        [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
+        [_selectedIndexes removeObject:[NSNumber numberWithInt:indexPath.row]];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
 }
 
 /*
