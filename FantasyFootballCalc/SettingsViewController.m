@@ -41,7 +41,7 @@
 
 - (IBAction)cutAllPlayers:(id)sender {
     database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    [database performQuery:@"delete from team"];
+    [database performQuery:@"delete from team where key = 0"];
     [database closeConnection];
     //need to refresh players list
 }

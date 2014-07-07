@@ -8,9 +8,13 @@
 
 #import "SelectionDetailController.h"
 #import "SelectionDetailCell.h"
+#import "Config.h"
+#import "SQLite.h"
 
 @interface SelectionDetailController ()
-
+{
+    NSArray *selectionPlayers;
+}
 @end
 
 @implementation SelectionDetailController
@@ -33,10 +37,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSString *selectionQuery = [NSString stringWithFormat:@"select p.* from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
+    selectionPlayers = [database performQuery: selectionQuery];
     
-    _Name = @[@"Tom Brady",@"Calvin Johnson",];
-    _Team = @[@"NE", @"DET",];
-    _Position = @[@"QB", @"WR",];
     self.navigationItem.title =  _SelectionTitle;
 }
 
@@ -57,7 +61,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return _Name.count;
+    return [selectionPlayers count];
 }
 
 
@@ -65,11 +69,9 @@
 {
     SelectionDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionDetailCell" forIndexPath:indexPath];
     
-    int row = [indexPath row];
-    
-    cell.NameLabel.text = _Name[row];
-    cell.TeamLabel.text = _Team[row];
-    cell.PositionLabel.text = _Position[row];
+    cell.NameLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:1];
+    cell.PositionLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:2];
+    cell.TeamLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:3];
     
     return cell;
 
