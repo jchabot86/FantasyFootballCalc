@@ -9,8 +9,8 @@
 #import "Config.h"
 
 @implementation Config
-    //JUSTIN: /Users/justinport/Desktop/FantasyFootballCalc.sqlite"
-    //JON: fill in
+    //JUSTIN: /Users/justinport/Desktop/FantasyFootballCalc.sqlite
+    //JON: /Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite
     NSString *const DBPATH = @"/Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite";
 
 @end
