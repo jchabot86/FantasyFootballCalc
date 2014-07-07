@@ -12,10 +12,10 @@
 		1087318A19687FE5005477C8 /* FantasyFootballCalc.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */; };
 		108731931968BBF5005477C8 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 108731921968BBF5005477C8 /* Settings.m */; };
 		10ED47081969EB9700927561 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED47071969EB9700927561 /* Config.m */; };
-		F235431D1966118C004CD0CE /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F235431C1966118C004CD0CE /* PlayersViewController.m */; };
 		F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23543221966F8DD004CD0CE /* PlayersCell.m */; };
 		F23543251967167B004CD0CE /* KrunchProjections.json in Resources */ = {isa = PBXBuildFile; fileRef = F23543241967167B004CD0CE /* KrunchProjections.json */; };
 		F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB04E196A150200A626E0 /* SettingsViewController.m */; };
+		F24BB052196B064700A626E0 /* PlayerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB051196B064700A626E0 /* PlayerListController.m */; };
 		F2CEFF8719571B0F00C937F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8619571B0F00C937F1 /* Foundation.framework */; };
 		F2CEFF8919571B0F00C937F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */; };
 		F2CEFF8B19571B0F00C937F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8A19571B0F00C937F1 /* UIKit.framework */; };
@@ -55,13 +55,13 @@
 		108731921968BBF5005477C8 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		10ED47061969EB9700927561 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		10ED47071969EB9700927561 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
-		F235431B1966118C004CD0CE /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
-		F235431C1966118C004CD0CE /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
 		F23543211966F8DD004CD0CE /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
 		F23543221966F8DD004CD0CE /* PlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersCell.m; sourceTree = "<group>"; };
 		F23543241967167B004CD0CE /* KrunchProjections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = KrunchProjections.json; path = ../../../../Desktop/KrunchProjections.json; sourceTree = "<group>"; };
 		F24BB04D196A150200A626E0 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		F24BB04E196A150200A626E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		F24BB050196B064700A626E0 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
+		F24BB051196B064700A626E0 /* PlayerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListController.m; sourceTree = "<group>"; };
 		F2CEFF8319571B0F00C937F1 /* FantasyFootballCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyFootballCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CEFF8619571B0F00C937F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,12 +186,12 @@
 				F2CEFFCB195721D700C937F1 /* SelectionDetailController.m */,
 				F2CEFFCD195722B100C937F1 /* SelectionDetailCell.h */,
 				F2CEFFCE195722B100C937F1 /* SelectionDetailCell.m */,
-				F235431B1966118C004CD0CE /* PlayersViewController.h */,
-				F235431C1966118C004CD0CE /* PlayersViewController.m */,
 				F23543211966F8DD004CD0CE /* PlayersCell.h */,
 				F23543221966F8DD004CD0CE /* PlayersCell.m */,
 				F24BB04D196A150200A626E0 /* SettingsViewController.h */,
 				F24BB04E196A150200A626E0 /* SettingsViewController.m */,
+				F24BB050196B064700A626E0 /* PlayerListController.h */,
+				F24BB051196B064700A626E0 /* PlayerListController.m */,
 			);
 			path = FantasyFootballCalc;
 			sourceTree = "<group>";
@@ -330,10 +330,10 @@
 				F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */,
 				108731931968BBF5005477C8 /* Settings.m in Sources */,
 				F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */,
+				F24BB052196B064700A626E0 /* PlayerListController.m in Sources */,
 				1076F09B196859AC002B7F2A /* SQLite.m in Sources */,
 				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
 				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
-				F235431D1966118C004CD0CE /* PlayersViewController.m in Sources */,
 				F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */,
 				10ED47081969EB9700927561 /* Config.m in Sources */,
 				F2CEFFC619571DF200C937F1 /* SelectionsController.m in Sources */,
