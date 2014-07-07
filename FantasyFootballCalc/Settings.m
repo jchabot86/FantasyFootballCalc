@@ -31,7 +31,24 @@
     NSString *const DEFENSE_SAFETY =@"DefenseSafety";
 
     - (void) resetTable{
-        
+        [self setProperty:PASSING_YARDS:@""];
+        [self setProperty:PASSING_COMPLETION:@""];
+        [self setProperty:PASSING_ATTEMPTS:@""];
+        [self setProperty:PASSING_TD:@""];
+        [self setProperty:PASSING_INT:@""];
+        [self setProperty:RUSHING_YARDS:@""];
+        [self setProperty:RUSHING_TD:@""];
+        [self setProperty:RUSHING_ATTEMPS:@""];
+        [self setProperty:RECEIVING_YARDS:@""];
+        [self setProperty:RECEIVING_RECEPTIONS:@""];
+        [self setProperty:RECEIVING_TD:@""];
+        [self setProperty:KICKING_XP:@""];
+        [self setProperty:KICKING_FG:@""];
+        [self setProperty:KICKING_FG50:@""];
+        [self setProperty:DEFENSE_TD:@""];
+        [self setProperty:DEFENSE_INTERCEPTION:@""];
+        [self setProperty:DEFENSE_SACK:@""];
+        [self setProperty:DEFENSE_SAFETY:@""];
     }
 
     - (void) setProperty:(NSString *)property:(NSString *)value{
