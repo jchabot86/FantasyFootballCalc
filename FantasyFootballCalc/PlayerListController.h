@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SelectionDetailController.h"
 @interface PlayerListController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *PID;
