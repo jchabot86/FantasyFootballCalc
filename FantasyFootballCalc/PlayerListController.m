@@ -54,6 +54,13 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    
+    if(_selectedIndexes.count > 1) {
+        _calculateButton.enabled = YES;
+    } else {
+        _calculateButton.enabled = NO;
+    }
+    
     playerResults = [database performQuery: @"SELECT * FROM player limit 20"];
     myTeamArray = [[NSMutableArray alloc] init];
     NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
@@ -149,6 +156,12 @@
     } else {
         [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
         [_selectedIndexes removeObject:playersCell];
+    }
+    
+    if(_selectedIndexes.count > 1) {
+        _calculateButton.enabled = YES;
+    } else {
+        _calculateButton.enabled = NO;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
