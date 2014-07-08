@@ -197,7 +197,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="removePlayerFromSelection:" destination="K6N-QG-fiK" eventType="touchUpInside" id="ZXa-XH-yry"/>
+                                                <action selector="removePlayerFromSelection:" destination="7L3-ej-HeT" eventType="touchUpInside" id="eoR-Gi-eBV"/>
                                             </connections>
                                         </button>
                                     </subviews>

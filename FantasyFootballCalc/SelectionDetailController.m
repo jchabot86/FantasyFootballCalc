@@ -40,8 +40,9 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *selectionQuery = [NSString stringWithFormat:@"select tid, p.* from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
     selectionPlayers = [database performQuery: selectionQuery];
-    
+    [database closeConnection];
     self.navigationItem.title =  _SelectionTitle;
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,6 +78,17 @@
 
 }
 
+- (IBAction)removePlayerFromSelection:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    NSString *tid = button.accessibilityIdentifier;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSString *deleteSelectedPlayer = [NSString stringWithFormat:@"delete from team where tid = %@", tid];
+    [database performQuery: deleteSelectedPlayer];
+    NSString *selectionQuery = [NSString stringWithFormat:@"select tid, p.* from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
+    selectionPlayers = [database performQuery: selectionQuery];
+    [database closeConnection];
+    [self.tableView reloadData];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
