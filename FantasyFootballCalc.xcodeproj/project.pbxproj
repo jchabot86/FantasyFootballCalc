@@ -14,6 +14,8 @@
 		10ED47081969EB9700927561 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED47071969EB9700927561 /* Config.m */; };
 		F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23543221966F8DD004CD0CE /* PlayersCell.m */; };
 		F23543251967167B004CD0CE /* KrunchProjections.json in Resources */ = {isa = PBXBuildFile; fileRef = F23543241967167B004CD0CE /* KrunchProjections.json */; };
+		F245400D196B922900F01CAB /* MyTeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = F245400C196B922900F01CAB /* MyTeamController.m */; };
+		F2454010196B928200F01CAB /* MyTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F245400F196B928200F01CAB /* MyTeamCell.m */; };
 		F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB04E196A150200A626E0 /* SettingsViewController.m */; };
 		F24BB052196B064700A626E0 /* PlayerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB051196B064700A626E0 /* PlayerListController.m */; };
 		F2CEFF8719571B0F00C937F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8619571B0F00C937F1 /* Foundation.framework */; };
@@ -58,6 +60,10 @@
 		F23543211966F8DD004CD0CE /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
 		F23543221966F8DD004CD0CE /* PlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersCell.m; sourceTree = "<group>"; };
 		F23543241967167B004CD0CE /* KrunchProjections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = KrunchProjections.json; path = ../../../../Desktop/KrunchProjections.json; sourceTree = "<group>"; };
+		F245400B196B922900F01CAB /* MyTeamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTeamController.h; sourceTree = "<group>"; };
+		F245400C196B922900F01CAB /* MyTeamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTeamController.m; sourceTree = "<group>"; };
+		F245400E196B928200F01CAB /* MyTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTeamCell.h; sourceTree = "<group>"; };
+		F245400F196B928200F01CAB /* MyTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTeamCell.m; sourceTree = "<group>"; };
 		F24BB04D196A150200A626E0 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		F24BB04E196A150200A626E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		F24BB050196B064700A626E0 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
@@ -192,6 +198,10 @@
 				F24BB04E196A150200A626E0 /* SettingsViewController.m */,
 				F24BB050196B064700A626E0 /* PlayerListController.h */,
 				F24BB051196B064700A626E0 /* PlayerListController.m */,
+				F245400B196B922900F01CAB /* MyTeamController.h */,
+				F245400C196B922900F01CAB /* MyTeamController.m */,
+				F245400E196B928200F01CAB /* MyTeamCell.h */,
+				F245400F196B928200F01CAB /* MyTeamCell.m */,
 			);
 			path = FantasyFootballCalc;
 			sourceTree = "<group>";
@@ -327,12 +337,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */,
+				F245400D196B922900F01CAB /* MyTeamController.m in Sources */,
 				F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */,
 				108731931968BBF5005477C8 /* Settings.m in Sources */,
 				F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */,
 				F24BB052196B064700A626E0 /* PlayerListController.m in Sources */,
 				1076F09B196859AC002B7F2A /* SQLite.m in Sources */,
 				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
+				F2454010196B928200F01CAB /* MyTeamCell.m in Sources */,
 				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
 				F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */,
 				10ED47081969EB9700927561 /* Config.m in Sources */,

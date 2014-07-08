@@ -38,6 +38,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _calculateButton.enabled = NO;
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -54,14 +55,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
-    if(_selectedIndexes.count > 1) {
-        _calculateButton.enabled = YES;
-    } else {
-        _calculateButton.enabled = NO;
-    }
-    
-    playerResults = [database performQuery: @"SELECT * FROM player limit 20"];
+    playerResults = [database performQuery: @"SELECT * FROM player"];
     myTeamArray = [[NSMutableArray alloc] init];
     NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
     for(int i=0; i<myTeamResults.count; i++){

@@ -18,6 +18,7 @@
                         <segue destination="8WR-he-Dae" kind="relationship" relationship="viewControllers" id="rhe-0s-iKq"/>
                         <segue destination="lrz-Sj-R6S" kind="relationship" relationship="viewControllers" id="hoY-GS-Msp"/>
                         <segue destination="jYg-BS-RZT" kind="relationship" relationship="viewControllers" id="BPN-CV-jgU"/>
+                        <segue destination="AQn-iA-vbz" kind="relationship" relationship="viewControllers" id="3ae-K3-6nA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -258,6 +259,72 @@
             </objects>
             <point key="canvasLocation" x="649" y="513"/>
         </scene>
+        <!--My Team Controller - My Team-->
+        <scene sceneID="Vm9-vW-cEu">
+            <objects>
+                <viewController id="AQn-iA-vbz" customClass="MyTeamController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bE0-Ul-aZB"/>
+                        <viewControllerLayoutGuide type="bottom" id="JVv-tJ-BOp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kv3-nh-Ri1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="plJ-yd-L3Z">
+                                <rect key="frame" x="10" y="69" width="310" height="411"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyTeamCell" id="zId-Gx-n8j" customClass="MyTeamCell">
+                                        <rect key="frame" x="0.0" y="22" width="310" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zId-Gx-n8j" id="gaB-p3-LS6">
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcL-fg-MlQ">
+                                                    <rect key="frame" x="11" y="2" width="169" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddq-db-M4d">
+                                                    <rect key="frame" x="238" y="7" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Cut">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="removePlayerFromTeam:" destination="AQn-iA-vbz" eventType="touchUpInside" id="fXU-L5-S8N"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="NameLabel" destination="PcL-fg-MlQ" id="r8z-Qy-jMD"/>
+                                            <outlet property="RemoveFromTeamBtn" destination="Ddq-db-M4d" id="ZfI-B7-3Wv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AQn-iA-vbz" id="3Ts-oi-UA0"/>
+                                    <outlet property="delegate" destination="AQn-iA-vbz" id="PWQ-oe-K4G"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Team" id="CMX-SD-9iP"/>
+                    <connections>
+                        <outlet property="tableView" destination="plJ-yd-L3Z" id="aeJ-YA-fSd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ud-Qd-JC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="1175"/>
+        </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="yvO-Hm-ZtL">
             <objects>
@@ -335,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRA-XM-5r0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661" y="1119"/>
+            <point key="canvasLocation" x="-131" y="1379"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
