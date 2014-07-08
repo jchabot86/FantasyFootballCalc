@@ -21,17 +21,6 @@
     return self;
 }
 
-
-- (IBAction)addToTeam:(id)sender {
-    UIButton *button = (UIButton *) sender;
-    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    NSString *addToTeamQuery = [NSString stringWithFormat: @"insert into team (pid) values (\"%@\")", button.accessibilityIdentifier];
-    [database performQuery: addToTeamQuery];
-    [database closeConnection];
-    button.enabled = NO;
-}
-
-
 - (void)awakeFromNib
 {
     // Initialization code

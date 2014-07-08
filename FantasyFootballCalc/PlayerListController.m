@@ -173,6 +173,14 @@
     [database closeConnection];
 }
 
+- (IBAction)addToTeam:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSString *addToTeamQuery = [NSString stringWithFormat: @"insert into team (pid, key) values (\"%@\",0)", button.accessibilityIdentifier];
+    [database performQuery: addToTeamQuery];
+    [database closeConnection];
+    button.enabled = NO;
+}
 /*
 #pragma mark - Navigation
 

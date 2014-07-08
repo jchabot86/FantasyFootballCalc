@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SelectionDetailController.h"
 @interface PlayerListController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property IBOutlet UITableView *tableView;
@@ -21,5 +21,5 @@
 
 @property (nonatomic, strong) NSMutableArray *selectedIndexes;
 @property (strong, nonatomic) IBOutlet UIButton *calculateButton;
-
+@property SelectionDetailController *selectionDetailController;
 @end
