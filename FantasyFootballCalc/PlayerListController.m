@@ -48,6 +48,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning
