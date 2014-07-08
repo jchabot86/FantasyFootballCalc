@@ -48,6 +48,9 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    [[Settings new] resetTable];
+    NSLog(@"You just reset the table!!!");
 }
 
 - (void)didReceiveMemoryWarning
