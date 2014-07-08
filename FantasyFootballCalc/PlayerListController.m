@@ -188,6 +188,81 @@
     [database closeConnection];
     button.enabled = NO;
 }
+- (IBAction)filterQBsOnly:(id)sender {
+    database = [[SQLite alloc] initWithPath: DBPATH];
+    playerResults = [database performQuery: @"SELECT * FROM player where pos ='QB'"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+
+}
+- (IBAction)filterRBsOnly:(id)sender {
+
+    database = [[SQLite alloc] initWithPath: DBPATH];
+    playerResults = [database performQuery: @"SELECT * FROM player where pos ='RB'"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+}
+- (IBAction)filterWRsOnly:(id)sender {
+    database = [[SQLite alloc] initWithPath: DBPATH];
+    playerResults = [database performQuery: @"SELECT * FROM player where pos ='WR'"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+}
+- (IBAction)filterTEsOnly:(id)sender {
+    database = [[SQLite alloc] initWithPath: DBPATH];
+    playerResults = [database performQuery: @"SELECT * FROM player where pos ='TE'"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+}
+- (IBAction)filterDEFOnly:(id)sender {
+    database = [[SQLite alloc] initWithPath: DBPATH];
+    playerResults = [database performQuery: @"SELECT * FROM player where pos ='Def'"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+}
+- (IBAction)filterKickersOnly:(id)sender {
+    database = [[SQLite alloc] initWithPath: DBPATH];
+    playerResults = [database performQuery: @"SELECT * FROM player where pos ='K'"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+}
+
 /*
 #pragma mark - Navigation
 
