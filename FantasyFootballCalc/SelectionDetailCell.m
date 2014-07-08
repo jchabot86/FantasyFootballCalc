@@ -31,14 +31,6 @@
 
     // Configure the view for the selected state
 }
-- (IBAction)removePlayerFromSelection:(id)sender {
-    UIButton *button = (UIButton *) sender;
-    NSString *tid = button.accessibilityIdentifier;
-    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    NSString *deleteSelectedPlayer = [NSString stringWithFormat:@"delete from team where tid = %@", tid];
-    [database performQuery: deleteSelectedPlayer];
-    [database closeConnection];
 
-}
 
 @end

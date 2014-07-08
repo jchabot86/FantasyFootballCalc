@@ -48,7 +48,21 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    playerResults = [database performQuery: @"SELECT * FROM player limit 20"];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +82,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
     _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
     database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     [database performQuery:@"delete from player"];
@@ -78,15 +91,6 @@
         
         [database performQuery:refreshPlayers];
     }
-    playerResults = [database performQuery: @"SELECT * FROM player limit 20"];
-    myTeamArray = [[NSMutableArray alloc] init];
-    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team"];
-    for(int i=0; i<myTeamResults.count; i++){
-        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
-        [myTeamArray addObject:pid];
-    }
-    [database closeConnection];
-    [_tableView reloadData];
 }
 
 
@@ -120,6 +124,8 @@
     if([myTeamArray containsObject:pid]) {
         NSLog(@"Player already added: %@", pid);
         cell.AddToTeamButton.enabled = NO;
+    } else {
+        cell.AddToTeamButton.enabled = YES;
     }
     // Configure the cell...
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
@@ -167,6 +173,14 @@
     [database closeConnection];
 }
 
+- (IBAction)addToTeam:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSString *addToTeamQuery = [NSString stringWithFormat: @"insert into team (pid, key) values (\"%@\",0)", button.accessibilityIdentifier];
+    [database performQuery: addToTeamQuery];
+    [database closeConnection];
+    button.enabled = NO;
+}
 /*
 #pragma mark - Navigation
 
