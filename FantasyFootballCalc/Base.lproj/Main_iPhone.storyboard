@@ -190,11 +190,22 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hC-Xc-1w7">
+                                            <rect key="frame" x="238" y="18" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Cut">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="removePlayerFromSelection:" destination="K6N-QG-fiK" eventType="touchUpInside" id="ZXa-XH-yry"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="NameLabel" destination="XMY-rp-9IX" id="0xh-YV-cOd"/>
                                     <outlet property="PositionLabel" destination="Vqy-qb-IVZ" id="G0W-ci-czf"/>
+                                    <outlet property="RemoveFromSelectionBtn" destination="9hC-Xc-1w7" id="doX-HK-sq6"/>
                                     <outlet property="TeamLabel" destination="1UJ-IJ-cUf" id="eQo-J6-ain"/>
                                 </connections>
                             </tableViewCell>

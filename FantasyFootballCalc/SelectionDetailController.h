@@ -17,4 +17,5 @@
 @property (nonatomic, strong) NSString *SelectionID;
 @property (nonatomic, strong) NSString *SelectionTitle;
 
+@property (strong, nonatomic) IBOutlet UIButton *RemoveFromSelectionBtn;
 @end

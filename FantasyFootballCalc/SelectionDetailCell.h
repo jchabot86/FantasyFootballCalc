@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *NameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *TeamLabel;
 @property (strong, nonatomic) IBOutlet UILabel *PositionLabel;
+@property (strong, nonatomic) IBOutlet UIButton *RemoveFromSelectionBtn;
 
 @end

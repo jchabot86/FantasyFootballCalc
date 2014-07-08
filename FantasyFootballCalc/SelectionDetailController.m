@@ -38,7 +38,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    NSString *selectionQuery = [NSString stringWithFormat:@"select p.* from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
+    NSString *selectionQuery = [NSString stringWithFormat:@"select tid, p.* from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
     selectionPlayers = [database performQuery: selectionQuery];
     
     self.navigationItem.title =  _SelectionTitle;
@@ -69,14 +69,13 @@
 {
     SelectionDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionDetailCell" forIndexPath:indexPath];
     
-    cell.NameLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:1];
-    cell.PositionLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:2];
-    cell.TeamLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:3];
-    
+    cell.NameLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:2];
+    cell.PositionLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:3];
+    cell.TeamLabel.text = [[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:4];
+    cell.RemoveFromSelectionBtn.accessibilityIdentifier = [[[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:0] stringValue];
     return cell;
 
 }
-
 
 /*
 // Override to support conditional editing of the table view.
