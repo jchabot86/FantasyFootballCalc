@@ -501,7 +501,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTest:" destination="jYg-BS-RZT" eventType="touchUpInside" id="ztQ-Ig-riC"/>
+                                    <action selector="saveButtonClick:" destination="jYg-BS-RZT" eventType="touchUpInside" id="pnP-BD-S6X"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -522,7 +522,6 @@
         <image name="myTeam_icon.png" width="50" height="50"/>
         <image name="search_icon.png" width="50" height="50"/>
         <image name="selection_icon.png" width="50" height="50"/>
-        <image name="settings_icon.png" width="50" height="50"/>
         <image name="smiley_small.png" width="48" height="48"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "SQLite.h"
 #import "Config.h"
+#import "Settings.h"
 
 @interface SettingsViewController ()
 {
@@ -74,6 +75,7 @@
     
     [numberToolbar sizeToFit];
     PassingTd.inputAccessoryView = numberToolbar;
+    [self loadSettings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,9 +91,16 @@
     //need to refresh players list
 }
 
-- (IBAction)buttonTest:(id)sender {
+- (IBAction)saveButtonClick:(id)sender {
+    Settings* properties = [Settings new];
     
+    [properties setProperty:PASSING_TD:PassingTd.text];
     NSLog(@"Test: %@",PassingTd.text);
+}
+
+- (void) loadSettings{
+    Settings* properties = [Settings new];
+    PassingTd.text = [properties getProperty:PASSING_TD];
 }
 
 
