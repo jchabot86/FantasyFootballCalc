@@ -29,7 +29,7 @@
         <scene sceneID="0Ew-1E-vwV">
             <objects>
                 <navigationController definesPresentationContext="YES" id="8WR-he-Dae" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Player List" id="M0v-Y0-9XL"/>
+                    <tabBarItem key="tabBarItem" title="Player List" image="search_icon.png" id="M0v-Y0-9XL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hnc-JI-3QA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -333,7 +333,7 @@
         <scene sceneID="FYb-KU-wmT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lrz-Sj-R6S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Previous Selections" id="b34-4v-mBp"/>
+                    <tabBarItem key="tabBarItem" title="Previous Selections" image="selection_icon.png" id="b34-4v-mBp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VlI-x1-X1Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -405,7 +405,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Team" id="CMX-SD-9iP"/>
+                    <tabBarItem key="tabBarItem" title="My Team" image="myTeam_icon.png" id="CMX-SD-9iP"/>
                     <connections>
                         <outlet property="tableView" destination="plJ-yd-L3Z" id="aeJ-YA-fSd"/>
                     </connections>
@@ -487,19 +487,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="iQr-nP-Myo"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_icon.png" id="iQr-nP-Myo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRA-XM-5r0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-131" y="1379"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="myTeam_icon.png" width="50" height="50"/>
+        <image name="search_icon.png" width="50" height="50"/>
+        <image name="selection_icon.png" width="50" height="50"/>
+        <image name="settings_icon.png" width="50" height="50"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BLU-WW-t2c"/>
+        <segue reference="D0g-Bj-ra1"/>
     </inferredMetricsTieBreakers>
 </document>

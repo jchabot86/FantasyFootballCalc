@@ -18,6 +18,10 @@
 		F2454010196B928200F01CAB /* MyTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F245400F196B928200F01CAB /* MyTeamCell.m */; };
 		F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB04E196A150200A626E0 /* SettingsViewController.m */; };
 		F24BB052196B064700A626E0 /* PlayerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB051196B064700A626E0 /* PlayerListController.m */; };
+		F2B778D9196DBD0500B36292 /* myTeam_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D5196DBD0500B36292 /* myTeam_icon.png */; };
+		F2B778DA196DBD0500B36292 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D6196DBD0500B36292 /* search_icon.png */; };
+		F2B778DB196DBD0500B36292 /* selection_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D7196DBD0500B36292 /* selection_icon.png */; };
+		F2B778DC196DBD0500B36292 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D8196DBD0500B36292 /* settings_icon.png */; };
 		F2CEFF8719571B0F00C937F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8619571B0F00C937F1 /* Foundation.framework */; };
 		F2CEFF8919571B0F00C937F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */; };
 		F2CEFF8B19571B0F00C937F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFF8A19571B0F00C937F1 /* UIKit.framework */; };
@@ -68,6 +72,10 @@
 		F24BB04E196A150200A626E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		F24BB050196B064700A626E0 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
 		F24BB051196B064700A626E0 /* PlayerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListController.m; sourceTree = "<group>"; };
+		F2B778D5196DBD0500B36292 /* myTeam_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myTeam_icon.png; sourceTree = "<group>"; };
+		F2B778D6196DBD0500B36292 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
+		F2B778D7196DBD0500B36292 /* selection_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selection_icon.png; sourceTree = "<group>"; };
+		F2B778D8196DBD0500B36292 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
 		F2CEFF8319571B0F00C937F1 /* FantasyFootballCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyFootballCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CEFF8619571B0F00C937F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F2CEFF8819571B0F00C937F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,6 +217,10 @@
 		F2CEFF8D19571B0F00C937F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F2B778D5196DBD0500B36292 /* myTeam_icon.png */,
+				F2B778D6196DBD0500B36292 /* search_icon.png */,
+				F2B778D7196DBD0500B36292 /* selection_icon.png */,
+				F2B778D8196DBD0500B36292 /* settings_icon.png */,
 				F23543241967167B004CD0CE /* KrunchProjections.json */,
 				F2CEFF8E19571B0F00C937F1 /* FantasyFootballCalc-Info.plist */,
 				F2CEFF8F19571B0F00C937F1 /* InfoPlist.strings */,
@@ -312,12 +324,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B778DA196DBD0500B36292 /* search_icon.png in Resources */,
+				F2B778DC196DBD0500B36292 /* settings_icon.png in Resources */,
 				1087318A19687FE5005477C8 /* FantasyFootballCalc.sqlite in Resources */,
 				F23543251967167B004CD0CE /* KrunchProjections.json in Resources */,
 				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
+				F2B778DB196DBD0500B36292 /* selection_icon.png in Resources */,
 				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
 				F2CEFF9A19571B0F00C937F1 /* Main_iPhone.storyboard in Resources */,
 				F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */,
+				F2B778D9196DBD0500B36292 /* myTeam_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
