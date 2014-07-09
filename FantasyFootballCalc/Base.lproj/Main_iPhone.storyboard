@@ -29,7 +29,7 @@
         <scene sceneID="0Ew-1E-vwV">
             <objects>
                 <navigationController definesPresentationContext="YES" id="8WR-he-Dae" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Player List" id="M0v-Y0-9XL"/>
+                    <tabBarItem key="tabBarItem" title="Player List" image="search_icon.png" id="M0v-Y0-9XL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hnc-JI-3QA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -70,7 +70,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tII-ip-yis">
-                                                    <rect key="frame" x="211" y="13" width="34" height="30"/>
+                                                    <rect key="frame" x="234" y="13" width="34" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Draft">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,16 +80,26 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-If-QuU">
-                                                    <rect key="frame" x="20" y="13" width="152" height="21"/>
+                                                    <rect key="frame" x="74" y="20" width="152" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smiley_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="qv5-b0-Ddq">
+                                                    <rect key="frame" x="3" y="7" width="46" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="empty_checkbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="RcS-cN-mXI">
+                                                    <rect key="frame" x="3" y="6" width="46" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="AddToTeamButton" destination="tII-ip-yis" id="w3b-hd-g4H"/>
                                             <outlet property="PlayerLabel" destination="PaJ-If-QuU" id="c7P-e5-LZN"/>
+                                            <outlet property="checkImage" destination="qv5-b0-Ddq" id="ULA-bo-Nzt"/>
+                                            <outlet property="emptyCheckImage" destination="RcS-cN-mXI" id="vwG-4M-OkC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -333,7 +343,7 @@
         <scene sceneID="FYb-KU-wmT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lrz-Sj-R6S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Previous Selections" id="b34-4v-mBp"/>
+                    <tabBarItem key="tabBarItem" title="Previous Selections" image="selection_icon.png" id="b34-4v-mBp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VlI-x1-X1Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -405,7 +415,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Team" id="CMX-SD-9iP"/>
+                    <tabBarItem key="tabBarItem" title="My Team" image="myTeam_icon.png" id="CMX-SD-9iP"/>
                     <connections>
                         <outlet property="tableView" destination="plJ-yd-L3Z" id="aeJ-YA-fSd"/>
                     </connections>
@@ -507,6 +517,14 @@
             <point key="canvasLocation" x="-131" y="1379"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="empty_checkbox.png" width="32" height="32"/>
+        <image name="myTeam_icon.png" width="50" height="50"/>
+        <image name="search_icon.png" width="50" height="50"/>
+        <image name="selection_icon.png" width="50" height="50"/>
+        <image name="settings_icon.png" width="50" height="50"/>
+        <image name="smiley_small.png" width="48" height="48"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
