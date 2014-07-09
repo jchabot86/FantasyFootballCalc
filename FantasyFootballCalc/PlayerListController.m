@@ -38,6 +38,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _calculateButton.enabled = NO;
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -54,7 +55,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    playerResults = [database performQuery: @"SELECT * FROM player limit 20"];
+    playerResults = [database performQuery: @"SELECT * FROM player"];
     myTeamArray = [[NSMutableArray alloc] init];
     NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
     for(int i=0; i<myTeamResults.count; i++){
@@ -117,9 +118,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [_activityIndicator stopAnimating];
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     NSLog(@"The row: %d",indexPath.row);
-    NSString *pid = (NSString *)[[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
+    NSString *pid = [[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
     NSLog(@"Player: %@", pid);
     if([myTeamArray containsObject:pid]) {
         NSLog(@"Player already added: %@", pid);
@@ -131,10 +133,15 @@
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
     cell.PosLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.TeamLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:3];
-    cell.pid = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:0];
+    cell.pid = pid;
     
     cell.AddToTeamButton.tag = indexPath.row;
     cell.AddToTeamButton.accessibilityIdentifier = pid;
+    if([_selectedIndexes containsObject:pid]){
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
     return cell;
 }
 
@@ -145,10 +152,16 @@
     
     if ([selectedCell accessoryType] == UITableViewCellAccessoryNone) {
         [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        [_selectedIndexes addObject:playersCell];
+        [_selectedIndexes addObject:playersCell.pid];
     } else {
         [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
-        [_selectedIndexes removeObject:playersCell];
+        [_selectedIndexes removeObject:playersCell.pid];
+    }
+    
+    if(_selectedIndexes.count > 1) {
+        _calculateButton.enabled = YES;
+    } else {
+        _calculateButton.enabled = NO;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
@@ -164,13 +177,13 @@
     }
     int value = [maxKey intValue];
     value = value +1;
-    for(PlayersCell *cell in _selectedIndexes){
-        [database performQuery:[NSString stringWithFormat:@"insert into team (pid, key) values(\"%@\",%d)",cell.pid, value]];
+    for(NSString *pid in _selectedIndexes){
+        [database performQuery:[NSString stringWithFormat:@"insert into team (pid, key) values(\"%@\",%d)",pid, value]];
         ;
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     [_selectedIndexes removeAllObjects];
     [database closeConnection];
+    [_tableView reloadData];
 }
 
 - (IBAction)addToTeam:(id)sender {
@@ -180,6 +193,44 @@
     [database performQuery: addToTeamQuery];
     [database closeConnection];
     button.enabled = NO;
+}
+- (IBAction)filterResults:(id)sender {
+    UIButton *filterBtn = (UIButton *) sender;
+    database = [[SQLite alloc] initWithPath: DBPATH];
+    NSString *pos;
+    switch ([filterBtn tag]) {
+        case 0:
+            pos = @"QB";
+            break;
+        case 1:
+            pos = @"RB";
+            break;
+        case 2:
+            pos = @"WR";
+            break;
+        case 3:
+            pos = @"TE";
+            break;
+        case 4:
+            pos = @"Def";
+            break;
+        case 5:
+            pos = @"K";
+            break;
+        default:
+            break;
+    }
+    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\"", pos];
+    playerResults = [database performQuery: filterQuery];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+
 }
 /*
 #pragma mark - Navigation
