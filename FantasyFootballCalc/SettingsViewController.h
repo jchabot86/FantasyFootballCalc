@@ -10,4 +10,23 @@
 
 @interface SettingsViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *PassingYards;
+@property (strong, nonatomic) IBOutlet UITextField *PassingCompletion;
+@property (strong, nonatomic) IBOutlet UITextField *PassingAttempts;
+@property (strong, nonatomic) IBOutlet UITextField *PassingTd;
+@property (strong, nonatomic) IBOutlet UITextField *PassingInt;
+@property (strong, nonatomic) IBOutlet UITextField *RushingYards;
+@property (strong, nonatomic) IBOutlet UITextField *RushingTd;
+@property (strong, nonatomic) IBOutlet UITextField *RushingAttempts;
+@property (strong, nonatomic) IBOutlet UITextField *ReceivingYards;
+@property (strong, nonatomic) IBOutlet UITextField *ReceivingReceptions;
+@property (strong, nonatomic) IBOutlet UITextField *ReceivingTd;
+@property (strong, nonatomic) IBOutlet UITextField *KickingXp;
+@property (strong, nonatomic) IBOutlet UITextField *KickingFg;
+@property (strong, nonatomic) IBOutlet UITextField *KickingFg50;
+@property (strong, nonatomic) IBOutlet UITextField *DefenseTd;
+@property (strong, nonatomic) IBOutlet UITextField *DefenseInterception;
+@property (strong, nonatomic) IBOutlet UITextField *DefenseSack;
+@property (strong, nonatomic) IBOutlet UITextField *DefenseSafety;
+
 @end

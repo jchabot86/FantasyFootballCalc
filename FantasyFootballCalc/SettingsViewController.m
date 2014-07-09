@@ -18,6 +18,26 @@
 
 @implementation SettingsViewController
 
+@synthesize PassingYards;
+@synthesize PassingCompletion;
+@synthesize PassingAttempts;
+@synthesize PassingTd;
+@synthesize PassingInt;
+@synthesize RushingYards;
+@synthesize RushingTd;
+@synthesize RushingAttempts;
+@synthesize ReceivingYards;
+@synthesize ReceivingReceptions;
+@synthesize ReceivingTd;
+@synthesize KickingXp;
+@synthesize KickingFg;
+@synthesize KickingFg50;
+@synthesize DefenseTd;
+@synthesize DefenseInterception;
+@synthesize DefenseSack;
+@synthesize DefenseSafety;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,10 +47,33 @@
     return self;
 }
 
+
+-(void)cancelNumberPad{
+    [PassingTd resignFirstResponder];
+    PassingTd.text = @"";
+}
+
+-(void)doneWithNumberPad{
+    NSString *numberFromTheKeyboard = PassingTd.text;
+    [PassingTd resignFirstResponder];
+    PassingTd.text = numberFromTheKeyboard;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    
+    [numberToolbar sizeToFit];
+    PassingTd.inputAccessoryView = numberToolbar;
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,6 +88,12 @@
     [database closeConnection];
     //need to refresh players list
 }
+
+- (IBAction)buttonTest:(id)sender {
+    
+    NSLog(@"Test: %@",PassingTd.text);
+}
+
 
 /*
 #pragma mark - Navigation
