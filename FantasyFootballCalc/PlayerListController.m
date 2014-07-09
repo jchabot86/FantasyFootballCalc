@@ -49,10 +49,23 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
-
+    
+    if(playerResults.count == 0){ // this is because the viewDidAppear method is also going to attempt to do this query.  But if the viewDidAppear executes before the json is pulled and inserted to database then this will load it.
+        playerResults = [database performQuery: @"SELECT * FROM player"];
+        myTeamArray = [[NSMutableArray alloc] init];
+        NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+        for(int i=0; i<myTeamResults.count; i++){
+            NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+            [myTeamArray addObject:pid];
+        }
+        [database closeConnection];
+        [_tableView reloadData];
+    }
     
 }
-
+/**
+ so that the view is reloaded with latest list of players
+ **/
 -(void)viewDidAppear:(BOOL)animated
 {
     playerResults = [database performQuery: @"SELECT * FROM player"];
@@ -139,8 +152,12 @@
     cell.AddToTeamButton.accessibilityIdentifier = pid;
     if([_selectedIndexes containsObject:pid]){
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        cell.checkImage.hidden = NO;
+        cell.emptyCheckImage.hidden = YES;
     } else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
+        cell.checkImage.hidden = YES;
+        cell.emptyCheckImage.hidden = NO;
     }
     return cell;
 }
@@ -153,9 +170,15 @@
     if ([selectedCell accessoryType] == UITableViewCellAccessoryNone) {
         [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
         [_selectedIndexes addObject:playersCell.pid];
+        playersCell.checkImage.hidden = NO;
+        playersCell.emptyCheckImage.hidden = YES;
+
     } else {
         [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
         [_selectedIndexes removeObject:playersCell.pid];
+        playersCell.checkImage.hidden = YES;
+        playersCell.emptyCheckImage.hidden = NO;
+
     }
     
     if(_selectedIndexes.count > 1) {
