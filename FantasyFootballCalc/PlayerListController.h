@@ -29,5 +29,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *teFilterBtn;
 @property (strong, nonatomic) IBOutlet UIButton *defFilterBtn;
 @property (strong, nonatomic) IBOutlet UIButton *kickerFilterBtn;
+@property (strong, nonatomic) IBOutlet UIButton *selectAFilterBtn;
 
 @end

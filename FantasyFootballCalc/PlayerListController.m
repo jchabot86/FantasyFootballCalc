@@ -39,6 +39,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _calculateButton.enabled = NO;
+    _qbFilterBtn.hidden = YES;
+    _rbFilterBtn.hidden = YES;
+    _wrFilterBtn.hidden = YES;
+    _teFilterBtn.hidden = YES;
+    _kickerFilterBtn.hidden = YES;
+    _defFilterBtn.hidden = YES;
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -217,6 +223,26 @@
     [database closeConnection];
     button.enabled = NO;
 }
+
+- (IBAction)selectFilter:(id)sender {
+    if(_qbFilterBtn.hidden == YES){
+        _qbFilterBtn.hidden = NO;
+        _rbFilterBtn.hidden = NO;
+        _wrFilterBtn.hidden = NO;
+        _teFilterBtn.hidden = NO;
+        _kickerFilterBtn.hidden = NO;
+        _defFilterBtn.hidden = NO;
+    } else {
+        _qbFilterBtn.hidden = YES;
+        _rbFilterBtn.hidden = YES;
+        _wrFilterBtn.hidden = YES;
+        _teFilterBtn.hidden = YES;
+        _kickerFilterBtn.hidden = YES;
+        _defFilterBtn.hidden = YES;
+    
+    }
+}
+
 - (IBAction)filterResults:(id)sender {
     UIButton *filterBtn = (UIButton *) sender;
     database = [[SQLite alloc] initWithPath: DBPATH];
@@ -253,7 +279,12 @@
     }
     [database closeConnection];
     [_tableView reloadData];
-
+    _qbFilterBtn.hidden = YES;
+    _rbFilterBtn.hidden = YES;
+    _wrFilterBtn.hidden = YES;
+    _teFilterBtn.hidden = YES;
+    _kickerFilterBtn.hidden = YES;
+    _defFilterBtn.hidden = YES;
 }
 /*
 #pragma mark - Navigation
