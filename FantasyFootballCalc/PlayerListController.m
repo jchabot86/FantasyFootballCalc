@@ -285,6 +285,7 @@
     _teFilterBtn.hidden = YES;
     _kickerFilterBtn.hidden = YES;
     _defFilterBtn.hidden = YES;
+    [_selectAFilterBtn setTitle:pos forState:UIControlStateNormal];
 }
 /*
 #pragma mark - Navigation
