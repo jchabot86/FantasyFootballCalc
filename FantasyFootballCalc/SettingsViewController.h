@@ -28,5 +28,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *DefenseInterception;
 @property (strong, nonatomic) IBOutlet UITextField *DefenseSack;
 @property (strong, nonatomic) IBOutlet UITextField *DefenseSafety;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrolldown;
+
 
 @end
