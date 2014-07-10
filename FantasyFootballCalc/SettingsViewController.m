@@ -37,7 +37,7 @@
 @synthesize DefenseInterception;
 @synthesize DefenseSack;
 @synthesize DefenseSafety;
-
+@synthesize scrolldown;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -118,6 +118,10 @@
     DefenseSack.inputAccessoryView = numberToolbar;
     DefenseSafety.inputAccessoryView = numberToolbar;
     [self loadSettings];
+    
+    [scrolldown setScrollEnabled:YES];
+    NSLog(@"%@",scrolldown.description);
+
 }
 
 - (void)didReceiveMemoryWarning
