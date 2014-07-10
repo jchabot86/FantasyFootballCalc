@@ -150,7 +150,7 @@
     [properties setProperty:KICKING_XP:KickingXp.text];
     [properties setProperty:KICKING_FG:KickingFg.text];
     [properties setProperty:KICKING_FG50:KickingFg50.text];
-    [properties setProperty:PASSING_TD:DefenseTd.text];
+    [properties setProperty:DEFENSE_TD:DefenseTd.text];
     [properties setProperty:DEFENSE_INTERCEPTION:DefenseInterception.text];
     [properties setProperty:DEFENSE_SACK:DefenseSack.text];
     [properties setProperty:DEFENSE_SAFETY:DefenseSafety.text];
