@@ -555,7 +555,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="iQr-nP-Myo"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_icon.png" id="iQr-nP-Myo"/>
                     <connections>
                         <outlet property="PassingTd" destination="QZ6-Wf-JoC" id="XXu-kh-lKm"/>
                     </connections>
@@ -567,9 +567,10 @@
     </scenes>
     <resources>
         <image name="empty_checkbox.png" width="32" height="32"/>
-        <image name="myTeam_icon.png" width="35" height="35"/>
-        <image name="search_icon.png" width="35" height="35"/>
-        <image name="selection_icon.png" width="35" height="35"/>
+        <image name="myTeam_icon.png" width="28" height="28"/>
+        <image name="search_icon.png" width="28" height="28"/>
+        <image name="selection_icon.png" width="28" height="28"/>
+        <image name="settings_icon.png" width="30" height="30"/>
         <image name="smiley_small.png" width="48" height="48"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
