@@ -11,6 +11,6 @@
 @implementation Config
     //JUSTIN: /Users/justinport/Desktop/FantasyFootballCalc.sqlite
     //JON: /Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite
-    NSString *const DBPATH = @"/Users/justinport/Desktop/FantasyFootballCalc.sqlite";
+    NSString *DBPATH = @"/Documents/FantasyFootballCalc.sqlite";
 
 @end

@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface Config : NSObject
-    extern NSString *const DBPATH;
+    extern NSString *DBPATH;
 @end
