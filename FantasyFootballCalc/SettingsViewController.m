@@ -117,10 +117,10 @@
     DefenseInterception.inputAccessoryView = numberToolbar;
     DefenseSack.inputAccessoryView = numberToolbar;
     DefenseSafety.inputAccessoryView = numberToolbar;
-    [self loadSettings];
     
-    [scrolldown setScrollEnabled:YES];
-    NSLog(@"%@",scrolldown.description);
+    //[[Settings new] resetTable];
+    
+    [self loadSettings];
 
 }
 
