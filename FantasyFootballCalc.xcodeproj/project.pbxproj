@@ -11,6 +11,8 @@
 		1076F09B196859AC002B7F2A /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1076F09A196859AC002B7F2A /* SQLite.m */; };
 		1087318A19687FE5005477C8 /* FantasyFootballCalc.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */; };
 		108731931968BBF5005477C8 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 108731921968BBF5005477C8 /* Settings.m */; };
+		10E9661219702983008853C9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E9661119702983008853C9 /* TPKeyboardAvoidingScrollView.m */; };
+		10E96615197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		10ED47081969EB9700927561 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED47071969EB9700927561 /* Config.m */; };
 		F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23543221966F8DD004CD0CE /* PlayersCell.m */; };
 		F23543251967167B004CD0CE /* KrunchProjections.json in Resources */ = {isa = PBXBuildFile; fileRef = F23543241967167B004CD0CE /* KrunchProjections.json */; };
@@ -61,6 +63,10 @@
 		1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FantasyFootballCalc.sqlite; sourceTree = "<group>"; };
 		108731911968BBF5005477C8 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		108731921968BBF5005477C8 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		10E9661019702983008853C9 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		10E9661119702983008853C9 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		10E96613197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		10ED47061969EB9700927561 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		10ED47071969EB9700927561 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		F23543211966F8DD004CD0CE /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
@@ -189,6 +195,10 @@
 		F2CEFF8C19571B0F00C937F1 /* FantasyFootballCalc */ = {
 			isa = PBXGroup;
 			children = (
+				10E96613197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				10E9661019702983008853C9 /* TPKeyboardAvoidingScrollView.h */,
+				10E9661119702983008853C9 /* TPKeyboardAvoidingScrollView.m */,
 				108731941968BBFE005477C8 /* Utilities */,
 				F2CEFF9519571B0F00C937F1 /* AppDelegate.h */,
 				F2CEFF9619571B0F00C937F1 /* AppDelegate.m */,
@@ -366,12 +376,14 @@
 				108731931968BBF5005477C8 /* Settings.m in Sources */,
 				F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */,
 				F24BB052196B064700A626E0 /* PlayerListController.m in Sources */,
+				10E9661219702983008853C9 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				1076F09B196859AC002B7F2A /* SQLite.m in Sources */,
 				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
 				F2454010196B928200F01CAB /* MyTeamCell.m in Sources */,
 				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
 				F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */,
 				10ED47081969EB9700927561 /* Config.m in Sources */,
+				10E96615197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				F2CEFFC619571DF200C937F1 /* SelectionsController.m in Sources */,
 				F2CEFF9319571B0F00C937F1 /* main.m in Sources */,
 			);
