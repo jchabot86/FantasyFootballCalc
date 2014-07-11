@@ -17,7 +17,6 @@
     SQLite *database;
     NSArray *playerResults;
     NSMutableArray *myTeamArray;
-    
 }
 
 @end
@@ -47,6 +46,8 @@
     _defFilterBtn.hidden = YES;
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
+    
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     //build connection - will need to replace URL String
@@ -140,6 +141,11 @@
     [_activityIndicator stopAnimating];
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     NSLog(@"The row: %d",indexPath.row);
+    if(indexPath.row % 2 == 0){
+        cell.backgroundColor = [UIColor lightGrayColor];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
     NSString *pid = [[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
     NSLog(@"Player: %@", pid);
     if([myTeamArray containsObject:pid]) {
@@ -167,32 +173,32 @@
     }
     return cell;
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     PlayersCell *playersCell = (PlayersCell *) selectedCell;
-    
-    if ([selectedCell accessoryType] == UITableViewCellAccessoryNone) {
-        [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        [_selectedIndexes addObject:playersCell.pid];
-        playersCell.checkImage.hidden = NO;
-        playersCell.emptyCheckImage.hidden = YES;
-
-    } else {
-        [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
-        [_selectedIndexes removeObject:playersCell.pid];
-        playersCell.checkImage.hidden = YES;
-        playersCell.emptyCheckImage.hidden = NO;
-
-    }
+    [_selectedIndexes removeObject: playersCell.pid];
     
     if(_selectedIndexes.count > 1) {
         _calculateButton.enabled = YES;
     } else {
         _calculateButton.enabled = NO;
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    PlayersCell *playersCell = (PlayersCell *) selectedCell;
+    UIView *selectedBck= [[UIView alloc] init];
+    selectedBck.backgroundColor = [UIColor blueColor];
+    playersCell.selectedBackgroundView = selectedBck;
+
+    [_selectedIndexes addObject: playersCell.pid];
+    
+    if(_selectedIndexes.count > 1) {
+        _calculateButton.enabled = YES;
+    } else {
+        _calculateButton.enabled = NO;
+    }
     
 }
 - (IBAction)calculateSelections:(id)sender {

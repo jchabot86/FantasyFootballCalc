@@ -85,21 +85,11 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smiley_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="qv5-b0-Ddq">
-                                                    <rect key="frame" x="3" y="7" width="46" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="empty_checkbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="RcS-cN-mXI">
-                                                    <rect key="frame" x="3" y="6" width="46" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="AddToTeamButton" destination="tII-ip-yis" id="w3b-hd-g4H"/>
                                             <outlet property="PlayerLabel" destination="PaJ-If-QuU" id="c7P-e5-LZN"/>
-                                            <outlet property="checkImage" destination="qv5-b0-Ddq" id="ULA-bo-Nzt"/>
-                                            <outlet property="emptyCheckImage" destination="RcS-cN-mXI" id="vwG-4M-OkC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -616,12 +606,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="empty_checkbox.png" width="32" height="32"/>
         <image name="myTeam_icon.png" width="28" height="28"/>
         <image name="search_icon.png" width="28" height="28"/>
         <image name="selection_icon.png" width="28" height="28"/>
         <image name="settings_icon.png" width="30" height="30"/>
-        <image name="smiley_small.png" width="48" height="48"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -16,7 +16,4 @@
 @property (strong, nonatomic) IBOutlet UILabel *PosLabel;
 @property (strong, nonatomic) IBOutlet UIButton *AddToTeamButton;
 
-@property (strong, nonatomic) IBOutlet UIImageView *emptyCheckImage;
-
-@property (strong, nonatomic) IBOutlet UIImageView *checkImage;
 @end
