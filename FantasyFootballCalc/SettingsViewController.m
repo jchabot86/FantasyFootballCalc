@@ -177,7 +177,7 @@
     KickingXp.text = [properties getProperty:KICKING_XP];
     KickingFg.text = [properties getProperty:KICKING_FG];
     KickingFg50.text = [properties getProperty:KICKING_FG50];
-    DefenseTd.text = [properties getProperty:PASSING_TD];
+    DefenseTd.text = [properties getProperty:DEFENSE_TD];
     DefenseInterception.text = [properties getProperty:DEFENSE_INTERCEPTION];
     DefenseSack.text = [properties getProperty:DEFENSE_SACK];
     DefenseSafety.text = [properties getProperty:DEFENSE_SAFETY];

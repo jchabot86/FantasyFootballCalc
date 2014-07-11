@@ -711,9 +711,10 @@
                         <outlet property="PassingYards" destination="qca-0t-2nY" id="lGH-K6-89n"/>
                         <outlet property="ReceivingReceptions" destination="rz7-Bo-nlh" id="VEg-bs-r8j"/>
                         <outlet property="ReceivingTd" destination="B9q-Cb-8Lf" id="xAi-Yw-8J3"/>
+                        <outlet property="ReceivingYards" destination="6Ss-Lu-LFK" id="S3V-Ck-tzL"/>
                         <outlet property="RushingAttempts" destination="Qmk-CU-nfL" id="ixM-ug-FEh"/>
                         <outlet property="RushingTd" destination="8au-0v-u7g" id="Ro0-37-KqT"/>
-                        <outlet property="RushingYards" destination="6Ss-Lu-LFK" id="631-zt-JJj"/>
+                        <outlet property="RushingYards" destination="0TZ-uu-1jw" id="b7B-XK-cCb"/>
                         <outlet property="scrolldown" destination="bQ6-4f-DH9" id="J0t-E7-4dT"/>
                     </connections>
                 </viewController>
