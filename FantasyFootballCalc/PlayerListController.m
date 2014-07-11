@@ -163,13 +163,9 @@
     cell.AddToTeamButton.tag = indexPath.row;
     cell.AddToTeamButton.accessibilityIdentifier = pid;
     if([_selectedIndexes containsObject:pid]){
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        cell.checkImage.hidden = NO;
-        cell.emptyCheckImage.hidden = YES;
-    } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-        cell.checkImage.hidden = YES;
-        cell.emptyCheckImage.hidden = NO;
+        UIView *selectedBck= [[UIView alloc] init];
+        selectedBck.backgroundColor = [UIColor blueColor];
+        cell.selectedBackgroundView = selectedBck;
     }
     return cell;
 }
