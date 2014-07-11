@@ -11,6 +11,7 @@
 		1076F09B196859AC002B7F2A /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1076F09A196859AC002B7F2A /* SQLite.m */; };
 		1087318A19687FE5005477C8 /* FantasyFootballCalc.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */; };
 		108731931968BBF5005477C8 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 108731921968BBF5005477C8 /* Settings.m */; };
+		10A1EEBF19708CF2007359C9 /* br_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A1EEBE19708CF2007359C9 /* br_down.png */; };
 		10E9661219702983008853C9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E9661119702983008853C9 /* TPKeyboardAvoidingScrollView.m */; };
 		10E96615197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		10ED47081969EB9700927561 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED47071969EB9700927561 /* Config.m */; };
@@ -63,6 +64,7 @@
 		1076F09C1968683A002B7F2A /* FantasyFootballCalc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FantasyFootballCalc.sqlite; sourceTree = "<group>"; };
 		108731911968BBF5005477C8 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		108731921968BBF5005477C8 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		10A1EEBE19708CF2007359C9 /* br_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = br_down.png; sourceTree = "<group>"; };
 		10E9661019702983008853C9 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		10E9661119702983008853C9 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		10E96613197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		F2CEFF8D19571B0F00C937F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				10A1EEBE19708CF2007359C9 /* br_down.png */,
 				F2B778D5196DBD0500B36292 /* myTeam_icon.png */,
 				F2B778D6196DBD0500B36292 /* search_icon.png */,
 				F2B778DF196DCCE500B36292 /* empty_checkbox.png */,
@@ -344,6 +347,7 @@
 				F2B778DC196DBD0500B36292 /* settings_icon.png in Resources */,
 				F2B778E0196DCCE500B36292 /* empty_checkbox.png in Resources */,
 				1087318A19687FE5005477C8 /* FantasyFootballCalc.sqlite in Resources */,
+				10A1EEBF19708CF2007359C9 /* br_down.png in Resources */,
 				F23543251967167B004CD0CE /* KrunchProjections.json in Resources */,
 				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
 				F2B778DB196DBD0500B36292 /* selection_icon.png in Resources */,
