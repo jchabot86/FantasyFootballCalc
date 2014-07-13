@@ -142,7 +142,7 @@
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     NSLog(@"The row: %d",indexPath.row);
     if(indexPath.row % 2 == 0){
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     } else {
         cell.backgroundColor = [UIColor whiteColor];
     }
