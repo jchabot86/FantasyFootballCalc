@@ -105,7 +105,7 @@
                                 <color key="backgroundColor" red="0.53725490196078429" green="0.792156862745098" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Dcs-xe-dTQ"/>
-                                    <constraint firstAttribute="width" constant="100" id="rF8-nv-TAu"/>
+                                    <constraint firstAttribute="width" constant="110" id="rF8-nv-TAu"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 <state key="normal" title="Calculate">
@@ -138,7 +138,7 @@
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="OGP-ys-Mrh"/>
-                                    <constraint firstAttribute="width" constant="165" id="iqa-5o-foW"/>
+                                    <constraint firstAttribute="width" constant="180" id="iqa-5o-foW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
