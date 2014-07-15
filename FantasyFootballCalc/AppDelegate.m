@@ -41,6 +41,7 @@
     if (!success) {
         NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
     }
+    DBPATH = writableDBPath;
 }
 
 							
