@@ -606,7 +606,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="cutAllPlayers:" destination="jYg-BS-RZT" eventType="touchUpInside" id="8wB-4y-d8S"/>
+                                                    <action selector="resetScoring:" destination="jYg-BS-RZT" eventType="touchUpInside" id="k3t-K8-c7j"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Djh-34-eq1">

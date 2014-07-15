@@ -137,6 +137,28 @@
     //need to refresh players list
 }
 
+- (IBAction)resetScoring:(id)sender {
+    
+    UIAlertView *updateAlert = [[UIAlertView alloc] initWithTitle: @"Item Deletion" message: @"Do u really want to delete" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
+    
+    [updateAlert show];
+
+    
+}
+
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==0)
+    {
+        Settings* properties = [Settings new];
+        [properties resetTable];
+        [self loadSettings];
+    }
+    
+}
+
 - (IBAction)saveButtonClick:(id)sender {
     Settings* properties = [Settings new];
     
