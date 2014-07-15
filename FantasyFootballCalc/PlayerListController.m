@@ -14,7 +14,6 @@
 
 @interface PlayerListController ()
 {
-    SQLite *database;
     NSArray *playerResults;
     NSMutableArray *myTeamArray;
 }
@@ -58,6 +57,7 @@
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if(playerResults.count == 0){ // this is because the viewDidAppear method is also going to attempt to do this query.  But if the viewDidAppear executes before the json is pulled and inserted to database then this will load it.
+        SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
         playerResults = [database performQuery: @"SELECT * FROM player"];
         myTeamArray = [[NSMutableArray alloc] init];
         NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
@@ -75,6 +75,8 @@
  **/
 -(void)viewDidAppear:(BOOL)animated
 {
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+
     playerResults = [database performQuery: @"SELECT * FROM player"];
     myTeamArray = [[NSMutableArray alloc] init];
     NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
@@ -104,14 +106,15 @@
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
-    database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     [database performQuery:@"delete from player"];
     for(int i = 0; i< _players.count; i++)
     {
         NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"]];
-        
         [database performQuery:refreshPlayers];
     }
+    [database closeConnection];
+
 }
 
 
@@ -148,11 +151,18 @@
     }
     NSString *pid = [[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
     NSLog(@"Player: %@", pid);
+    [cell.AddToTeamButton setTitleColor:[UIColor grayColor] forState:(UIControlStateDisabled)];
+    [cell.AddToTeamButton setTitleColor:[UIColor greenColor] forState:(UIControlStateNormal)];
+    [cell.ScratchFromTeamButton setTitleColor:[UIColor grayColor] forState:(UIControlStateDisabled)];
+    [cell.ScratchFromTeamButton setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
+    
     if([myTeamArray containsObject:pid]) {
         NSLog(@"Player already added: %@", pid);
-        cell.AddToTeamButton.enabled = NO;
+        [cell.AddToTeamButton setEnabled:NO];
+        [cell.ScratchFromTeamButton setEnabled:YES];
     } else {
-        cell.AddToTeamButton.enabled = YES;
+        [cell.AddToTeamButton setEnabled:YES];
+        [cell.ScratchFromTeamButton setEnabled:NO];
     }
     // Configure the cell...
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
@@ -162,6 +172,8 @@
     
     cell.AddToTeamButton.tag = indexPath.row;
     cell.AddToTeamButton.accessibilityIdentifier = pid;
+    cell.ScratchFromTeamButton.tag = indexPath.row;
+    cell.ScratchFromTeamButton.accessibilityIdentifier = pid;
     if([_selectedIndexes containsObject:pid]){
         UIView *selectedBck= [[UIView alloc] init];
         selectedBck.backgroundColor = [UIColor blueColor];
@@ -198,7 +210,7 @@
     
 }
 - (IBAction)calculateSelections:(id)sender {
-    database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *result = [database performQuery:@"select max(key) from team"];
     NSNumber *maxKey;
     if(result != nil && result.count>0){
@@ -223,11 +235,31 @@
     NSString *addToTeamQuery = [NSString stringWithFormat: @"insert into team (pid, key) values (\"%@\",0)", button.accessibilityIdentifier];
     [database performQuery: addToTeamQuery];
     [database closeConnection];
-    button.enabled = NO;
+    
+    PlayersCell *cell = (PlayersCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:button.tag inSection:0]];
+    [cell.ScratchFromTeamButton setEnabled:YES];
+    [cell.AddToTeamButton setEnabled:NO];
+}
+- (IBAction)scratchFromTeam:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSString *scratchFromTeamQuery = [NSString stringWithFormat: @"delete from team where pid = \"%@\"", button.accessibilityIdentifier];
+    [database performQuery: scratchFromTeamQuery];
+    [database closeConnection];
+    
+    PlayersCell *cell = (PlayersCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:button.tag inSection:0]];
+    [cell.ScratchFromTeamButton setEnabled:NO];
+    [cell.AddToTeamButton setEnabled:YES];
 }
 
 - (IBAction)selectFilter:(id)sender {
     if(_qbFilterBtn.hidden == YES){
+        [self.view bringSubviewToFront:_qbFilterBtn];
+        [self.view bringSubviewToFront:_rbFilterBtn];
+        [self.view bringSubviewToFront:_wrFilterBtn];
+        [self.view bringSubviewToFront:_teFilterBtn];
+        [self.view bringSubviewToFront:_kickerFilterBtn];
+        [self.view bringSubviewToFront:_defFilterBtn];
         _qbFilterBtn.hidden = NO;
         _rbFilterBtn.hidden = NO;
         _wrFilterBtn.hidden = NO;
@@ -247,7 +279,7 @@
 
 - (IBAction)filterResults:(id)sender {
     UIButton *filterBtn = (UIButton *) sender;
-    database = [[SQLite alloc] initWithPath: DBPATH];
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH];
     NSString *pos;
     switch ([filterBtn tag]) {
         case 0:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -85,7 +85,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tII-ip-yis">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tII-ip-yis">
                                                     <rect key="frame" x="3" y="5" width="34" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
@@ -93,7 +93,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="OI5-pw-zMd"/>
                                                     </constraints>
                                                     <state key="normal" title="Draft">
-                                                        <color key="titleColor" red="0.53725490200000003" green="0.79215686269999996" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -111,7 +111,7 @@
                                                         <action selector="addToTeam:" destination="eG3-h2-bxN" eventType="touchUpInside" id="aVE-aN-OtI"/>
                                                     </connections>
                                                 </button>
-                                                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY5-xl-XNn">
+                                                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY5-xl-XNn">
                                                     <rect key="frame" x="3" y="33" width="53" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
@@ -119,7 +119,7 @@
                                                         <constraint firstAttribute="width" constant="65" id="u0t-pw-VUj"/>
                                                     </constraints>
                                                     <state key="normal" title="Scratch">
-                                                        <color key="titleColor" red="0.79215686269999996" green="0.14627958626806056" blue="0.12039386941583193" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -134,7 +134,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="addToTeam:" destination="eG3-h2-bxN" eventType="touchUpInside" id="R2n-0B-pbv"/>
+                                                        <action selector="scratchFromTeam:" destination="eG3-h2-bxN" eventType="touchUpInside" id="mxo-lv-COt"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-If-QuU">
@@ -148,6 +148,7 @@
                                         <connections>
                                             <outlet property="AddToTeamButton" destination="tII-ip-yis" id="w3b-hd-g4H"/>
                                             <outlet property="PlayerLabel" destination="PaJ-If-QuU" id="c7P-e5-LZN"/>
+                                            <outlet property="ScratchFromTeamButton" destination="YY5-xl-XNn" id="nkr-u4-0qN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
