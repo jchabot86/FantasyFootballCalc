@@ -316,7 +316,7 @@
             </objects>
             <point key="canvasLocation" x="1034" y="-154"/>
         </scene>
-        <!--Selections Controller - Selections-->
+        <!--Selections Controller - Fantasy Football Draft Calculator '14-->
         <scene sceneID="nhM-Dg-WSh">
             <objects>
                 <tableViewController id="KOl-bG-nxh" customClass="SelectionsController" sceneMemberID="viewController">
@@ -367,13 +367,13 @@
                             <outlet property="delegate" destination="KOl-bG-nxh" id="jmo-L9-8WY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Selections" id="Emh-gA-juA"/>
+                    <navigationItem key="navigationItem" title="Fantasy Football Draft Calculator '14" id="Emh-gA-juA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeF-vY-YJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1491" y="513"/>
         </scene>
-        <!--Selection Detail Controller-->
+        <!--Selection Detail Controller - Fantasy Football Draft Calculator '14-->
         <scene sceneID="mti-uq-O3e">
             <objects>
                 <tableViewController id="7L3-ej-HeT" customClass="SelectionDetailController" sceneMemberID="viewController">
@@ -432,7 +432,7 @@
                             <outlet property="delegate" destination="7L3-ej-HeT" id="fLq-0t-s8L"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ldq-NS-UkN"/>
+                    <navigationItem key="navigationItem" title="Fantasy Football Draft Calculator '14" id="Ldq-NS-UkN"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOw-zd-I7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -861,6 +861,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BLU-WW-t2c"/>
+        <segue reference="D0g-Bj-ra1"/>
     </inferredMetricsTieBreakers>
 </document>
