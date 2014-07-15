@@ -50,6 +50,7 @@
 
 
 -(void)cancelNumberPad{
+    [self loadSettings];
     //[PassingTd resignFirstResponder];
     //PassingTd.text = @"";
 }
@@ -75,6 +76,8 @@
     [DefenseInterception resignFirstResponder];
     [DefenseSack resignFirstResponder];
     [DefenseSafety resignFirstResponder];
+    
+    [self saveSettings];
     //PassingTd.inputAccessoryView = numberFromTheKeyboard;
 }
 
@@ -159,7 +162,8 @@
     
 }
 
-- (IBAction)saveButtonClick:(id)sender {
+- (void) saveSettings{
+    
     Settings* properties = [Settings new];
     
     [properties setProperty:PASSING_TD:PassingTd.text];
@@ -180,7 +184,11 @@
     [properties setProperty:DEFENSE_INTERCEPTION:DefenseInterception.text];
     [properties setProperty:DEFENSE_SACK:DefenseSack.text];
     [properties setProperty:DEFENSE_SAFETY:DefenseSafety.text];
-    //NSLog(@"Test: %@",PassingTd.text);
+
+}
+
+- (IBAction)saveButtonClick:(id)sender {
+       //NSLog(@"Test: %@",PassingTd.text);
 }
 
 - (void) loadSettings{

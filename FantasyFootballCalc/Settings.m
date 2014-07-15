@@ -31,24 +31,24 @@
     NSString *const DEFENSE_SAFETY =@"DefenseSafety";
 
     - (void) resetTable{
-        [self setProperty:PASSING_YARDS:@"test1"];
-        [self setProperty:PASSING_COMPLETION:@"test2"];
-        [self setProperty:PASSING_ATTEMPTS:@"Test3"];
-        [self setProperty:PASSING_TD:@"Test4"];
-        [self setProperty:PASSING_INT:@"Test5"];
-        [self setProperty:RUSHING_YARDS:@"Test6"];
-        [self setProperty:RUSHING_TD:@"Test7"];
-        [self setProperty:RUSHING_ATTEMPS:@"Test8"];
-        [self setProperty:RECEIVING_YARDS:@"Test9"];
-        [self setProperty:RECEIVING_RECEPTIONS:@"Test10"];
-        [self setProperty:RECEIVING_TD:@"Test11"];
-        [self setProperty:KICKING_XP:@"Test12"];
-        [self setProperty:KICKING_FG:@"Test13"];
-        [self setProperty:KICKING_FG50:@"Test14"];
-        [self setProperty:DEFENSE_TD:@"Test15"];
-        [self setProperty:DEFENSE_INTERCEPTION:@"Test16"];
-        [self setProperty:DEFENSE_SACK:@"Test17"];
-        [self setProperty:DEFENSE_SAFETY:@"Test18"];
+        [self setProperty:PASSING_YARDS:@"1"];
+        [self setProperty:PASSING_COMPLETION:@"2"];
+        [self setProperty:PASSING_ATTEMPTS:@"3"];
+        [self setProperty:PASSING_TD:@"4"];
+        [self setProperty:PASSING_INT:@"5"];
+        [self setProperty:RUSHING_YARDS:@"6"];
+        [self setProperty:RUSHING_TD:@"7"];
+        [self setProperty:RUSHING_ATTEMPS:@"8"];
+        [self setProperty:RECEIVING_YARDS:@"9"];
+        [self setProperty:RECEIVING_RECEPTIONS:@"10"];
+        [self setProperty:RECEIVING_TD:@"11"];
+        [self setProperty:KICKING_XP:@"12"];
+        [self setProperty:KICKING_FG:@"13"];
+        [self setProperty:KICKING_FG50:@"14"];
+        [self setProperty:DEFENSE_TD:@"15"];
+        [self setProperty:DEFENSE_INTERCEPTION:@"16"];
+        [self setProperty:DEFENSE_SACK:@"17"];
+        [self setProperty:DEFENSE_SAFETY:@"18"];
     }
 
     - (void) setProperty:(NSString *)property:(NSString *)value{
