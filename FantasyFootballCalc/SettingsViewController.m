@@ -139,7 +139,7 @@
 
 - (IBAction)resetScoring:(id)sender {
     
-    UIAlertView *updateAlert = [[UIAlertView alloc] initWithTitle: @"Item Deletion" message: @"Do u really want to delete" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
+    UIAlertView *updateAlert = [[UIAlertView alloc] initWithTitle: @"Reset Scoring" message: @"Do you want to reset all scoring back to their default values?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
     
     [updateAlert show];
 
