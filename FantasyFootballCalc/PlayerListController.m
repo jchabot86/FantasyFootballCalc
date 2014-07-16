@@ -159,9 +159,9 @@
     for(int i = 0; i< _players.count; i++)
     {
         
-        NSNumber *test = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
+        //NSNumber *test = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
         
-        float floatTest = [test floatValue];
+       // float floatTest = [test floatValue];
        
         //float calcPassingTd = PassingTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
         /*float calcPassingYards = PassingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
