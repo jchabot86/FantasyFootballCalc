@@ -70,6 +70,12 @@
 {
     SelectionDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionDetailCell" forIndexPath:indexPath];
     
+    if(indexPath.row % 2 == 0){
+        cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
     NSString *pos = [[selectionPlayers objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.PlayerLabel.text = [[selectionPlayers objectAtIndex: indexPath.row] objectAtIndex:1];
     cell.PosLabel.text = pos;
@@ -132,7 +138,7 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *deleteSelectedPlayer = [NSString stringWithFormat:@"delete from team where tid = %@", tid];
     [database performQuery: deleteSelectedPlayer];
-    NSString *selectionQuery = [NSString stringWithFormat:@"select tid, p.* from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
+    NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
     selectionPlayers = [database performQuery: selectionQuery];
     [database closeConnection];
     [self.tableView reloadData];

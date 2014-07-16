@@ -74,6 +74,12 @@
 {
     SelectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionsCell" forIndexPath:indexPath];
     
+    if(indexPath.row % 2 == 0){
+        cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
     // Configure the cell...
     NSString *selectionKey = [[[selections objectAtIndex: indexPath.row] objectAtIndex:0] stringValue];
     NSString *numPlayers = [[[selections objectAtIndex: indexPath.row] objectAtIndex:1] stringValue];
