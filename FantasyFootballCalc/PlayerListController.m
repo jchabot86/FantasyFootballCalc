@@ -158,8 +158,13 @@
     [database performQuery:@"delete from player"];
     for(int i = 0; i< _players.count; i++)
     {
-        /*float calcPassingTd = PassingTd * [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
-        float calcPassingYards = PassingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        
+        NSNumber *test = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
+        
+        float floatTest = [test floatValue];
+       
+        //float calcPassingTd = PassingTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        /*float calcPassingYards = PassingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
         float calcPassingCompletion = PassingCompletion * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
         float calcPassingAttempts = PassingAttempts * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
         float calcPassingInt = PassingInt * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
