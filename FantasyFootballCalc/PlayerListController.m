@@ -232,10 +232,58 @@
         [cell.ScratchFromTeamButton setEnabled:NO];
     }
     // Configure the cell...
+    NSString *pos = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
-    cell.PosLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
+    cell.PosLabel.text = pos;
     cell.TeamLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:3];
+    cell.byeLabel.text = [NSString stringWithFormat:@"Bye: %d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:24] integerValue]];
     cell.pid = pid;
+    //Based on position, display appropriate stats
+    if([pos caseInsensitiveCompare:@"QB"] == NSOrderedSame){
+        cell.stat1Label.text = @"Pass Yds:";
+        cell.stat2Label.text = @"Pass TDs:";
+        cell.stat3Label.text = @"Int:";
+        cell.stat1.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:7] integerValue]];
+        cell.stat2.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:8] integerValue]];
+        cell.stat3.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:9] integerValue]];
+    } else
+        if([pos caseInsensitiveCompare:@"RB"] == NSOrderedSame){
+            cell.stat1Label.text = @"Rush Att:";
+            cell.stat2Label.text = @"Rush Yds:";
+            cell.stat3Label.text = @"Rush TDs:";
+            cell.stat1.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:10] integerValue]];
+            cell.stat2.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:11] integerValue]];
+            cell.stat3.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:12] integerValue]];
+
+
+    } else
+        if([pos caseInsensitiveCompare:@"WR"] == NSOrderedSame || [pos caseInsensitiveCompare:@"TE"] == NSOrderedSame){
+            cell.stat1Label.text = @"Receptions:";
+            cell.stat2Label.text = @"Rec Yds:";
+            cell.stat3Label.text = @"Rec TDs:";
+            cell.stat1.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:13] integerValue]];
+            cell.stat2.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:14] integerValue]];
+            cell.stat3.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:15] integerValue]];
+    }
+    else
+        if([pos caseInsensitiveCompare:@"K"] == NSOrderedSame){
+            cell.stat1Label.text = @"Extra Pts:";
+            cell.stat2Label.text = @"FG < 50";
+            cell.stat3Label.text = @"FG > 50";
+            cell.stat1.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:16] integerValue]];
+            cell.stat2.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:17] integerValue]];
+            cell.stat3.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:18] integerValue]];
+    }
+    else
+        if([pos caseInsensitiveCompare:@"Def"] == NSOrderedSame){
+            cell.stat1Label.text = @"Def TDs:";
+            cell.stat2Label.text = @"Def Sacks:";
+            cell.stat3Label.text = @"Def Int:";
+            cell.stat1.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:19]integerValue]];
+            cell.stat2.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:22] integerValue]];
+            cell.stat3.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:21] integerValue]];
+    }
+    
     
     cell.AddToTeamButton.tag = indexPath.row;
     cell.AddToTeamButton.accessibilityIdentifier = pid;
