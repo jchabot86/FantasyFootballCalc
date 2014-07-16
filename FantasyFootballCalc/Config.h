@@ -10,4 +10,5 @@
 
 @interface Config : NSObject
     extern NSString *DBPATH;
+extern BOOL CREATE_DB_ON_LOAD;
 @end

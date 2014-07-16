@@ -16,11 +16,56 @@
 {
     NSArray *playerResults;
     NSMutableArray *myTeamArray;
+    float PassingTd;
+    float PassingYards;
+    float PassingCompletion;
+    float PassingAttempts;
+    float PassingInt;
+    float RushingYards;
+    float RushingTd;
+    float RushingAttempts;
+    float ReceivingYards;
+    float ReceivingReceptions;
+    float ReceivingTd;
+    float KickingXp;
+    float KickingFg;
+    float KickingFg50;
+    float DefenseTd;
+    float DefenseInterception;
+    float DefenseSack;
+    float DefenseSafety;
+
+
 }
 
 @end
 
 @implementation PlayerListController
+
+
+- (void) loadSettingsInMemory{
+    Settings* properties = [Settings new];
+    PassingTd = [[properties getProperty:PASSING_TD] floatValue];
+    PassingYards = [[properties getProperty:PASSING_YARDS] floatValue];
+    PassingCompletion = [[properties getProperty:PASSING_COMPLETION] floatValue];
+    PassingAttempts = [[properties getProperty:PASSING_ATTEMPTS] floatValue];
+    PassingInt = [[properties getProperty:PASSING_INT] floatValue];
+    RushingYards = [[properties getProperty:RUSHING_YARDS] floatValue];
+    RushingTd = [[properties getProperty:RUSHING_TD] floatValue];
+    RushingAttempts = [[properties getProperty:RUSHING_ATTEMPS] floatValue];
+    ReceivingYards = [[properties getProperty:RECEIVING_YARDS] floatValue];
+    ReceivingReceptions = [[properties getProperty:RECEIVING_RECEPTIONS] floatValue];
+    ReceivingTd = [[properties getProperty:RECEIVING_TD] floatValue];
+    KickingXp = [[properties getProperty:KICKING_XP] floatValue];
+    KickingFg = [[properties getProperty:KICKING_FG] floatValue];
+    KickingFg50 = [[properties getProperty:KICKING_FG50] floatValue];
+    DefenseTd = [[properties getProperty:DEFENSE_TD] floatValue];
+    DefenseInterception = [[properties getProperty:DEFENSE_INTERCEPTION] floatValue];
+    DefenseSack = [[properties getProperty:DEFENSE_SACK] floatValue];
+    DefenseSafety = [[properties getProperty:DEFENSE_SAFETY] floatValue];
+    
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,6 +114,9 @@
         [_tableView reloadData];
     }
     
+    [self loadSettingsInMemory];
+    NSLog(@"Loaded class w floats.");
+    
 }
 /**
  so that the view is reloaded with latest list of players
@@ -110,6 +158,25 @@
     [database performQuery:@"delete from player"];
     for(int i = 0; i< _players.count; i++)
     {
+        /*float calcPassingTd = PassingTd * [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
+        float calcPassingYards = PassingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcPassingCompletion = PassingCompletion * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcPassingAttempts = PassingAttempts * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcPassingInt = PassingInt * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcRushingYards = RushingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcRushingTd = RushingTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcRushingAttempts = RushingAttempts * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcReceivingYards = ReceivingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcReceivingReceptions = ReceivingReceptions * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcReceivingTd = ReceivingTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcKickingXp = KickingXp * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcKickingFg = KickingFg * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcKickingFg50 = KickingFg50 * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcDefenseTd = DefenseTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcDefenseInterception = DefenseInterception * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcDefenseSack = DefenseSack * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
+        float calcDefenseSafety = DefenseSafety * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];*/
+
         NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"]];
         [database performQuery:refreshPlayers];
     }

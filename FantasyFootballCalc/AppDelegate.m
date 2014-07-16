@@ -22,6 +22,8 @@
 
 // Creates a writable copy of the bundled default database in the application Documents directory.
 - (void)createEditableCopyOfDatabaseIfNeeded {
+    
+    
     // First, test for existence.
     BOOL success;
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -29,6 +31,13 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"FantasyFootballCalc.sqlite"];
+
+    if(CREATE_DB_ON_LOAD){
+        [[NSFileManager defaultManager] removeItemAtPath:writableDBPath error:nil];
+        NSLog(@"Deleted DB: %@",writableDBPath);
+    }
+    
+    
     success = [fileManager fileExistsAtPath:writableDBPath];
     if (success){
         NSLog(@"DB Copied to: %@",writableDBPath);

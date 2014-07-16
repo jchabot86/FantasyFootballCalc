@@ -12,5 +12,5 @@
     //JUSTIN: /Users/justinport/Desktop/FantasyFootballCalc.sqlite
     //JON: /Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite
     NSString *DBPATH = @"/Documents/FantasyFootballCalc.sqlite";
-
+    BOOL CREATE_DB_ON_LOAD = true;
 @end
