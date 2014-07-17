@@ -25,7 +25,7 @@
     
     
     // First, test for existence.
-    BOOL success;
+    /*BOOL success;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -50,7 +50,7 @@
     if (!success) {
         NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
     }
-    DBPATH = writableDBPath;
+    DBPATH = writableDBPath;*/
 }
 
 							

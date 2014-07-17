@@ -16,24 +16,24 @@
 {
     NSArray *playerResults;
     NSMutableArray *myTeamArray;
-    float PassingTd;
-    float PassingYards;
-    float PassingCompletion;
-    float PassingAttempts;
-    float PassingInt;
-    float RushingYards;
-    float RushingTd;
-    float RushingAttempts;
-    float ReceivingYards;
-    float ReceivingReceptions;
-    float ReceivingTd;
-    float KickingXp;
-    float KickingFg;
-    float KickingFg50;
-    float DefenseTd;
-    float DefenseInterception;
-    float DefenseSack;
-    float DefenseSafety;
+    float PassingTdWeight;
+    float PassingYardsWeight;
+    float PassingCompletionWeight;
+    float PassingAttemptsWeight;
+    float PassingIntWeight;
+    float RushingYardsWeight;
+    float RushingTdWeight;
+    float RushingAttemptsWeight;
+    float ReceivingYardsWeight;
+    float ReceivingReceptionsWeight;
+    float ReceivingTdWeight;
+    float KickingXpWeight;
+    float KickingFgWeight;
+    float KickingFg50Weight;
+    float DefenseTdWeight;
+    float DefenseInterceptionWeight;
+    float DefenseSackWeight;
+    float DefenseSafetyWeight;
 
 
 }
@@ -45,24 +45,24 @@
 
 - (void) loadSettingsInMemory{
     Settings* properties = [Settings new];
-    PassingTd = [[properties getProperty:PASSING_TD] floatValue];
-    PassingYards = [[properties getProperty:PASSING_YARDS] floatValue];
-    PassingCompletion = [[properties getProperty:PASSING_COMPLETION] floatValue];
-    PassingAttempts = [[properties getProperty:PASSING_ATTEMPTS] floatValue];
-    PassingInt = [[properties getProperty:PASSING_INT] floatValue];
-    RushingYards = [[properties getProperty:RUSHING_YARDS] floatValue];
-    RushingTd = [[properties getProperty:RUSHING_TD] floatValue];
-    RushingAttempts = [[properties getProperty:RUSHING_ATTEMPS] floatValue];
-    ReceivingYards = [[properties getProperty:RECEIVING_YARDS] floatValue];
-    ReceivingReceptions = [[properties getProperty:RECEIVING_RECEPTIONS] floatValue];
-    ReceivingTd = [[properties getProperty:RECEIVING_TD] floatValue];
-    KickingXp = [[properties getProperty:KICKING_XP] floatValue];
-    KickingFg = [[properties getProperty:KICKING_FG] floatValue];
-    KickingFg50 = [[properties getProperty:KICKING_FG50] floatValue];
-    DefenseTd = [[properties getProperty:DEFENSE_TD] floatValue];
-    DefenseInterception = [[properties getProperty:DEFENSE_INTERCEPTION] floatValue];
-    DefenseSack = [[properties getProperty:DEFENSE_SACK] floatValue];
-    DefenseSafety = [[properties getProperty:DEFENSE_SAFETY] floatValue];
+    PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
+    PassingYardsWeight = [[properties getProperty:PASSING_YARDS] floatValue];
+    PassingCompletionWeight = [[properties getProperty:PASSING_COMPLETION] floatValue];
+    PassingAttemptsWeight = [[properties getProperty:PASSING_ATTEMPTS] floatValue];
+    PassingIntWeight = [[properties getProperty:PASSING_INT] floatValue];
+    RushingYardsWeight = [[properties getProperty:RUSHING_YARDS] floatValue];
+    RushingTdWeight = [[properties getProperty:RUSHING_TD] floatValue];
+    RushingAttemptsWeight = [[properties getProperty:RUSHING_ATTEMPS] floatValue];
+    ReceivingYardsWeight = [[properties getProperty:RECEIVING_YARDS] floatValue];
+    ReceivingReceptionsWeight = [[properties getProperty:RECEIVING_RECEPTIONS] floatValue];
+    ReceivingTdWeight = [[properties getProperty:RECEIVING_TD] floatValue];
+    KickingXpWeight = [[properties getProperty:KICKING_XP] floatValue];
+    KickingFgWeight = [[properties getProperty:KICKING_FG] floatValue];
+    KickingFg50Weight = [[properties getProperty:KICKING_FG50] floatValue];
+    DefenseTdWeight = [[properties getProperty:DEFENSE_TD] floatValue];
+    DefenseInterceptionWeight = [[properties getProperty:DEFENSE_INTERCEPTION] floatValue];
+    DefenseSackWeight = [[properties getProperty:DEFENSE_SACK] floatValue];
+    DefenseSafetyWeight = [[properties getProperty:DEFENSE_SAFETY] floatValue];
     
     
 }
@@ -159,30 +159,128 @@
     for(int i = 0; i< _players.count; i++)
     {
         
-        //NSNumber *test = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
         
-       // float floatTest = [test floatValue];
-       
-        //float calcPassingTd = PassingTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        /*float calcPassingYards = PassingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcPassingCompletion = PassingCompletion * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcPassingAttempts = PassingAttempts * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcPassingInt = PassingInt * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcRushingYards = RushingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcRushingTd = RushingTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcRushingAttempts = RushingAttempts * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcReceivingYards = ReceivingYards * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcReceivingReceptions = ReceivingReceptions * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcReceivingTd = ReceivingTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcKickingXp = KickingXp * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcKickingFg = KickingFg * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcKickingFg50 = KickingFg50 * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcDefenseTd = DefenseTd * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcDefenseInterception = DefenseInterception * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcDefenseSack = DefenseSack * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];
-        float calcDefenseSafety = DefenseSafety * [[[_players objectAtIndex: i] objectForKey:@"Pass TD"] floatValue];*/
+        float calcPassingYards = 0;
+        float calcPassingTd = 0;
+        float calcPassingCompletion = 0;
+        float calcPassingAttempts = 0;
+        float calcPassingInt = 0;
+        float calcRushingYards = 0;
+        float calcRushingTd = 0;
+        float calcRushingAttempts = 0;
+        float calcReceivingYards = 0;
+        float calcReceivingReceptions = 0;
+        float calcReceivingTd = 0;
+        float calcKickingXp = 0;
+        float calcKickingFg =0;
+        float calcKickingFg50 = 0;
+        float calcDefenseTd = 0;
+        float calcDefenseInterception = 0;
+        float calcDefenseSack = 0;
+        float calcDefenseSafety = 0;
+        
+        
+        NSNumber *passTdNumber = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
+        if(passTdNumber != [NSNull null]){
+            calcPassingTd = PassingTdWeight * [passTdNumber floatValue];
+        }
+        
+        
+        NSNumber *passYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Yds"];
+        if(passYardsNumber != [NSNull null]){
+            calcPassingYards = PassingYardsWeight * [passYardsNumber floatValue];
+        }
+        
+        NSNumber *passCompletionNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Comp"];
+        if(passCompletionNumber != [NSNull null]){
+            calcPassingCompletion = PassingCompletionWeight * [passCompletionNumber floatValue];
+        }
+        
+        
+        NSNumber *passingAttemptsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Att"];
+        if(passingAttemptsNumber != [NSNull null]){
+            calcPassingAttempts = PassingCompletionWeight * [passingAttemptsNumber floatValue];
+        }
+        
+        NSNumber *passingIntNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Int"];
+        if(passingIntNumber != [NSNull null]){
+            calcPassingInt = PassingIntWeight * [passingIntNumber floatValue];
+        }
+        
+        NSNumber *rushingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Yds"];
+        if(rushingYardsNumber != [NSNull null]){
+            calcRushingYards = PassingYardsWeight * [rushingYardsNumber floatValue];
+        }
+        
+        NSNumber *rushingTdNumber = [[_players objectAtIndex: i] objectForKey:@"Rush TD"];
+        if(rushingTdNumber != [NSNull null]){
+            calcRushingTd = RushingTdWeight * [rushingTdNumber floatValue];
+        }
+        
+        NSNumber *rushingAttempsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Att"];
+        if(rushingAttempsNumber != [NSNull null]){
+            calcRushingAttempts = RushingAttemptsWeight * [rushingAttempsNumber floatValue];
+        }
+        
+        NSNumber *receivingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rec Yds"];
+        if(receivingYardsNumber != [NSNull null]){
+            calcReceivingYards = ReceivingYardsWeight * [receivingYardsNumber floatValue];
+        }
 
-        NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"]];
+    
+        NSNumber *receivingReceptionsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Att"];
+        if(receivingReceptionsNumber != [NSNull null]){
+            calcReceivingReceptions = ReceivingReceptionsWeight * [receivingReceptionsNumber floatValue];
+        }
+        
+        NSNumber *receivingTdNumber = [[_players objectAtIndex: i] objectForKey:@"Rec TD"];
+        if(receivingTdNumber != [NSNull null]){
+            calcReceivingTd = ReceivingTdWeight * [receivingTdNumber floatValue];
+        }
+        
+        NSNumber *kickingXpNumber = [[_players objectAtIndex: i] objectForKey:@"XP"];
+        if(kickingXpNumber != [NSNull null]){
+            calcKickingXp = KickingXpWeight * [kickingXpNumber floatValue];
+        }
+        
+    
+        NSNumber *kickingFgNumber = [[_players objectAtIndex: i] objectForKey:@"FG"];
+        if(kickingFgNumber != [NSNull null]){
+            calcKickingFg = KickingFgWeight * [kickingFgNumber floatValue];
+        }
+        
+        NSNumber *kickingFg50Number = [[_players objectAtIndex: i] objectForKey:@"FG50"];
+        if(kickingFg50Number != [NSNull null]){
+            calcKickingFg50 = KickingFg50Weight * [kickingFg50Number floatValue];
+        }
+        
+        NSNumber *defenseTdNumber = [[_players objectAtIndex: i] objectForKey:@"DefTD"];
+        if(defenseTdNumber != [NSNull null]){
+            calcDefenseTd = DefenseTdWeight * [defenseTdNumber floatValue];
+        }
+        
+        NSNumber *defenseInterceptionNumber = [[_players objectAtIndex: i] objectForKey:@"DefInt"];
+        if(defenseInterceptionNumber != [NSNull null]){
+            calcDefenseInterception = DefenseInterceptionWeight * [defenseInterceptionNumber floatValue];
+        }
+        
+        NSNumber *defenseSackNumber = [[_players objectAtIndex: i] objectForKey:@"DefSack"];
+        if(defenseSackNumber != [NSNull null]){
+            calcDefenseSack = DefenseSackWeight * [defenseSackNumber floatValue];
+        }
+        
+        
+        NSNumber *defenseSafetyNumber = [[_players objectAtIndex: i] objectForKey:@"RushSafety"];
+        if(defenseSafetyNumber != [NSNull null]){
+            calcDefenseSafety = DefenseSafetyWeight * [defenseSafetyNumber floatValue];
+        }
+        
+    
+        float score = calcPassingYards + calcPassingTd + calcPassingCompletion + calcPassingAttempts + calcPassingInt + calcRushingYards +calcRushingTd + calcRushingAttempts + calcReceivingYards + calcReceivingReceptions + calcReceivingTd + calcKickingXp + calcKickingFg + calcKickingFg50 + calcDefenseTd + calcDefenseInterception + calcDefenseSack;
+        
+        NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
+
+        NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news, score) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"],scoreAsString];
         [database performQuery:refreshPlayers];
     }
     [database closeConnection];
