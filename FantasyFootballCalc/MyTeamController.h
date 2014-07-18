@@ -10,5 +10,4 @@
 
 @interface MyTeamController : UIViewController
 @property IBOutlet UITableView *tableView;
-
 @end

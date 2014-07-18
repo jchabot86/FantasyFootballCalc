@@ -9,6 +9,20 @@
 #import "MyTeamCell.h"
 
 @implementation MyTeamCell
+@synthesize RemoveFromSelectionBtn;
+@synthesize pid;
+@synthesize PlayerLabel;
+@synthesize TeamLabel;
+@synthesize PosLabel;
+@synthesize stat1;
+@synthesize stat2;
+@synthesize stat3;
+@synthesize stat1Label;
+@synthesize stat2Label;
+@synthesize stat3Label;
+@synthesize projPts;
+@synthesize byeLabel;
+@synthesize RemoveFromTeamBtn;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
