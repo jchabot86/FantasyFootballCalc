@@ -192,7 +192,7 @@
         
         NSNumber *passYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Yds"];
         if(passYardsNumber != [NSNull null]){
-            calcPassingYards = PassingYardsWeight * [passYardsNumber floatValue];
+            calcPassingYards = PassingYardsWeight * ([passYardsNumber floatValue] / 25);
         }
         
         NSNumber *passCompletionNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Comp"];
@@ -213,7 +213,7 @@
         
         NSNumber *rushingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Yds"];
         if(rushingYardsNumber != [NSNull null]){
-            calcRushingYards = PassingYardsWeight * [rushingYardsNumber floatValue];
+            calcRushingYards = PassingYardsWeight * ([rushingYardsNumber floatValue] / 10);
         }
         
         NSNumber *rushingTdNumber = [[_players objectAtIndex: i] objectForKey:@"Rush TD"];
@@ -228,7 +228,7 @@
         
         NSNumber *receivingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rec Yds"];
         if(receivingYardsNumber != [NSNull null]){
-            calcReceivingYards = ReceivingYardsWeight * [receivingYardsNumber floatValue];
+            calcReceivingYards = ReceivingYardsWeight * ([receivingYardsNumber floatValue] / 10);
         }
 
     
