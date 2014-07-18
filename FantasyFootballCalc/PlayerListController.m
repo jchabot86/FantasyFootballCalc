@@ -372,12 +372,8 @@
     cell.ScratchFromTeamButton.tag = indexPath.row;
     cell.ScratchFromTeamButton.accessibilityIdentifier = pid;
     
-    UIView *selectedBck= [[UIView alloc] init];
-    [selectedBck setBackgroundColor:[UIColor blueColor]];
-    [cell setSelectedBackgroundView: selectedBck];
     if([_selectedIndexes containsObject:pid]){
         [cell setSelected:YES];
-        [cell setSelectedBackgroundView:selectedBck];
     } else {
         [cell setSelected:NO];
     }
@@ -404,13 +400,7 @@
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     PlayersCell *playersCell = (PlayersCell *) selectedCell;
-    [playersCell setSelected:YES];
-    UIView *selectedBck= [[UIView alloc] init];
-    [selectedBck setBackgroundColor:[UIColor blueColor]];
-    [playersCell setSelectedBackgroundView: selectedBck];
-
     [_selectedIndexes addObject: playersCell.pid];
-    
     if(_selectedIndexes.count > 1) {
         _calculateButton.enabled = YES;
     } else {

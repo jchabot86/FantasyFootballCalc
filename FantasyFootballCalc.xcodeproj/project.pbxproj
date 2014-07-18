@@ -20,6 +20,7 @@
 		F2454010196B928200F01CAB /* MyTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F245400F196B928200F01CAB /* MyTeamCell.m */; };
 		F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB04E196A150200A626E0 /* SettingsViewController.m */; };
 		F24BB052196B064700A626E0 /* PlayerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB051196B064700A626E0 /* PlayerListController.m */; };
+		F27B59E919798D7000001540 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27B59E719798D7000001540 /* Main_iPhone.storyboard */; };
 		F2B778D9196DBD0500B36292 /* myTeam_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D5196DBD0500B36292 /* myTeam_icon.png */; };
 		F2B778DA196DBD0500B36292 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D6196DBD0500B36292 /* search_icon.png */; };
 		F2B778DB196DBD0500B36292 /* selection_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D7196DBD0500B36292 /* selection_icon.png */; };
@@ -32,7 +33,6 @@
 		F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF8F19571B0F00C937F1 /* InfoPlist.strings */; };
 		F2CEFF9319571B0F00C937F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFF9219571B0F00C937F1 /* main.m */; };
 		F2CEFF9719571B0F00C937F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFF9619571B0F00C937F1 /* AppDelegate.m */; };
-		F2CEFF9A19571B0F00C937F1 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF9819571B0F00C937F1 /* Main_iPhone.storyboard */; };
 		F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */; };
 		F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CEFFA419571B0F00C937F1 /* Images.xcassets */; };
 		F2CEFFAC19571B0F00C937F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CEFFAB19571B0F00C937F1 /* XCTest.framework */; };
@@ -81,6 +81,7 @@
 		F24BB04E196A150200A626E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		F24BB050196B064700A626E0 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
 		F24BB051196B064700A626E0 /* PlayerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListController.m; sourceTree = "<group>"; };
+		F27B59E819798D7000001540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		F2B778D5196DBD0500B36292 /* myTeam_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myTeam_icon.png; sourceTree = "<group>"; };
 		F2B778D6196DBD0500B36292 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
 		F2B778D7196DBD0500B36292 /* selection_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selection_icon.png; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		F2CEFF9419571B0F00C937F1 /* FantasyFootballCalc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FantasyFootballCalc-Prefix.pch"; sourceTree = "<group>"; };
 		F2CEFF9519571B0F00C937F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F2CEFF9619571B0F00C937F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F2CEFF9919571B0F00C937F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		F2CEFF9C19571B0F00C937F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		F2CEFFA419571B0F00C937F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F2CEFFAA19571B0F00C937F1 /* FantasyFootballCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FantasyFootballCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +196,7 @@
 		F2CEFF8C19571B0F00C937F1 /* FantasyFootballCalc */ = {
 			isa = PBXGroup;
 			children = (
+				F27B59E719798D7000001540 /* Main_iPhone.storyboard */,
 				10E96613197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 				10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				10E9661019702983008853C9 /* TPKeyboardAvoidingScrollView.h */,
@@ -203,7 +204,6 @@
 				108731941968BBFE005477C8 /* Utilities */,
 				F2CEFF9519571B0F00C937F1 /* AppDelegate.h */,
 				F2CEFF9619571B0F00C937F1 /* AppDelegate.m */,
-				F2CEFF9819571B0F00C937F1 /* Main_iPhone.storyboard */,
 				F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */,
 				F2CEFFA419571B0F00C937F1 /* Images.xcassets */,
 				F2CEFF8D19571B0F00C937F1 /* Supporting Files */,
@@ -350,7 +350,7 @@
 				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
 				F2B778DB196DBD0500B36292 /* selection_icon.png in Resources */,
 				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
-				F2CEFF9A19571B0F00C937F1 /* Main_iPhone.storyboard in Resources */,
+				F27B59E919798D7000001540 /* Main_iPhone.storyboard in Resources */,
 				F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */,
 				F2B778D9196DBD0500B36292 /* myTeam_icon.png in Resources */,
 				F2B778DE196DCA8F00B36292 /* smiley_small.png in Resources */,
@@ -410,20 +410,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F27B59E719798D7000001540 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F27B59E819798D7000001540 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
 		F2CEFF8F19571B0F00C937F1 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F2CEFF9019571B0F00C937F1 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F2CEFF9819571B0F00C937F1 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F2CEFF9919571B0F00C937F1 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */ = {
