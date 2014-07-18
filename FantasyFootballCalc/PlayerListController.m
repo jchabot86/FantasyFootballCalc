@@ -94,15 +94,15 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     //build connection - will need to replace URL String
-    //NSURL *url = [NSURL URLWithString:@"http://www.somethingrighthere.com/something.php"];
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"KrunchProjections" withExtension:@"json"];
+   // NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
+   NSURL *url = [[NSBundle mainBundle] URLForResource:@"KrunchProjections" withExtension:@"json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if(playerResults.count == 0){ // this is because the viewDidAppear method is also going to attempt to do this query.  But if the viewDidAppear executes before the json is pulled and inserted to database then this will load it.
         SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-        playerResults = [database performQuery: @"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)"];
+        playerResults = [database performQuery: @"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc"];
 
         [database closeConnection];
         [_tableView reloadData];
@@ -433,7 +433,7 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *addToTeamQuery = [NSString stringWithFormat: @"insert into team (pid, key) values (\"%@\",0)", button.accessibilityIdentifier];
     [database performQuery: addToTeamQuery];
-    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)"];
+    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc"];
     playerResults = [database performQuery: refreshQuery];
     [database closeConnection];
     [_tableView reloadData];
@@ -443,7 +443,7 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *scratchFromTeamQuery = [NSString stringWithFormat: @"insert into removed_players (pid) values(\"%@\")", button.accessibilityIdentifier];
     [database performQuery: scratchFromTeamQuery];
-    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)"];
+    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc"];
     playerResults = [database performQuery: refreshQuery];
     [database closeConnection];
     [_tableView reloadData];
@@ -501,7 +501,7 @@
         default:
             break;
     }
-    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\" and pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)", pos];
+    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\" and pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc", pos];
     playerResults = [database performQuery: filterQuery];
     [database closeConnection];
     [_tableView reloadData];

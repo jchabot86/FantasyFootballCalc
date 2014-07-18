@@ -38,7 +38,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
+    NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = \"%@\" order by pid desc",_SelectionID];
     selectionPlayers = [database performQuery: selectionQuery];
     [database closeConnection];
     self.navigationItem.title =  _SelectionTitle;
@@ -139,7 +139,7 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *deleteSelectedPlayer = [NSString stringWithFormat:@"delete from team where tid = %@", tid];
     [database performQuery: deleteSelectedPlayer];
-    NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = \"%@\"",_SelectionID];
+    NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = \"%@\" order by score desc",_SelectionID];
     selectionPlayers = [database performQuery: selectionQuery];
     [database closeConnection];
     [self.tableView reloadData];
