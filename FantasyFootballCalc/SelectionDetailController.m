@@ -81,6 +81,7 @@
     cell.PosLabel.text = pos;
     cell.TeamLabel.text = [[selectionPlayers objectAtIndex: indexPath.row] objectAtIndex:3];
     cell.byeLabel.text = [NSString stringWithFormat:@"Bye: %d", [[[selectionPlayers objectAtIndex: indexPath.row] objectAtIndex:24] integerValue]];
+    cell.projPts.text = [NSString stringWithFormat:@"%d", [[[selectionPlayers objectAtIndex: indexPath.row] objectAtIndex:27] integerValue]];
     //Based on position, display appropriate stats
     if([pos caseInsensitiveCompare:@"QB"] == NSOrderedSame){
         cell.stat1Label.text = @"Pass Yds:";
@@ -127,7 +128,7 @@
                         cell.stat3.text = [NSString stringWithFormat:@"%d", [[[selectionPlayers objectAtIndex: indexPath.row] objectAtIndex:21] integerValue]];
                     }
 
-    cell.RemoveFromSelectionBtn.accessibilityIdentifier = [[[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:27] stringValue];
+    cell.RemoveFromSelectionBtn.accessibilityIdentifier = [[[selectionPlayers objectAtIndex:indexPath.row] objectAtIndex:28] stringValue];
     return cell;
 
 }

@@ -42,6 +42,7 @@
 
 @implementation PlayerListController
 
+@synthesize Picker, PickerData;
 
 - (void) loadSettingsInMemory{
     Settings* properties = [Settings new];
@@ -81,6 +82,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSArray *pickerArray = [[NSArray alloc] initWithObjects:@"Any", @"QB", @"WR", @"RB", @"TE", @"K",@"Def", nil];
+    self.PickerData = pickerArray;
     _calculateButton.enabled = NO;
     _qbFilterBtn.hidden = YES;
     _rbFilterBtn.hidden = YES;
@@ -340,6 +344,7 @@
     cell.PosLabel.text = pos;
     cell.TeamLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:3];
     cell.byeLabel.text = [NSString stringWithFormat:@"Bye: %d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:24] integerValue]];
+    cell.projPts.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:27] integerValue]];
     cell.pid = pid;
     //Based on position, display appropriate stats
     if([pos caseInsensitiveCompare:@"QB"] == NSOrderedSame){
@@ -470,7 +475,57 @@
     [cell.AddToTeamButton setEnabled:YES];
 }
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [PickerData count];
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [self.PickerData objectAtIndex:row];
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    int select = row;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH];
+    NSString *pos;
+    switch (select) {
+        case 0:
+            pos = @"QB";
+            break;
+        case 1:
+            pos = @"RB";
+            break;
+        case 2:
+            pos = @"WR";
+            break;
+        case 3:
+            pos = @"TE";
+            break;
+        case 4:
+            pos = @"Def";
+            break;
+        case 5:
+            pos = @"K";
+            break;
+        default:
+            break;
+    }
+    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\"", pos];
+    playerResults = [database performQuery: filterQuery];
+    myTeamArray = [[NSMutableArray alloc] init];
+    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
+    for(int i=0; i<myTeamResults.count; i++){
+        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
+        [myTeamArray addObject:pid];
+    }
+    [database closeConnection];
+    [_tableView reloadData];
+    [_selectAFilterBtn setTitle:pos forState:UIControlStateNormal];
+    [Picker setHidden:YES];
+}
 - (IBAction)selectFilter:(id)sender {
+    [Picker setHidden:NO];
     if(_qbFilterBtn.hidden == YES){
         [self.view bringSubviewToFront:_qbFilterBtn];
         [self.view bringSubviewToFront:_rbFilterBtn];
@@ -493,6 +548,7 @@
         _defFilterBtn.hidden = YES;
     
     }
+    
 }
 
 - (IBAction)filterResults:(id)sender {

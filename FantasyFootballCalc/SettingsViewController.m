@@ -184,7 +184,128 @@
     [properties setProperty:DEFENSE_INTERCEPTION:DefenseInterception.text];
     [properties setProperty:DEFENSE_SACK:DefenseSack.text];
     [properties setProperty:DEFENSE_SAFETY:DefenseSafety.text];
+/*
+        float calcPassingYards = 0;
+        float calcPassingTd = 0;
+        float calcPassingCompletion = 0;
+        float calcPassingAttempts = 0;
+        float calcPassingInt = 0;
+        float calcRushingYards = 0;
+        float calcRushingTd = 0;
+        float calcRushingAttempts = 0;
+        float calcReceivingYards = 0;
+        float calcReceivingReceptions = 0;
+        float calcReceivingTd = 0;
+        float calcKickingXp = 0;
+        float calcKickingFg =0;
+        float calcKickingFg50 = 0;
+        float calcDefenseTd = 0;
+        float calcDefenseInterception = 0;
+        float calcDefenseSack = 0;
+        float calcDefenseSafety = 0;
+        
+        
+        NSNumber *passTdNumber = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
+        if(passTdNumber != [NSNull null]){
+            calcPassingTd = PassingTdWeight * [passTdNumber floatValue];
+        }
+        
+        
+        NSNumber *passYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Yds"];
+        if(passYardsNumber != [NSNull null]){
+            calcPassingYards = [PassingYards.text floatValue] * [passYardsNumber floatValue];
+        }
+        
+        NSNumber *passCompletionNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Comp"];
+        if(passCompletionNumber != [NSNull null]){
+            calcPassingCompletion = [PassingCompletion floatValue] * [passCompletionNumber floatValue];
+        }
+        
+        
+        NSNumber *passingAttemptsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Att"];
+        if(passingAttemptsNumber != [NSNull null]){
+            calcPassingAttempts = [PassingCompletion floatValue] * [passingAttemptsNumber floatValue];
+        }
+        
+        NSNumber *passingIntNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Int"];
+        if(passingIntNumber != [NSNull null]){
+            calcPassingInt = [PassingInt floatValue] * [passingIntNumber floatValue];
+        }
+        
+        NSNumber *rushingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Yds"];
+        if(rushingYardsNumber != [NSNull null]){
+            calcRushingYards = [PassingYards floatValue] * [rushingYardsNumber floatValue];
+        }
+        
+        NSNumber *rushingTdNumber = [[_players objectAtIndex: i] objectForKey:@"Rush TD"];
+        if(rushingTdNumber != [NSNull null]){
+            calcRushingTd = [RushingTd floatValue] * [rushingTdNumber floatValue];
+        }
+        
+        NSNumber *rushingAttempsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Att"];
+        if(rushingAttempsNumber != [NSNull null]){
+            calcRushingAttempts = [RushingAttempts floatValue] * [rushingAttempsNumber floatValue];
+        }
+        
+        NSNumber *receivingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rec Yds"];
+        if(receivingYardsNumber != [NSNull null]){
+            calcReceivingYards = [ReceivingYards floatValue] * [receivingYardsNumber floatValue];
+        }
+        
+        
+        NSNumber *receivingReceptionsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Att"];
+        if(receivingReceptionsNumber != [NSNull null]){
+            calcReceivingReceptions = [ReceivingReceptions floatValue] * [receivingReceptionsNumber floatValue];
+        }
+        
+        NSNumber *receivingTdNumber = [[_players objectAtIndex: i] objectForKey:@"Rec TD"];
+        if(receivingTdNumber != [NSNull null]){
+            calcReceivingTd = [ReceivingTd floatValue] * [receivingTdNumber floatValue];
+        }
+        
+        NSNumber *kickingXpNumber = [[_players objectAtIndex: i] objectForKey:@"XP"];
+        if(kickingXpNumber != [NSNull null]){
+            calcKickingXp = [KickingXp floatValue] * [kickingXpNumber floatValue];
+        }
+        
+        
+        NSNumber *kickingFgNumber = [[_players objectAtIndex: i] objectForKey:@"FG"];
+        if(kickingFgNumber != [NSNull null]){
+            calcKickingFg = [KickingFg floatValue] * [kickingFgNumber floatValue];
+        }
+        
+        NSNumber *kickingFg50Number = [[_players objectAtIndex: i] objectForKey:@"FG50"];
+        if(kickingFg50Number != [NSNull null]){
+            calcKickingFg50 = [KickingFg50 floatValue] * [kickingFg50Number floatValue];
+        }
+        
+        NSNumber *defenseTdNumber = [[_players objectAtIndex: i] objectForKey:@"DefTD"];
+        if(defenseTdNumber != [NSNull null]){
+            calcDefenseTd = [DefenseTd floatValue] * [defenseTdNumber floatValue];
+        }
+        
+        NSNumber *defenseInterceptionNumber = [[_players objectAtIndex: i] objectForKey:@"DefInt"];
+        if(defenseInterceptionNumber != [NSNull null]){
+            calcDefenseInterception = [DefenseInterception floatValue] * [defenseInterceptionNumber floatValue];
+        }
+        
+        NSNumber *defenseSackNumber = [[_players objectAtIndex: i] objectForKey:@"DefSack"];
+        if(defenseSackNumber != [NSNull null]){
+            calcDefenseSack = [DefenseSack floatValue] * [defenseSackNumber floatValue];
+        }
+        
+        
+        NSNumber *defenseSafetyNumber = [[_players objectAtIndex: i] objectForKey:@"RushSafety"];
+        if(defenseSafetyNumber != [NSNull null]){
+            calcDefenseSafety = [DefenseSafety floatValue] * [defenseSafetyNumber floatValue];
+        }
+        
+        
+        float score = calcPassingYards + calcPassingTd + calcPassingCompletion + calcPassingAttempts + calcPassingInt + calcRushingYards +calcRushingTd + calcRushingAttempts + calcReceivingYards + calcReceivingReceptions + calcReceivingTd + calcKickingXp + calcKickingFg + calcKickingFg50 + calcDefenseTd + calcDefenseInterception + calcDefenseSack;
+        
+        NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
 
+*/
 }
 
 - (IBAction)saveButtonClick:(id)sender {
