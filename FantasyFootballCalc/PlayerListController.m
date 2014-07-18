@@ -15,7 +15,6 @@
 @interface PlayerListController ()
 {
     NSArray *playerResults;
-    NSMutableArray *myTeamArray;
     float PassingTdWeight;
     float PassingYardsWeight;
     float PassingCompletionWeight;
@@ -41,8 +40,6 @@
 @end
 
 @implementation PlayerListController
-
-@synthesize Picker, PickerData;
 
 - (void) loadSettingsInMemory{
     Settings* properties = [Settings new];
@@ -83,8 +80,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSArray *pickerArray = [[NSArray alloc] initWithObjects:@"Any", @"QB", @"WR", @"RB", @"TE", @"K",@"Def", nil];
-    self.PickerData = pickerArray;
     _calculateButton.enabled = NO;
     _qbFilterBtn.hidden = YES;
     _rbFilterBtn.hidden = YES;
@@ -107,13 +102,8 @@
     
     if(playerResults.count == 0){ // this is because the viewDidAppear method is also going to attempt to do this query.  But if the viewDidAppear executes before the json is pulled and inserted to database then this will load it.
         SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-        playerResults = [database performQuery: @"SELECT * FROM player"];
-        myTeamArray = [[NSMutableArray alloc] init];
-        NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
-        for(int i=0; i<myTeamResults.count; i++){
-            NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
-            [myTeamArray addObject:pid];
-        }
+        playerResults = [database performQuery: @"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)"];
+
         [database closeConnection];
         [_tableView reloadData];
     }
@@ -129,13 +119,8 @@
 {
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
 
-    playerResults = [database performQuery: @"SELECT * FROM player"];
-    myTeamArray = [[NSMutableArray alloc] init];
-    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
-    for(int i=0; i<myTeamResults.count; i++){
-        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
-        [myTeamArray addObject:pid];
-    }
+    playerResults = [database performQuery: @"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)"];
+
     [database closeConnection];
     [_tableView reloadData];
 }
@@ -325,19 +310,9 @@
     }
     NSString *pid = [[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
     NSLog(@"Player: %@", pid);
-    [cell.AddToTeamButton setTitleColor:[UIColor grayColor] forState:(UIControlStateDisabled)];
     [cell.AddToTeamButton setTitleColor:[UIColor greenColor] forState:(UIControlStateNormal)];
-    [cell.ScratchFromTeamButton setTitleColor:[UIColor grayColor] forState:(UIControlStateDisabled)];
     [cell.ScratchFromTeamButton setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
-    
-    if([myTeamArray containsObject:pid]) {
-        NSLog(@"Player already added: %@", pid);
-        [cell.AddToTeamButton setEnabled:NO];
-        [cell.ScratchFromTeamButton setEnabled:YES];
-    } else {
-        [cell.AddToTeamButton setEnabled:YES];
-        [cell.ScratchFromTeamButton setEnabled:NO];
-    }
+
     // Configure the cell...
     NSString *pos = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
@@ -392,16 +367,26 @@
             cell.stat3.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:21] integerValue]];
     }
     
-    
     cell.AddToTeamButton.tag = indexPath.row;
     cell.AddToTeamButton.accessibilityIdentifier = pid;
     cell.ScratchFromTeamButton.tag = indexPath.row;
     cell.ScratchFromTeamButton.accessibilityIdentifier = pid;
+    
+    UIView *selectedBck= [[UIView alloc] init];
+    [selectedBck setBackgroundColor:[UIColor blueColor]];
+    [cell setSelectedBackgroundView: selectedBck];
     if([_selectedIndexes containsObject:pid]){
-        UIView *selectedBck= [[UIView alloc] init];
-        selectedBck.backgroundColor = [UIColor blueColor];
-        cell.selectedBackgroundView = selectedBck;
+        [cell setSelected:YES];
+        [cell setSelectedBackgroundView:selectedBck];
+    } else {
+        [cell setSelected:NO];
     }
+    if(_selectedIndexes.count > 1) {
+        _calculateButton.enabled = YES;
+    } else {
+        _calculateButton.enabled = NO;
+    }
+
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -419,9 +404,10 @@
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     PlayersCell *playersCell = (PlayersCell *) selectedCell;
+    [playersCell setSelected:YES];
     UIView *selectedBck= [[UIView alloc] init];
-    selectedBck.backgroundColor = [UIColor blueColor];
-    playersCell.selectedBackgroundView = selectedBck;
+    [selectedBck setBackgroundColor:[UIColor blueColor]];
+    [playersCell setSelectedBackgroundView: selectedBck];
 
     [_selectedIndexes addObject: playersCell.pid];
     
@@ -457,75 +443,23 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *addToTeamQuery = [NSString stringWithFormat: @"insert into team (pid, key) values (\"%@\",0)", button.accessibilityIdentifier];
     [database performQuery: addToTeamQuery];
-    [database closeConnection];
-    
-    PlayersCell *cell = (PlayersCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:button.tag inSection:0]];
-    [cell.ScratchFromTeamButton setEnabled:YES];
-    [cell.AddToTeamButton setEnabled:NO];
-}
-- (IBAction)scratchFromTeam:(id)sender {
-    UIButton *button = (UIButton *) sender;
-    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    NSString *scratchFromTeamQuery = [NSString stringWithFormat: @"delete from team where pid = \"%@\"", button.accessibilityIdentifier];
-    [database performQuery: scratchFromTeamQuery];
-    [database closeConnection];
-    
-    PlayersCell *cell = (PlayersCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:button.tag inSection:0]];
-    [cell.ScratchFromTeamButton setEnabled:NO];
-    [cell.AddToTeamButton setEnabled:YES];
-}
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
-
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [PickerData count];
-}
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return [self.PickerData objectAtIndex:row];
-}
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    int select = row;
-    SQLite *database = [[SQLite alloc] initWithPath: DBPATH];
-    NSString *pos;
-    switch (select) {
-        case 0:
-            pos = @"QB";
-            break;
-        case 1:
-            pos = @"RB";
-            break;
-        case 2:
-            pos = @"WR";
-            break;
-        case 3:
-            pos = @"TE";
-            break;
-        case 4:
-            pos = @"Def";
-            break;
-        case 5:
-            pos = @"K";
-            break;
-        default:
-            break;
-    }
-    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\"", pos];
-    playerResults = [database performQuery: filterQuery];
-    myTeamArray = [[NSMutableArray alloc] init];
-    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
-    for(int i=0; i<myTeamResults.count; i++){
-        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
-        [myTeamArray addObject:pid];
-    }
+    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)"];
+    playerResults = [database performQuery: refreshQuery];
     [database closeConnection];
     [_tableView reloadData];
-    [_selectAFilterBtn setTitle:pos forState:UIControlStateNormal];
-    [Picker setHidden:YES];
 }
+- (IBAction)removeFromPlayerList:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSString *scratchFromTeamQuery = [NSString stringWithFormat: @"insert into removed_players (pid) values(\"%@\")", button.accessibilityIdentifier];
+    [database performQuery: scratchFromTeamQuery];
+    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)"];
+    playerResults = [database performQuery: refreshQuery];
+    [database closeConnection];
+    [_tableView reloadData];
+}
+
 - (IBAction)selectFilter:(id)sender {
-    [Picker setHidden:NO];
     if(_qbFilterBtn.hidden == YES){
         [self.view bringSubviewToFront:_qbFilterBtn];
         [self.view bringSubviewToFront:_rbFilterBtn];
@@ -577,14 +511,8 @@
         default:
             break;
     }
-    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\"", pos];
+    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\" and pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players)", pos];
     playerResults = [database performQuery: filterQuery];
-    myTeamArray = [[NSMutableArray alloc] init];
-    NSArray *myTeamResults = [database performQuery: @"SELECT pid FROM team where key = 0"];
-    for(int i=0; i<myTeamResults.count; i++){
-        NSString *pid = (NSString *)[[myTeamResults objectAtIndex: i]objectAtIndex:0];
-        [myTeamArray addObject:pid];
-    }
     [database closeConnection];
     [_tableView reloadData];
     _qbFilterBtn.hidden = YES;

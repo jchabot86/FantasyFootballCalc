@@ -112,7 +112,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="scratchFromTeam:" destination="eG3-h2-bxN" eventType="touchUpInside" id="mxo-lv-COt"/>
+                                                        <action selector="removeFromPlayerList:" destination="eG3-h2-bxN" eventType="touchUpInside" id="t5D-xH-pzZ"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-If-QuU">
