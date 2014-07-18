@@ -751,6 +751,7 @@
                                         <connections>
                                             <outlet property="PlayerLabel" destination="6jg-bY-SRL" id="CPc-ei-PSJ"/>
                                             <outlet property="PosLabel" destination="uVB-Mq-eJh" id="HsU-wJ-fen"/>
+                                            <outlet property="RemoveFromSelectionBtn" destination="4SP-Cr-2Yk" id="suf-X1-7sy"/>
                                             <outlet property="RemoveFromTeamBtn" destination="4SP-Cr-2Yk" id="Etv-iT-aDg"/>
                                             <outlet property="TeamLabel" destination="cmp-Oa-AzN" id="sDA-eG-wwq"/>
                                             <outlet property="byeLabel" destination="PDA-1S-cYf" id="o4p-bV-D0I"/>

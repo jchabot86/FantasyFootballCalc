@@ -145,7 +145,8 @@
             
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
             MyTeamCell *myTeamCell = (MyTeamCell *)cell;
-            [[myTeamCell RemoveFromSelectionBtn] setHidden:false];
+    
+            myTeamCell.RemoveFromSelectionBtn.hidden = false;
         }
     }
     
