@@ -817,7 +817,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Team" image="MyTeam_blue.png" id="CMX-SD-9iP"/>
+                    <tabBarItem key="tabBarItem" title="My Team" image="MyTeam_white.png" id="CMX-SD-9iP"/>
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="O6l-q2-erz">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="nmj-or-ibO">
                             <button key="customView" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c9w-WT-RkS">
@@ -1174,7 +1174,7 @@
     <resources>
         <image name="Dropdown2.png" width="464" height="184"/>
         <image name="Minus.png" width="41" height="40"/>
-        <image name="MyTeam_blue.png" width="54" height="51"/>
+        <image name="MyTeam_white.png" width="30" height="28"/>
         <image name="Scenario_white.png" width="30" height="26"/>
         <image name="Search_white.png" width="29" height="28"/>
         <image name="Settings_white.png" width="30" height="29"/>
