@@ -97,8 +97,23 @@
     
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *lastSyncDate = [database performQuery:@"select date from last_sync_date"];
-
-    if(lastSyncDate.count == 0){
+    BOOL *syncLongTime = NO;
+    if(lastSyncDate.count > 0) {
+        NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
+        [DateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *dateString = [[lastSyncDate objectAtIndex:0] objectAtIndex:0];
+        NSLog(dateString);
+        NSDate *syncDate =[DateFormatter dateFromString:dateString];
+        NSInteger *hoursSinceSync = [self daysBetweenDate:syncDate andDate:[NSDate date]];
+        if(hoursSinceSync > 48){
+            syncLongTime = YES;
+        }
+        
+        NSLog([NSString stringWithFormat:@"Hours since last sync: %d",hoursSinceSync]);
+        
+        
+    }
+    if(lastSyncDate.count == 0 || syncLongTime){
         UIAlertView *updateAlert = [[UIAlertView alloc] initWithTitle: @"Old Data!" message: @"Your stats data is out of date.  Would you like to sync?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
         
         [updateAlert show];
@@ -112,6 +127,14 @@
     [self loadSettingsInMemory];
     NSLog(@"Loaded class w floats.");
     
+}
+
+- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+{
+    NSTimeInterval distanceBetweenDates = [toDateTime timeIntervalSinceDate:fromDateTime];
+    double secondsInAnHour = 3600;
+    NSInteger hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+    return hoursBetweenDates;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -284,6 +307,15 @@
 
         NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news, score) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"],scoreAsString];
         [database performQuery:refreshPlayers];
+    }
+    NSArray *lastSyncDate = [database performQuery:@"select date from last_sync_date"];
+    NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currDateString = [DateFormatter stringFromDate:[NSDate date]];
+    if(lastSyncDate.count == 0) {
+        [database performQuery:[NSString stringWithFormat:@"insert into last_sync_date (date) values (\"%@\")",currDateString]];
+    } else {
+        [database performQuery:[NSString stringWithFormat:@"update last_sync_date set date = \"%@\"",currDateString]];
     }
     [database closeConnection];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
