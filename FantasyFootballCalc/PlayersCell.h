@@ -24,4 +24,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *stat3Label;
 @property (strong, nonatomic) IBOutlet UILabel *projPts;
 @property (strong, nonatomic) IBOutlet UILabel *byeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *templabel;
 @end

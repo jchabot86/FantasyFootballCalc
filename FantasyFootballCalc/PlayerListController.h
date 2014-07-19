@@ -22,12 +22,6 @@
 @property (nonatomic, strong) NSMutableArray *selectedIndexes;
 @property (strong, nonatomic) IBOutlet UIButton *calculateButton;
 
-@property (strong, nonatomic) IBOutlet UIButton *qbFilterBtn;
-@property (strong, nonatomic) IBOutlet UIButton *rbFilterBtn;
-@property (strong, nonatomic) IBOutlet UIButton *wrFilterBtn;
-@property (strong, nonatomic) IBOutlet UIButton *teFilterBtn;
-@property (strong, nonatomic) IBOutlet UIButton *defFilterBtn;
-@property (strong, nonatomic) IBOutlet UIButton *kickerFilterBtn;
 @property (strong, nonatomic) IBOutlet UIButton *selectAFilterBtn;
 @property (strong, nonatomic) IBOutlet UIPickerView *filterPicker;
 @property (strong, nonatomic) NSArray *pickerData;

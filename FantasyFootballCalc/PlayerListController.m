@@ -84,12 +84,6 @@
     // Do any additional setup after loading the view.
     [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:52.0f/255.0f green:111.0f/255.0f blue:200.0f/255.0f alpha:255.0f/255.0f]];
     _calculateButton.enabled = NO;
-    _qbFilterBtn.hidden = YES;
-    _rbFilterBtn.hidden = YES;
-    _wrFilterBtn.hidden = YES;
-    _teFilterBtn.hidden = YES;
-    _kickerFilterBtn.hidden = YES;
-    _defFilterBtn.hidden = YES;
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
     
@@ -156,7 +150,7 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
 
     playerResults = [database performQuery: @"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc"];
-
+    
     [database closeConnection];
     [_tableView reloadData];
 }
@@ -418,6 +412,7 @@
     
     if([_selectedIndexes containsObject:pid]){
         [cell setSelected:YES];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     } else {
         [cell setSelected:NO];
     }
@@ -426,7 +421,8 @@
     } else {
         _calculateButton.enabled = NO;
     }
-
+    
+    cell.templabel.text = [NSString stringWithFormat: @"%@", cell.isSelected ? @"YES" : @"NO"];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {

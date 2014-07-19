@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -74,9 +74,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PsO-mh-UWi">
-                                <rect key="frame" x="0.0" y="134" width="320" height="381"/>
+                                <rect key="frame" x="0.0" y="79" width="320" height="436"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <pickerView key="tableFooterView" hidden="YES" contentMode="center" id="m52-tT-yQl">
+                                    <rect key="frame" x="0.0" y="156" width="320" height="162"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.24313727020000001" green="0.58431375029999999" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="eG3-h2-bxN" id="35y-Ot-NBL"/>
+                                        <outlet property="delegate" destination="eG3-h2-bxN" id="F6H-84-O9Y"/>
+                                    </connections>
+                                </pickerView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayersCell" rowHeight="70" id="ve4-Z2-kCT" customClass="PlayersCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="70"/>
@@ -195,6 +205,12 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMl-Iz-mAX">
+                                                    <rect key="frame" x="91" y="46" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -211,6 +227,7 @@
                                             <outlet property="stat2Label" destination="iFg-WE-CuS" id="bWV-iD-aqa"/>
                                             <outlet property="stat3" destination="UlX-wC-x1d" id="OEW-1O-ogg"/>
                                             <outlet property="stat3Label" destination="cGq-JH-Fpl" id="Hhx-6K-QiV"/>
+                                            <outlet property="templabel" destination="VMl-Iz-mAX" id="f82-RS-ElL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -237,22 +254,6 @@
                                     <segue destination="KOl-bG-nxh" kind="push" id="BLU-WW-t2c"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLS-3X-ZoD">
-                                <rect key="frame" x="8" y="104" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="veo-2x-RbZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="QB">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterResults:" destination="eG3-h2-bxN" eventType="touchUpInside" id="2hS-uA-lnW"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-7T-2ca">
                                 <rect key="frame" x="8" y="68" width="87" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -277,86 +278,6 @@
                                     <action selector="selectFilter:" destination="eG3-h2-bxN" eventType="touchUpInside" id="rrM-xA-CvS"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhm-We-fyM">
-                                <rect key="frame" x="8" y="134" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="0fw-RD-TdI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="RB">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterResults:" destination="eG3-h2-bxN" eventType="touchUpInside" id="Q9h-Zt-5VT"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrp-Kk-GUk">
-                                <rect key="frame" x="20" y="224" width="110" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="fYL-Lh-bsc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="DEF">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterResults:" destination="eG3-h2-bxN" eventType="touchUpInside" id="Jot-Dm-dy3"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKx-c7-p8Q">
-                                <rect key="frame" x="8" y="194" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="E7u-2V-hWj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="TE">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterResults:" destination="eG3-h2-bxN" eventType="touchUpInside" id="Sby-d0-0mb"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eok-AS-dEp">
-                                <rect key="frame" x="20" y="254" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="z5u-Un-Eyd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="K">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterResults:" destination="eG3-h2-bxN" eventType="touchUpInside" id="vWe-k3-xog"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSY-2A-U1b">
-                                <rect key="frame" x="8" y="164" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="sFQ-fa-a2N"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="WR">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterResults:" destination="eG3-h2-bxN" eventType="touchUpInside" id="IoP-UT-bX4"/>
-                                </connections>
-                            </button>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Players &amp; Hit Calculate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtG-9U-KQh">
                                 <rect key="frame" x="8" y="110" width="228" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -364,16 +285,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView hidden="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m52-tT-yQl">
-                                <rect key="frame" x="0.0" y="104" width="320" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.24313727020000001" green="0.58431375029999999" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="eG3-h2-bxN" id="35y-Ot-NBL"/>
-                                    <outlet property="delegate" destination="eG3-h2-bxN" id="F6H-84-O9Y"/>
-                                </connections>
-                            </pickerView>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014 Projection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKv-Au-dIf">
                                 <rect key="frame" x="199" y="110" width="129" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -388,15 +299,9 @@
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="2EY-Gi-HNG"/>
                     <connections>
                         <outlet property="calculateButton" destination="otT-Iu-wQ1" id="SZ8-Tg-lK1"/>
-                        <outlet property="defFilterBtn" destination="Jrp-Kk-GUk" id="zKi-PJ-ex5"/>
                         <outlet property="filterPicker" destination="m52-tT-yQl" id="Yoy-ut-UjJ"/>
-                        <outlet property="kickerFilterBtn" destination="eok-AS-dEp" id="N2L-WV-Mwi"/>
-                        <outlet property="qbFilterBtn" destination="uLS-3X-ZoD" id="Bcu-Jx-GJ0"/>
-                        <outlet property="rbFilterBtn" destination="Zhm-We-fyM" id="W9G-Om-3LR"/>
                         <outlet property="selectAFilterBtn" destination="HD1-7T-2ca" id="uuR-xY-qru"/>
                         <outlet property="tableView" destination="PsO-mh-UWi" id="Iof-kC-j0M"/>
-                        <outlet property="teFilterBtn" destination="RKx-c7-p8Q" id="3gl-Ho-4mk"/>
-                        <outlet property="wrFilterBtn" destination="eSY-2A-U1b" id="hHq-3D-IJx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6f-x0-PZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
