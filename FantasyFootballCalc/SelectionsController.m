@@ -43,7 +43,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    selections = [database performQuery:@"select key, count(key) from team where key != 0 group by key order by key desc"];
+    selections = [database performQuery:@"select key, count(key), sum(score) from team t join player p on t.pid = p.pid where key != 0 group by key order by key desc"];
     [database closeConnection];
     
     [self.tableView reloadData];
@@ -83,12 +83,15 @@
     // Configure the cell...
     NSString *selectionKey = [[[selections objectAtIndex: indexPath.row] objectAtIndex:0] stringValue];
     NSString *numPlayers = [[[selections objectAtIndex: indexPath.row] objectAtIndex:1] stringValue];
+    NSInteger *totalPts = [[[selections objectAtIndex: indexPath.row] objectAtIndex:2] integerValue];
+    
 
-    cell.IDLabel.text = selectionKey;
     cell.TitleLabel.text = [NSString stringWithFormat:@"%@%@",@"Selection ",selectionKey];
+    cell.TotalPtsLabel.text = [NSString stringWithFormat:@"%d%@", totalPts, @" Pts"];
     NSLog(@"%@", numPlayers);
     NSLog(@"%@", selectionKey);
     cell.NumPlayersLabel.text = [NSString stringWithFormat:@"%@%@", numPlayers, @" Players"];
+    cell.RemoveButton.accessibilityIdentifier = selectionKey;
     return cell;
 }
 
@@ -99,6 +102,50 @@
         NSString *selectionKey = [[[selections objectAtIndex: myIndexPath.row] objectAtIndex:0] stringValue];
         selDetailController.SelectionID = selectionKey;
         selDetailController.SelectionTitle = [NSString stringWithFormat:@"%@%@",@"Selection ",selectionKey];
+    }
+}
+- (IBAction)removeSelection:(id)sender {
+    UIButton *button = (UIButton *) sender;
+    NSString *key = button.accessibilityIdentifier;
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSString *deleteSelection = [NSString stringWithFormat:@"delete from team where key = %@", key];
+    [database performQuery: deleteSelection];
+    selections = [database performQuery:@"select key, count(key), sum(score) from team t join player p on t.pid = p.pid where key != 0 group by key order by key desc"];
+    [database closeConnection];
+    [self.tableView reloadData];}
+
+- (IBAction)editButtonClick:(id)sender {
+    NSLog(@"editButtonClick");
+    
+    UIButton *button = (UIButton *) sender;
+    if([button.currentTitle isEqualToString:@"Edit"]){
+        
+        for (NSInteger j = 0; j < [self.tableView numberOfSections]; ++j)
+        {
+            for (NSInteger i = 0; i < [self.tableView numberOfRowsInSection:j]; ++i)
+            {
+                
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                SelectionsCell *selCell = (SelectionsCell *)cell;
+                
+                [selCell.RemoveButton setHidden:NO];
+            }
+        }
+        
+        [button setTitle:@"Done" forState:UIControlStateNormal];
+    } else if([button.currentTitle isEqualToString:@"Done"]){
+        for (NSInteger j = 0; j < [self.tableView numberOfSections]; ++j)
+        {
+            for (NSInteger i = 0; i < [self.tableView numberOfRowsInSection:j]; ++i)
+            {
+                
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                SelectionsCell *selCell = (SelectionsCell *)cell;
+                
+                [selCell.RemoveButton setHidden:YES];
+            }
+        }
+        [button setTitle:@"Edit" forState:UIControlStateNormal];
     }
 }
 

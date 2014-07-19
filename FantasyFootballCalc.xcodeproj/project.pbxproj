@@ -14,6 +14,30 @@
 		10E9661219702983008853C9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E9661119702983008853C9 /* TPKeyboardAvoidingScrollView.m */; };
 		10E96615197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		10ED47081969EB9700927561 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED47071969EB9700927561 /* Config.m */; };
+		F206851E1979FA7F0059C617 /* Dropdown.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685081979FA7F0059C617 /* Dropdown.png */; };
+		F206851F1979FA7F0059C617 /* Dropdown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685091979FA7F0059C617 /* Dropdown@2x.png */; };
+		F20685201979FA7F0059C617 /* Minus.png in Resources */ = {isa = PBXBuildFile; fileRef = F206850A1979FA7F0059C617 /* Minus.png */; };
+		F20685211979FA7F0059C617 /* Minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F206850B1979FA7F0059C617 /* Minus@2x.png */; };
+		F20685221979FA7F0059C617 /* MyTeam_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F206850C1979FA7F0059C617 /* MyTeam_blue.png */; };
+		F20685231979FA7F0059C617 /* MyTeam_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F206850D1979FA7F0059C617 /* MyTeam_blue@2x.png */; };
+		F20685241979FA7F0059C617 /* MyTeam_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F206850E1979FA7F0059C617 /* MyTeam_white.png */; };
+		F20685251979FA7F0059C617 /* MyTeam_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F206850F1979FA7F0059C617 /* MyTeam_white@2x.png */; };
+		F20685261979FA7F0059C617 /* Scenario_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685101979FA7F0059C617 /* Scenario_blue.png */; };
+		F20685271979FA7F0059C617 /* Scenario_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685111979FA7F0059C617 /* Scenario_blue@2x.png */; };
+		F20685281979FA7F0059C617 /* Scenario_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685121979FA7F0059C617 /* Scenario_white.png */; };
+		F20685291979FA7F0059C617 /* Scenario_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685131979FA7F0059C617 /* Scenario_white@2x.png */; };
+		F206852A1979FA7F0059C617 /* Search_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685141979FA7F0059C617 /* Search_white.png */; };
+		F206852B1979FA7F0059C617 /* Search_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685151979FA7F0059C617 /* Search_white@2x.png */; };
+		F206852C1979FA7F0059C617 /* Settings_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685161979FA7F0059C617 /* Settings_blue.png */; };
+		F206852D1979FA7F0059C617 /* Settings_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685171979FA7F0059C617 /* Settings_blue@2x.png */; };
+		F206852E1979FA7F0059C617 /* Settings_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685181979FA7F0059C617 /* Settings_white.png */; };
+		F206852F1979FA7F0059C617 /* Settings_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685191979FA7F0059C617 /* Settings_white@2x.png */; };
+		F20685301979FA7F0059C617 /* Sync_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F206851A1979FA7F0059C617 /* Sync_blue.png */; };
+		F20685311979FA7F0059C617 /* Sync_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F206851B1979FA7F0059C617 /* Sync_blue@2x.png */; };
+		F20685321979FA7F0059C617 /* Sync_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F206851C1979FA7F0059C617 /* Sync_white.png */; };
+		F20685331979FA7F0059C617 /* Sync_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F206851D1979FA7F0059C617 /* Sync_white@2x.png */; };
+		F20685351979FAD20059C617 /* Dropdown2.png in Resources */ = {isa = PBXBuildFile; fileRef = F20685341979FAD20059C617 /* Dropdown2.png */; };
+		F20685381979FDD80059C617 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20685371979FDD80059C617 /* TabBarController.m */; };
 		F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23543221966F8DD004CD0CE /* PlayersCell.m */; };
 		F23543251967167B004CD0CE /* KrunchProjections.json in Resources */ = {isa = PBXBuildFile; fileRef = F23543241967167B004CD0CE /* KrunchProjections.json */; };
 		F245400D196B922900F01CAB /* MyTeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = F245400C196B922900F01CAB /* MyTeamController.m */; };
@@ -69,6 +93,31 @@
 		10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		10ED47061969EB9700927561 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		10ED47071969EB9700927561 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		F20685081979FA7F0059C617 /* Dropdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropdown.png; sourceTree = "<group>"; };
+		F20685091979FA7F0059C617 /* Dropdown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dropdown@2x.png"; sourceTree = "<group>"; };
+		F206850A1979FA7F0059C617 /* Minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Minus.png; sourceTree = "<group>"; };
+		F206850B1979FA7F0059C617 /* Minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Minus@2x.png"; sourceTree = "<group>"; };
+		F206850C1979FA7F0059C617 /* MyTeam_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyTeam_blue.png; sourceTree = "<group>"; };
+		F206850D1979FA7F0059C617 /* MyTeam_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyTeam_blue@2x.png"; sourceTree = "<group>"; };
+		F206850E1979FA7F0059C617 /* MyTeam_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyTeam_white.png; sourceTree = "<group>"; };
+		F206850F1979FA7F0059C617 /* MyTeam_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyTeam_white@2x.png"; sourceTree = "<group>"; };
+		F20685101979FA7F0059C617 /* Scenario_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scenario_blue.png; sourceTree = "<group>"; };
+		F20685111979FA7F0059C617 /* Scenario_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scenario_blue@2x.png"; sourceTree = "<group>"; };
+		F20685121979FA7F0059C617 /* Scenario_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scenario_white.png; sourceTree = "<group>"; };
+		F20685131979FA7F0059C617 /* Scenario_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scenario_white@2x.png"; sourceTree = "<group>"; };
+		F20685141979FA7F0059C617 /* Search_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search_white.png; sourceTree = "<group>"; };
+		F20685151979FA7F0059C617 /* Search_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search_white@2x.png"; sourceTree = "<group>"; };
+		F20685161979FA7F0059C617 /* Settings_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings_blue.png; sourceTree = "<group>"; };
+		F20685171979FA7F0059C617 /* Settings_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings_blue@2x.png"; sourceTree = "<group>"; };
+		F20685181979FA7F0059C617 /* Settings_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings_white.png; sourceTree = "<group>"; };
+		F20685191979FA7F0059C617 /* Settings_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings_white@2x.png"; sourceTree = "<group>"; };
+		F206851A1979FA7F0059C617 /* Sync_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sync_blue.png; sourceTree = "<group>"; };
+		F206851B1979FA7F0059C617 /* Sync_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sync_blue@2x.png"; sourceTree = "<group>"; };
+		F206851C1979FA7F0059C617 /* Sync_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sync_white.png; sourceTree = "<group>"; };
+		F206851D1979FA7F0059C617 /* Sync_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sync_white@2x.png"; sourceTree = "<group>"; };
+		F20685341979FAD20059C617 /* Dropdown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropdown2.png; sourceTree = "<group>"; };
+		F20685361979FDD80059C617 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		F20685371979FDD80059C617 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		F22F104319755F6A00F119EB /* FantasyFootballCalc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FantasyFootballCalc.sqlite; sourceTree = "<group>"; };
 		F23543211966F8DD004CD0CE /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
 		F23543221966F8DD004CD0CE /* PlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersCell.m; sourceTree = "<group>"; };
@@ -196,7 +245,6 @@
 		F2CEFF8C19571B0F00C937F1 /* FantasyFootballCalc */ = {
 			isa = PBXGroup;
 			children = (
-				F27B59E719798D7000001540 /* Main_iPhone.storyboard */,
 				10E96613197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
 				10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				10E9661019702983008853C9 /* TPKeyboardAvoidingScrollView.h */,
@@ -204,6 +252,7 @@
 				108731941968BBFE005477C8 /* Utilities */,
 				F2CEFF9519571B0F00C937F1 /* AppDelegate.h */,
 				F2CEFF9619571B0F00C937F1 /* AppDelegate.m */,
+				F27B59E719798D7000001540 /* Main_iPhone.storyboard */,
 				F2CEFF9B19571B0F00C937F1 /* Main_iPad.storyboard */,
 				F2CEFFA419571B0F00C937F1 /* Images.xcassets */,
 				F2CEFF8D19571B0F00C937F1 /* Supporting Files */,
@@ -225,6 +274,8 @@
 				F245400C196B922900F01CAB /* MyTeamController.m */,
 				F245400E196B928200F01CAB /* MyTeamCell.h */,
 				F245400F196B928200F01CAB /* MyTeamCell.m */,
+				F20685361979FDD80059C617 /* TabBarController.h */,
+				F20685371979FDD80059C617 /* TabBarController.m */,
 			);
 			path = FantasyFootballCalc;
 			sourceTree = "<group>";
@@ -234,7 +285,30 @@
 			children = (
 				10A1EEBE19708CF2007359C9 /* br_down.png */,
 				F2B778D5196DBD0500B36292 /* myTeam_icon.png */,
+				F20685341979FAD20059C617 /* Dropdown2.png */,
 				F2B778D6196DBD0500B36292 /* search_icon.png */,
+				F20685081979FA7F0059C617 /* Dropdown.png */,
+				F20685091979FA7F0059C617 /* Dropdown@2x.png */,
+				F206850A1979FA7F0059C617 /* Minus.png */,
+				F206850B1979FA7F0059C617 /* Minus@2x.png */,
+				F206850C1979FA7F0059C617 /* MyTeam_blue.png */,
+				F206850D1979FA7F0059C617 /* MyTeam_blue@2x.png */,
+				F206850E1979FA7F0059C617 /* MyTeam_white.png */,
+				F206850F1979FA7F0059C617 /* MyTeam_white@2x.png */,
+				F20685101979FA7F0059C617 /* Scenario_blue.png */,
+				F20685111979FA7F0059C617 /* Scenario_blue@2x.png */,
+				F20685121979FA7F0059C617 /* Scenario_white.png */,
+				F20685131979FA7F0059C617 /* Scenario_white@2x.png */,
+				F20685141979FA7F0059C617 /* Search_white.png */,
+				F20685151979FA7F0059C617 /* Search_white@2x.png */,
+				F20685161979FA7F0059C617 /* Settings_blue.png */,
+				F20685171979FA7F0059C617 /* Settings_blue@2x.png */,
+				F20685181979FA7F0059C617 /* Settings_white.png */,
+				F20685191979FA7F0059C617 /* Settings_white@2x.png */,
+				F206851A1979FA7F0059C617 /* Sync_blue.png */,
+				F206851B1979FA7F0059C617 /* Sync_blue@2x.png */,
+				F206851C1979FA7F0059C617 /* Sync_white.png */,
+				F206851D1979FA7F0059C617 /* Sync_white@2x.png */,
 				F2B778DF196DCCE500B36292 /* empty_checkbox.png */,
 				F2B778D7196DBD0500B36292 /* selection_icon.png */,
 				F2B778DD196DCA8F00B36292 /* smiley_small.png */,
@@ -342,17 +416,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F206852A1979FA7F0059C617 /* Search_white.png in Resources */,
+				F20685201979FA7F0059C617 /* Minus.png in Resources */,
+				F20685251979FA7F0059C617 /* MyTeam_white@2x.png in Resources */,
+				F20685241979FA7F0059C617 /* MyTeam_white.png in Resources */,
 				F2B778DA196DBD0500B36292 /* search_icon.png in Resources */,
+				F20685271979FA7F0059C617 /* Scenario_blue@2x.png in Resources */,
+				F20685221979FA7F0059C617 /* MyTeam_blue.png in Resources */,
+				F206852F1979FA7F0059C617 /* Settings_white@2x.png in Resources */,
+				F20685291979FA7F0059C617 /* Scenario_white@2x.png in Resources */,
+				F20685231979FA7F0059C617 /* MyTeam_blue@2x.png in Resources */,
+				F20685321979FA7F0059C617 /* Sync_white.png in Resources */,
+				F20685331979FA7F0059C617 /* Sync_white@2x.png in Resources */,
+				F206852C1979FA7F0059C617 /* Settings_blue.png in Resources */,
 				F2B778DC196DBD0500B36292 /* settings_icon.png in Resources */,
 				F2B778E0196DCCE500B36292 /* empty_checkbox.png in Resources */,
 				10A1EEBF19708CF2007359C9 /* br_down.png in Resources */,
+				F206852B1979FA7F0059C617 /* Search_white@2x.png in Resources */,
+				F20685211979FA7F0059C617 /* Minus@2x.png in Resources */,
+				F206852E1979FA7F0059C617 /* Settings_white.png in Resources */,
+				F20685311979FA7F0059C617 /* Sync_blue@2x.png in Resources */,
 				F23543251967167B004CD0CE /* KrunchProjections.json in Resources */,
 				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
+				F206852D1979FA7F0059C617 /* Settings_blue@2x.png in Resources */,
 				F2B778DB196DBD0500B36292 /* selection_icon.png in Resources */,
+				F20685261979FA7F0059C617 /* Scenario_blue.png in Resources */,
 				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
+				F20685351979FAD20059C617 /* Dropdown2.png in Resources */,
 				F27B59E919798D7000001540 /* Main_iPhone.storyboard in Resources */,
+				F206851F1979FA7F0059C617 /* Dropdown@2x.png in Resources */,
+				F20685281979FA7F0059C617 /* Scenario_white.png in Resources */,
+				F206851E1979FA7F0059C617 /* Dropdown.png in Resources */,
 				F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */,
 				F2B778D9196DBD0500B36292 /* myTeam_icon.png in Resources */,
+				F20685301979FA7F0059C617 /* Sync_blue.png in Resources */,
 				F2B778DE196DCA8F00B36292 /* smiley_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +483,7 @@
 				F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */,
 				10ED47081969EB9700927561 /* Config.m in Sources */,
 				10E96615197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				F20685381979FDD80059C617 /* TabBarController.m in Sources */,
 				F2CEFFC619571DF200C937F1 /* SelectionsController.m in Sources */,
 				F2CEFF9319571B0F00C937F1 /* main.m in Sources */,
 			);

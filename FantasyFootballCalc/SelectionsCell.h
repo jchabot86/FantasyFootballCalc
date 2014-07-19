@@ -10,9 +10,10 @@
 
 @interface SelectionsCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *IDLabel;
 @property (strong, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *NumPlayersLabel;
+@property (strong, nonatomic) IBOutlet UILabel *TotalPtsLabel;
 
+@property (strong, nonatomic) IBOutlet UIButton *RemoveButton;
 
 @end

@@ -137,31 +137,36 @@
 - (IBAction)editButtonClick:(id)sender {
     NSLog(@"editButtonClick");
     
-   
-    for (NSInteger j = 0; j < [tableView numberOfSections]; ++j)
-    {
-        for (NSInteger i = 0; i < [tableView numberOfRowsInSection:j]; ++i)
+    UIButton *button = (UIButton *) sender;
+    if([button.currentTitle isEqualToString:@"Edit"]){
+        
+        for (NSInteger j = 0; j < [tableView numberOfSections]; ++j)
         {
+            for (NSInteger i = 0; i < [tableView numberOfRowsInSection:j]; ++i)
+            {
             
-            UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
-            MyTeamCell *myTeamCell = (MyTeamCell *)cell;
+                UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                MyTeamCell *myTeamCell = (MyTeamCell *)cell;
     
-            myTeamCell.RemoveFromSelectionBtn.hidden = false;
+                [myTeamCell.RemoveFromTeamBtn setHidden:NO];
+            }
         }
+    
+        [button setTitle:@"Done" forState:UIControlStateNormal];
+    } else if([button.currentTitle isEqualToString:@"Done"]){
+        for (NSInteger j = 0; j < [tableView numberOfSections]; ++j)
+        {
+            for (NSInteger i = 0; i < [tableView numberOfRowsInSection:j]; ++i)
+            {
+                
+                UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                MyTeamCell *myTeamCell = (MyTeamCell *)cell;
+                
+                [myTeamCell.RemoveFromTeamBtn setHidden:YES];
+            }
+        }
+        [button setTitle:@"Edit" forState:UIControlStateNormal];
     }
-    
-   /* for (UITableViewCell *cell in self.tableView.visibleCells) {
-        NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-        MyTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyTeamCell" forIndexPath:cellIndexPath];
-        //[tableView cellForRowAtIndexPath:cellIndexPath]
-        UIButton *removeButton = [cell RemoveFromSelectionBtn];
-        removeButton.hidden = true;
-        
-        
-    }*/
-
-    
-    
 }
 
 - (IBAction)removePlayerFromTeam:(id)sender {

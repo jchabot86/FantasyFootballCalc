@@ -144,6 +144,42 @@
     [database closeConnection];
     [self.tableView reloadData];
 }
+
+- (IBAction)editButtonClick:(id)sender {
+    NSLog(@"editButtonClick");
+    
+    UIButton *button = (UIButton *) sender;
+    if([button.currentTitle isEqualToString:@"Edit"]){
+        
+        for (NSInteger j = 0; j < [self.tableView numberOfSections]; ++j)
+        {
+            for (NSInteger i = 0; i < [self.tableView numberOfRowsInSection:j]; ++i)
+            {
+                
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                SelectionDetailCell *selCell = (SelectionDetailCell *)cell;
+                
+                [selCell.RemoveFromSelectionBtn setHidden:NO];
+            }
+        }
+        
+        [button setTitle:@"Done" forState:UIControlStateNormal];
+    } else if([button.currentTitle isEqualToString:@"Done"]){
+        for (NSInteger j = 0; j < [self.tableView numberOfSections]; ++j)
+        {
+            for (NSInteger i = 0; i < [self.tableView numberOfRowsInSection:j]; ++i)
+            {
+                
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                SelectionDetailCell *selCell = (SelectionDetailCell *)cell;
+                
+                [selCell.RemoveFromSelectionBtn setHidden:YES];
+            }
+        }
+        [button setTitle:@"Edit" forState:UIControlStateNormal];
+    }
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

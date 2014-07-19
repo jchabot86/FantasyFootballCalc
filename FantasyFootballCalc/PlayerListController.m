@@ -41,6 +41,9 @@
 
 @implementation PlayerListController
 
+@synthesize pickerData = _pickerData;
+@synthesize filterPicker;
+
 - (void) loadSettingsInMemory{
     Settings* properties = [Settings new];
     PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
@@ -79,7 +82,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:52.0f/255.0f green:111.0f/255.0f blue:200.0f/255.0f alpha:255.0f/255.0f]];
     _calculateButton.enabled = NO;
     _qbFilterBtn.hidden = YES;
     _rbFilterBtn.hidden = YES;
@@ -90,12 +93,12 @@
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
     
+    _pickerData = [[NSArray alloc] initWithObjects:@"Any", @"QB",@"WR",@"RB",@"TE",@"DST",@"K", nil];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     //build connection - will need to replace URL String
-   // NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
-   NSURL *url = [[NSBundle mainBundle] URLForResource:@"KrunchProjections" withExtension:@"json"];
+    NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -141,7 +144,7 @@
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
     _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     [database performQuery:@"delete from player"];
@@ -273,7 +276,7 @@
         [database performQuery:refreshPlayers];
     }
     [database closeConnection];
-
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 
@@ -300,7 +303,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [_activityIndicator stopAnimating];
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
     NSLog(@"The row: %d",indexPath.row);
     if(indexPath.row % 2 == 0){
@@ -358,7 +360,7 @@
             cell.stat3.text = [NSString stringWithFormat:@"%d", [[[playerResults objectAtIndex: indexPath.row] objectAtIndex:18] integerValue]];
     }
     else
-        if([pos caseInsensitiveCompare:@"Def"] == NSOrderedSame){
+        if([pos caseInsensitiveCompare:@"DST"] == NSOrderedSame){
             cell.stat1Label.text = @"Def TDs:";
             cell.stat2Label.text = @"Def Sacks:";
             cell.stat3Label.text = @"Def Int:";
@@ -408,6 +410,62 @@
     }
     
 }
+
+#pragma mark - UIPickerView Methods
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return _pickerData.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [_pickerData objectAtIndex:row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH];
+    NSString *pos;
+    switch (row) {
+        case 0:
+            pos = @"Any";
+            break;
+        case 1:
+            pos = @"QB";
+            break;
+        case 2:
+            pos = @"WR";
+            break;
+        case 3:
+            pos = @"RB";
+            break;
+        case 4:
+            pos = @"TE";
+            break;
+        case 5:
+            pos = @"DST";
+            break;
+        case 6:
+            pos = @"K";
+            break;
+        default:
+            break;
+    }
+    NSString *filterQuery;
+    if([pos isEqualToString:@"Any"]){
+        filterQuery = @"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc";
+    } else {
+        filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\" and pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc", pos];
+    }
+    playerResults = [database performQuery: filterQuery];
+    [database closeConnection];
+    [_tableView reloadData];
+    [pickerView setHidden:YES];
+    [_selectAFilterBtn setTitle:pos forState:UIControlStateNormal];
+}
+
 - (IBAction)calculateSelections:(id)sender {
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *result = [database performQuery:@"select max(key) from team"];
@@ -450,69 +508,13 @@
 }
 
 - (IBAction)selectFilter:(id)sender {
-    if(_qbFilterBtn.hidden == YES){
-        [self.view bringSubviewToFront:_qbFilterBtn];
-        [self.view bringSubviewToFront:_rbFilterBtn];
-        [self.view bringSubviewToFront:_wrFilterBtn];
-        [self.view bringSubviewToFront:_teFilterBtn];
-        [self.view bringSubviewToFront:_kickerFilterBtn];
-        [self.view bringSubviewToFront:_defFilterBtn];
-        _qbFilterBtn.hidden = NO;
-        _rbFilterBtn.hidden = NO;
-        _wrFilterBtn.hidden = NO;
-        _teFilterBtn.hidden = NO;
-        _kickerFilterBtn.hidden = NO;
-        _defFilterBtn.hidden = NO;
+    if([filterPicker isHidden]){
+        [filterPicker setHidden:NO];
     } else {
-        _qbFilterBtn.hidden = YES;
-        _rbFilterBtn.hidden = YES;
-        _wrFilterBtn.hidden = YES;
-        _teFilterBtn.hidden = YES;
-        _kickerFilterBtn.hidden = YES;
-        _defFilterBtn.hidden = YES;
-    
+        [filterPicker setHidden:YES];
     }
-    
 }
 
-- (IBAction)filterResults:(id)sender {
-    UIButton *filterBtn = (UIButton *) sender;
-    SQLite *database = [[SQLite alloc] initWithPath: DBPATH];
-    NSString *pos;
-    switch ([filterBtn tag]) {
-        case 0:
-            pos = @"QB";
-            break;
-        case 1:
-            pos = @"RB";
-            break;
-        case 2:
-            pos = @"WR";
-            break;
-        case 3:
-            pos = @"TE";
-            break;
-        case 4:
-            pos = @"Def";
-            break;
-        case 5:
-            pos = @"K";
-            break;
-        default:
-            break;
-    }
-    NSString *filterQuery = [NSString stringWithFormat:@"SELECT * FROM player where pos =\"%@\" and pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc", pos];
-    playerResults = [database performQuery: filterQuery];
-    [database closeConnection];
-    [_tableView reloadData];
-    _qbFilterBtn.hidden = YES;
-    _rbFilterBtn.hidden = YES;
-    _wrFilterBtn.hidden = YES;
-    _teFilterBtn.hidden = YES;
-    _kickerFilterBtn.hidden = YES;
-    _defFilterBtn.hidden = YES;
-    [_selectAFilterBtn setTitle:pos forState:UIControlStateNormal];
-}
 /*
 #pragma mark - Navigation
 

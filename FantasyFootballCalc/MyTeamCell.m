@@ -9,7 +9,6 @@
 #import "MyTeamCell.h"
 
 @implementation MyTeamCell
-@synthesize RemoveFromSelectionBtn;
 @synthesize pid;
 @synthesize PlayerLabel;
 @synthesize TeamLabel;

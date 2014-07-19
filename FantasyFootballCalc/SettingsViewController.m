@@ -134,10 +134,9 @@
 }
 
 - (IBAction)cutAllPlayers:(id)sender {
-    database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    [database performQuery:@"delete from team where key = 0"];
-    [database closeConnection];
-    //need to refresh players list
+    UIAlertView *updateAlert = [[UIAlertView alloc] initWithTitle: @"Reset My Team" message: @"Do you want to remove all the players from My Team?" delegate: self cancelButtonTitle: @"YES"  otherButtonTitles:@"NO",nil];
+    
+    [updateAlert show];
 }
 
 - (IBAction)resetScoring:(id)sender {
@@ -150,15 +149,36 @@
 }
 
 
+- (IBAction)resetPlayerList:(id)sender {
+    UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"Reset Players" message:@"Do you want to reset your player list?  This will bring back players you have removed from the Player List." delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    [resetAlert show];
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if([alertView.title isEqualToString:@"Reset Scoring"]){
     if(buttonIndex==0)
     {
         Settings* properties = [Settings new];
         [properties resetTable];
         [self loadSettings];
     }
+    } else if ([alertView.title isEqualToString:@"Reset Players"]){
+        if(buttonIndex == 0){
+        database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+        [database performQuery:@"delete from removed_players"];
+        [database closeConnection];
+        }
+
+    } else if ([alertView.title isEqualToString:@"Reset My Team"]){
+        if(buttonIndex == 0){
+            database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+            [database performQuery:@"delete from team where key = 0"];
+            [database closeConnection];
+
+        }
+    }
+    
     
 }
 

@@ -10,7 +10,7 @@
 
 @interface MyTeamCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIButton *RemoveFromSelectionBtn;
+
 @property (strong, nonatomic) NSString *pid;
 @property (strong, nonatomic) IBOutlet UILabel *PlayerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *TeamLabel;

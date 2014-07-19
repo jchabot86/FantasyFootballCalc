@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerListController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate>
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@interface PlayerListController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *PID;
@@ -30,5 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *defFilterBtn;
 @property (strong, nonatomic) IBOutlet UIButton *kickerFilterBtn;
 @property (strong, nonatomic) IBOutlet UIButton *selectAFilterBtn;
+@property (strong, nonatomic) IBOutlet UIPickerView *filterPicker;
+@property (strong, nonatomic) NSArray *pickerData;
 
 @end
