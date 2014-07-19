@@ -422,7 +422,6 @@
         _calculateButton.enabled = NO;
     }
     
-    cell.templabel.text = [NSString stringWithFormat: @"%@", cell.isSelected ? @"YES" : @"NO"];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {

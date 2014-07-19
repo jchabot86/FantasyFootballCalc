@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PsO-mh-UWi">
-                                <rect key="frame" x="0.0" y="79" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="104" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <pickerView key="tableFooterView" hidden="YES" contentMode="center" id="m52-tT-yQl">
@@ -205,12 +205,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMl-Iz-mAX">
-                                                    <rect key="frame" x="91" y="46" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -227,7 +221,6 @@
                                             <outlet property="stat2Label" destination="iFg-WE-CuS" id="bWV-iD-aqa"/>
                                             <outlet property="stat3" destination="UlX-wC-x1d" id="OEW-1O-ogg"/>
                                             <outlet property="stat3Label" destination="cGq-JH-Fpl" id="Hhx-6K-QiV"/>
-                                            <outlet property="templabel" destination="VMl-Iz-mAX" id="f82-RS-ElL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
