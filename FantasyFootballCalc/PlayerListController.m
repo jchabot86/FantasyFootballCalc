@@ -471,7 +471,7 @@
     label.backgroundColor = [UIColor whiteColor];
     label.textColor = [UIColor blackColor];
     label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
-    label.text = [NSString stringWithFormat:@"  %d", row+1];
+    label.text = [NSString stringWithFormat:@"  %@", [_pickerData objectAtIndex:row]];
     return label;
 }
 
