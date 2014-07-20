@@ -10,4 +10,5 @@
 
 @interface MyTeamController : UIViewController
 @property IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UILabel *noPlayersText;
 @end

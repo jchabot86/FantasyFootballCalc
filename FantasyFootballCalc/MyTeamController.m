@@ -43,6 +43,11 @@
     NSString *myTeamQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = 0"];
     myTeamPlayers = [database performQuery: myTeamQuery];
     [database closeConnection];
+    /*if (myTeamPlayers.count == 0){
+        [_noPlayersText setHidden:NO];
+    } else {
+        [_noPlayersText setHidden:YES];
+    }*/
     [self.tableView reloadData];
 }
 

@@ -45,7 +45,6 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     selections = [database performQuery:@"select key, count(key), sum(score) from team t join player p on t.pid = p.pid where key != 0 group by key order by key desc"];
     [database closeConnection];
-    
     [self.tableView reloadData];
 }
 

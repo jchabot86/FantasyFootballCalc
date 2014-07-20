@@ -590,7 +590,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="plJ-yd-L3Z">
-                                <rect key="frame" x="1" y="0.0" width="319" height="365"/>
+                                <rect key="frame" x="1" y="38" width="319" height="422"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -719,6 +719,12 @@
                                     <outlet property="delegate" destination="AQn-iA-vbz" id="PWQ-oe-K4G"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If you draft players, they will be shown here!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byO-ed-Id8">
+                                <rect key="frame" x="9" y="66" width="311" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -739,6 +745,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noPlayersText" destination="byO-ed-Id8" id="Ggr-AK-QoK"/>
                         <outlet property="tableView" destination="plJ-yd-L3Z" id="aeJ-YA-fSd"/>
                     </connections>
                 </viewController>
