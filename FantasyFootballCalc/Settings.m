@@ -161,7 +161,7 @@
         float defsack = [[player objectAtIndex:21] floatValue];
         float defsafety = [[player objectAtIndex:22] floatValue];
         
-        
+        float score = (PassingTdWeight * passtd) + 0;
         
         
         
