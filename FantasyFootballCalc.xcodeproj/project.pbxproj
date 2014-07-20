@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10759EAF197B4A09004D294C /* Search_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 10759EAD197B4A09004D294C /* Search_blue.png */; };
+		10759EB0197B4A09004D294C /* Search_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10759EAE197B4A09004D294C /* Search_blue@2x.png */; };
 		1076F098196855B3002B7F2A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1076F097196855B3002B7F2A /* libsqlite3.dylib */; };
 		1076F09B196859AC002B7F2A /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1076F09A196859AC002B7F2A /* SQLite.m */; };
 		108731931968BBF5005477C8 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 108731921968BBF5005477C8 /* Settings.m */; };
@@ -80,6 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10759EAD197B4A09004D294C /* Search_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search_blue.png; sourceTree = "<group>"; };
+		10759EAE197B4A09004D294C /* Search_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search_blue@2x.png"; sourceTree = "<group>"; };
 		1076F097196855B3002B7F2A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1076F099196859AC002B7F2A /* SQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
 		1076F09A196859AC002B7F2A /* SQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLite.m; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 		F2CEFF8D19571B0F00C937F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				10759EAD197B4A09004D294C /* Search_blue.png */,
+				10759EAE197B4A09004D294C /* Search_blue@2x.png */,
 				10A1EEBE19708CF2007359C9 /* br_down.png */,
 				F2B778D5196DBD0500B36292 /* myTeam_icon.png */,
 				F20685341979FAD20059C617 /* Dropdown2.png */,
@@ -422,10 +428,12 @@
 				F20685291979FA7F0059C617 /* Scenario_white@2x.png in Resources */,
 				F20685231979FA7F0059C617 /* MyTeam_blue@2x.png in Resources */,
 				F20685321979FA7F0059C617 /* Sync_white.png in Resources */,
+				10759EB0197B4A09004D294C /* Search_blue@2x.png in Resources */,
 				F20685331979FA7F0059C617 /* Sync_white@2x.png in Resources */,
 				F206852C1979FA7F0059C617 /* Settings_blue.png in Resources */,
 				F2B778DC196DBD0500B36292 /* settings_icon.png in Resources */,
 				F2B778E0196DCCE500B36292 /* empty_checkbox.png in Resources */,
+				10759EAF197B4A09004D294C /* Search_blue.png in Resources */,
 				10A1EEBF19708CF2007359C9 /* br_down.png in Resources */,
 				F206852B1979FA7F0059C617 /* Search_white@2x.png in Resources */,
 				F20685211979FA7F0059C617 /* Minus@2x.png in Resources */,
