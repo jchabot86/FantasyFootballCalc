@@ -154,12 +154,10 @@
  **/
 -(void)viewDidAppear:(BOOL)animated
 {
-    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-
-    playerResults = [database performQuery: @"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc"];
-    
-    [database closeConnection];
-    [_tableView reloadData];
+    //make sure it queries for the selected filter again
+    NSInteger *selectedFilter;
+    selectedFilter = [filterPicker selectedRowInComponent:0];
+    [filterPicker selectRow:selectedFilter inComponent:0 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
