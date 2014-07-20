@@ -7,7 +7,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController id="8YX-ce-x5E" customClass="TabBarController" sceneMemberID="viewController">
+                <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -288,7 +288,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Players List" image="Search_white.png" id="h1I-AB-i4d"/>
+                    <tabBarItem key="tabBarItem" title="Players List" id="h1I-AB-i4d"/>
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="2EY-Gi-HNG"/>
                     <connections>
                         <outlet property="calculateButton" destination="otT-Iu-wQ1" id="SZ8-Tg-lK1"/>
@@ -364,7 +364,7 @@
                             <outlet property="delegate" destination="KOl-bG-nxh" id="jmo-L9-8WY"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Scenarios" image="Scenario_white.png" id="2Kp-Sp-7ed"/>
+                    <tabBarItem key="tabBarItem" title="Scenarios" id="2Kp-Sp-7ed"/>
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="Emh-gA-juA">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="NfH-V4-TeK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K1Q-31-FeN">
@@ -728,7 +728,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Team" image="MyTeam_white.png" id="CMX-SD-9iP"/>
+                    <tabBarItem key="tabBarItem" title="My Team" id="CMX-SD-9iP"/>
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="O6l-q2-erz">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="nmj-or-ibO">
                             <button key="customView" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c9w-WT-RkS">
@@ -1055,7 +1055,7 @@
                             <constraint firstItem="bQ6-4f-DH9" firstAttribute="leading" secondItem="GmW-eh-ST9" secondAttribute="leading" id="yfF-qQ-QZq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="Settings_white.png" id="gOS-Hj-Zgc"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="gOS-Hj-Zgc"/>
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="3FC-hX-hcV"/>
                     <connections>
                         <outlet property="DefenseInterception" destination="SS3-ZT-GkX" id="CG8-9N-G5M"/>
@@ -1086,10 +1086,6 @@
     <resources>
         <image name="Dropdown2.png" width="464" height="184"/>
         <image name="Minus.png" width="41" height="40"/>
-        <image name="MyTeam_white.png" width="30" height="28"/>
-        <image name="Scenario_white.png" width="30" height="26"/>
-        <image name="Search_white.png" width="29" height="28"/>
-        <image name="Settings_white.png" width="30" height="29"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -17,6 +17,22 @@
     NSLog(@"App loaded.");
     [self createEditableCopyOfDatabaseIfNeeded];
     NSLog(@"Database ready.");
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    [tabBarItem1 setImage:[[UIImage imageNamed:@"Search_blue.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem1 setSelectedImage:[UIImage imageNamed:@"Search_white.png"] ];
+    [tabBarItem2 setImage:[[UIImage imageNamed:@"Scenario_blue.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem2 setSelectedImage:[UIImage imageNamed:@"Scenario_white.png"] ];
+    [tabBarItem3 setImage:[[UIImage imageNamed:@"MyTeam_blue.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem3 setSelectedImage:[UIImage imageNamed:@"MyTeam_white.png"] ];
+    [tabBarItem4 setImage:[[UIImage imageNamed:@"Settings_blue.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem4 setSelectedImage:[UIImage imageNamed:@"Settings_white.png"] ];
+    
     return YES;
 }
 
