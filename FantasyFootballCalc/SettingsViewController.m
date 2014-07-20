@@ -238,6 +238,8 @@ float DefenseSafetyWeight;
     [properties setProperty:DEFENSE_INTERCEPTION:DefenseInterception.text];
     [properties setProperty:DEFENSE_SACK:DefenseSack.text];
     [properties setProperty:DEFENSE_SAFETY:DefenseSafety.text];
+    
+    [properties refreshScores];
 /*
         float calcPassingYards = 0;
         float calcPassingTd = 0;

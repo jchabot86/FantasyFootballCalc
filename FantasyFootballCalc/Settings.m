@@ -109,7 +109,73 @@
             return false;
         }
         
-
     }
+
+- (void) refreshScores{
+    NSString *sql = @"SELECT * FROM player";
+    
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSArray *results = [database performQuery: sql];
+    
+    NSString *sqlUpdatePlayer = @"UPDATE player SET score = %@ WHERE pid = '%@';";
+    Settings* properties = [Settings new];
+    float PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
+    float PassingYardsWeight = [[properties getProperty:PASSING_YARDS] floatValue];
+    float PassingCompletionWeight = [[properties getProperty:PASSING_COMPLETION] floatValue];
+    float PassingAttemptsWeight = [[properties getProperty:PASSING_ATTEMPTS] floatValue];
+    float PassingIntWeight = [[properties getProperty:PASSING_INT] floatValue];
+    float RushingYardsWeight = [[properties getProperty:RUSHING_YARDS] floatValue];
+    float RushingTdWeight = [[properties getProperty:RUSHING_TD] floatValue];
+    float RushingAttemptsWeight = [[properties getProperty:RUSHING_ATTEMPS] floatValue];
+    float ReceivingYardsWeight = [[properties getProperty:RECEIVING_YARDS] floatValue];
+    float ReceivingReceptionsWeight = [[properties getProperty:RECEIVING_RECEPTIONS] floatValue];
+    float ReceivingTdWeight = [[properties getProperty:RECEIVING_TD] floatValue];
+    float KickingXpWeight = [[properties getProperty:KICKING_XP] floatValue];
+    float KickingFgWeight = [[properties getProperty:KICKING_FG] floatValue];
+    float KickingFg50Weight = [[properties getProperty:KICKING_FG50] floatValue];
+    float DefenseTdWeight = [[properties getProperty:DEFENSE_TD] floatValue];
+    float DefenseInterceptionWeight = [[properties getProperty:DEFENSE_INTERCEPTION] floatValue];
+    float DefenseSackWeight = [[properties getProperty:DEFENSE_SACK] floatValue];
+    float DefenseSafetyWeight = [[properties getProperty:DEFENSE_SAFETY] floatValue];
+
+    for (NSArray *player in results) {
+        NSString *pid = [player objectAtIndex:0];
+        NSString *name = [player objectAtIndex:1];
+        float adp = [[player objectAtIndex:4] floatValue];
+        float passcomp = [[player objectAtIndex:5] floatValue];
+        float passatt = [[player objectAtIndex:6] floatValue];
+        float passyds = [[player objectAtIndex:7] floatValue];
+        float passtd = [[player objectAtIndex:8] floatValue];
+        float interceptions = [[player objectAtIndex:9] floatValue];
+        float rushatt = [[player objectAtIndex:10] floatValue];
+        float rushyds = [[player objectAtIndex:11] floatValue];
+        float rushtd = [[player objectAtIndex:12] floatValue];
+        float recyds = [[player objectAtIndex:13] floatValue];
+        float rectd = [[player objectAtIndex:14] floatValue];
+        float xp = [[player objectAtIndex:15] floatValue];
+        float fg = [[player objectAtIndex:16] floatValue];
+        float fg50 = [[player objectAtIndex:17] floatValue];
+        float deftd = [[player objectAtIndex:18] floatValue];
+        float deffum = [[player objectAtIndex:19] floatValue];
+        float defint = [[player objectAtIndex:20] floatValue];
+        float defsack = [[player objectAtIndex:21] floatValue];
+        float defsafety = [[player objectAtIndex:22] floatValue];
+        
+        float score = (PassingTdWeight * passtd) + 0;
+        
+        
+        
+        NSString *scoreAsString = @"0";
+        
+        
+        sqlUpdatePlayer = [NSString stringWithFormat:sqlUpdatePlayer,scoreAsString,pid];
+        [database performQuery: sqlUpdatePlayer];
+        
+        NSLog(@"%@",sqlUpdatePlayer);
+       
+    }
+    
+    [database closeConnection];
+}
 
 @end

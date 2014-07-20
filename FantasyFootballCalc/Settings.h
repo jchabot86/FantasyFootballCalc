@@ -32,5 +32,6 @@
  - (NSString *)getProperty:(NSString *)property;
  - (bool)propertyExists:(NSString *)property;
  - (void)resetTable;
+ - (void) refreshScores;
 
 @end
