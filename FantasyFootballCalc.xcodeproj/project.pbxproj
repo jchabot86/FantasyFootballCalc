@@ -23,7 +23,6 @@
 		F28D9F12197B625900050F91 /* icon_bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F11197B625900050F91 /* icon_bkg.png */; };
 		F28D9F60197C322E00050F91 /* Dropdown.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F47197C322E00050F91 /* Dropdown.png */; };
 		F28D9F61197C322E00050F91 /* Dropdown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F48197C322E00050F91 /* Dropdown@2x.png */; };
-		F28D9F62197C322E00050F91 /* Dropdown2.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F49197C322E00050F91 /* Dropdown2.png */; };
 		F28D9F63197C322E00050F91 /* Minus.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F4A197C322E00050F91 /* Minus.png */; };
 		F28D9F64197C322E00050F91 /* Minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F4B197C322E00050F91 /* Minus@2x.png */; };
 		F28D9F65197C322E00050F91 /* MyTeam_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F4C197C322E00050F91 /* MyTeam_blue.png */; };
@@ -103,7 +102,6 @@
 		F28D9F11197B625900050F91 /* icon_bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bkg.png; sourceTree = "<group>"; };
 		F28D9F47197C322E00050F91 /* Dropdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropdown.png; sourceTree = "<group>"; };
 		F28D9F48197C322E00050F91 /* Dropdown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dropdown@2x.png"; sourceTree = "<group>"; };
-		F28D9F49197C322E00050F91 /* Dropdown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropdown2.png; sourceTree = "<group>"; };
 		F28D9F4A197C322E00050F91 /* Minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Minus.png; sourceTree = "<group>"; };
 		F28D9F4B197C322E00050F91 /* Minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Minus@2x.png"; sourceTree = "<group>"; };
 		F28D9F4C197C322E00050F91 /* MyTeam_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyTeam_blue.png; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 			children = (
 				F28D9F47197C322E00050F91 /* Dropdown.png */,
 				F28D9F48197C322E00050F91 /* Dropdown@2x.png */,
-				F28D9F49197C322E00050F91 /* Dropdown2.png */,
 				F28D9F4A197C322E00050F91 /* Minus.png */,
 				F28D9F4B197C322E00050F91 /* Minus@2x.png */,
 				F28D9F4C197C322E00050F91 /* MyTeam_blue.png */,
@@ -412,7 +409,6 @@
 				F28D9F77197C322E00050F91 /* Sync_white.png in Resources */,
 				F28D9F66197C322E00050F91 /* MyTeam_blue@2x.png in Resources */,
 				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
-				F28D9F62197C322E00050F91 /* Dropdown2.png in Resources */,
 				F28D9F71197C322E00050F91 /* Settings_blue.png in Resources */,
 				F28D9F78197C322E00050F91 /* Sync_white@2x.png in Resources */,
 				F28D9F72197C322E00050F91 /* Settings_blue@2x.png in Resources */,
