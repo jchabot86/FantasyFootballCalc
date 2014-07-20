@@ -24,6 +24,9 @@
     UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
     UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
     
+    [tabBar setTintColor:[UIColor whiteColor]];
+    [tabBar setBarTintColor:[UIColor whiteColor]];
+    [tabBar setSelectionIndicatorImage:[[UIImage imageNamed:@"icon_bkg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 0, 0, 0)]];
     [tabBarItem1 setImage:[[UIImage imageNamed:@"Search_blue.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [tabBarItem1 setSelectedImage:[UIImage imageNamed:@"Search_white.png"] ];
     [tabBarItem2 setImage:[[UIImage imageNamed:@"Scenario_blue.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

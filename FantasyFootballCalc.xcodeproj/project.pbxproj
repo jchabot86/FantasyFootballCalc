@@ -46,6 +46,7 @@
 		F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB04E196A150200A626E0 /* SettingsViewController.m */; };
 		F24BB052196B064700A626E0 /* PlayerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB051196B064700A626E0 /* PlayerListController.m */; };
 		F27B59E919798D7000001540 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27B59E719798D7000001540 /* Main_iPhone.storyboard */; };
+		F28D9F12197B625900050F91 /* icon_bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = F28D9F11197B625900050F91 /* icon_bkg.png */; };
 		F2B778D9196DBD0500B36292 /* myTeam_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D5196DBD0500B36292 /* myTeam_icon.png */; };
 		F2B778DA196DBD0500B36292 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D6196DBD0500B36292 /* search_icon.png */; };
 		F2B778DB196DBD0500B36292 /* selection_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B778D7196DBD0500B36292 /* selection_icon.png */; };
@@ -132,6 +133,7 @@
 		F24BB050196B064700A626E0 /* PlayerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListController.h; sourceTree = "<group>"; };
 		F24BB051196B064700A626E0 /* PlayerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListController.m; sourceTree = "<group>"; };
 		F27B59E819798D7000001540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F28D9F11197B625900050F91 /* icon_bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bkg.png; sourceTree = "<group>"; };
 		F2B778D5196DBD0500B36292 /* myTeam_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myTeam_icon.png; sourceTree = "<group>"; };
 		F2B778D6196DBD0500B36292 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
 		F2B778D7196DBD0500B36292 /* selection_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selection_icon.png; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		F2CEFF8D19571B0F00C937F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F28D9F11197B625900050F91 /* icon_bkg.png */,
 				10759EAD197B4A09004D294C /* Search_blue.png */,
 				10759EAE197B4A09004D294C /* Search_blue@2x.png */,
 				10A1EEBE19708CF2007359C9 /* br_down.png */,
@@ -452,6 +455,7 @@
 				F206851E1979FA7F0059C617 /* Dropdown.png in Resources */,
 				F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */,
 				F2B778D9196DBD0500B36292 /* myTeam_icon.png in Resources */,
+				F28D9F12197B625900050F91 /* icon_bkg.png in Resources */,
 				F20685301979FA7F0059C617 /* Sync_blue.png in Resources */,
 				F2B778DE196DCA8F00B36292 /* smiley_small.png in Resources */,
 			);
