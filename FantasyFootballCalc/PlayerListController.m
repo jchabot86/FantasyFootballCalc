@@ -89,7 +89,6 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:52.0f/255.0f green:111.0f/255.0f blue:200.0f/255.0f alpha:255.0f/255.0f];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
-    
     _calculateButton.enabled = NO;
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
@@ -465,6 +464,15 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [_pickerData objectAtIndex:row];
+}
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
+    label.backgroundColor = [UIColor whiteColor];
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+    label.text = [NSString stringWithFormat:@"  %d", row+1];
+    return label;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
