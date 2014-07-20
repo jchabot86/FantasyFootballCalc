@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSArray *SelectionTitle;
 @property (nonatomic, strong) NSArray *NumPlayers;
 
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
 
 @end

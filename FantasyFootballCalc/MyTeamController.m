@@ -45,13 +45,32 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *myTeamQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = 0"];
     myTeamPlayers = [database performQuery: myTeamQuery];
+    NSArray *totalScoreArray;
+    if(myTeamPlayers.count > 0){
+        totalScoreArray = [database performQuery: @"select sum(score) from team t join player p on t.pid = p.pid where key = 0"];
+        
+    }
+    self.totalPtsLabel.text = [NSString stringWithFormat:@"Total Pts: %d", [[[totalScoreArray objectAtIndex:0] objectAtIndex:0] integerValue]];
     [database closeConnection];
     /*if (myTeamPlayers.count == 0){
         [_noPlayersText setHidden:NO];
     } else {
         [_noPlayersText setHidden:YES];
     }*/
+    
     [self.tableView reloadData];
+    for (NSInteger j = 0; j < [tableView numberOfSections]; ++j)
+    {
+        for (NSInteger i = 0; i < [tableView numberOfRowsInSection:j]; ++i)
+        {
+            
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+            MyTeamCell *myTeamCell = (MyTeamCell *)cell;
+            
+            [myTeamCell.RemoveFromTeamBtn setHidden:YES];
+        }
+    }
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -185,6 +204,13 @@
     [database performQuery: deleteSelectedPlayer];
     NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = 0"];
     myTeamPlayers = [database performQuery: selectionQuery];
+    NSArray *totalScoreArray;
+    if(myTeamPlayers.count > 0){
+         totalScoreArray = [database performQuery: @"select sum(score) from team t join player p on t.pid = p.pid where key = 0"];
+        
+    }
+    self.totalPtsLabel.text = [NSString stringWithFormat:@"Total Pts: %d", [[[totalScoreArray objectAtIndex:0] objectAtIndex:0] integerValue]];
+
     [database closeConnection];
     [self.tableView reloadData];
 }

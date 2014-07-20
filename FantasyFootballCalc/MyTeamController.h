@@ -11,4 +11,6 @@
 @interface MyTeamController : UIViewController
 @property IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *noPlayersText;
+@property (strong, nonatomic) IBOutlet UILabel *totalPtsLabel;
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
 @end

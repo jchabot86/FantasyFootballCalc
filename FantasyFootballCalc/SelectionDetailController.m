@@ -45,9 +45,24 @@
     selectionPlayers = [database performQuery: selectionQuery];
     [database closeConnection];
     self.navigationItem.title =  _SelectionTitle;
-    [self.tableView reloadData];
+        [self.tableView reloadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    for (NSInteger j = 0; j < [self.tableView numberOfSections]; ++j)
+    {
+        for (NSInteger i = 0; i < [self.tableView numberOfRowsInSection:j]; ++i)
+        {
+            
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+            SelectionDetailCell *selCell = (SelectionDetailCell *)cell;
+            
+            [selCell.RemoveFromSelectionBtn setHidden:YES];
+        }
+    }
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

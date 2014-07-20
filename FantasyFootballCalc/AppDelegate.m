@@ -17,6 +17,9 @@
     NSLog(@"App loaded.");
     [self createEditableCopyOfDatabaseIfNeeded];
     NSLog(@"Database ready.");
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UITabBar *tabBar = tabBarController.tabBar;
     UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];

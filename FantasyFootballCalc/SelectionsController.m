@@ -48,6 +48,20 @@
     selections = [database performQuery:@"select key, count(key), sum(score) from team t join player p on t.pid = p.pid where key != 0 group by key order by key desc"];
     [database closeConnection];
     [self.tableView reloadData];
+    
+    for (NSInteger j = 0; j < [self.tableView numberOfSections]; ++j)
+    {
+        for (NSInteger i = 0; i < [self.tableView numberOfRowsInSection:j]; ++i)
+        {
+            
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+            SelectionsCell *selCell = (SelectionsCell *)cell;
+            
+            [selCell.RemoveButton setHidden:YES];
+        }
+    }
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+
 }
 
 - (void)didReceiveMemoryWarning
