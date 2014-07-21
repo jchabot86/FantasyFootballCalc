@@ -27,6 +27,7 @@
     extern NSString *const DEFENSE_INTERCEPTION;
     extern NSString *const DEFENSE_SACK;
     extern NSString *const DEFENSE_SAFETY;
+    extern NSString *const DEFENSE_SPTD;
 
  - (void) setProperty:(NSString *)property:(NSString *)value;
  - (NSString *)getProperty:(NSString *)property;

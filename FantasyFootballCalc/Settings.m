@@ -29,6 +29,7 @@
     NSString *const DEFENSE_INTERCEPTION = @"DefenseInterception";
     NSString *const DEFENSE_SACK = @"DefenseSack";
     NSString *const DEFENSE_SAFETY =@"DefenseSafety";
+    NSString *const DEFENSE_SPTD =@"DefSPTD";
 
     - (void) resetTable{
         [self setProperty:PASSING_YARDS:@".25"];
@@ -49,6 +50,7 @@
         [self setProperty:DEFENSE_INTERCEPTION:@".25"];
         [self setProperty:DEFENSE_SACK:@".25"];
         [self setProperty:DEFENSE_SAFETY:@".25"];
+        [self setProperty:DEFENSE_SPTD:@".25"];
     }
 
     - (void) setProperty:(NSString *)property:(NSString *)value{
@@ -137,6 +139,8 @@
     float DefenseInterceptionWeight = [[properties getProperty:DEFENSE_INTERCEPTION] floatValue];
     float DefenseSackWeight = [[properties getProperty:DEFENSE_SACK] floatValue];
     float DefenseSafetyWeight = [[properties getProperty:DEFENSE_SAFETY] floatValue];
+    float DefenseSpTdWeight = [[properties getProperty:DEFENSE_SPTD] floatValue];
+
 
     for (NSArray *player in results) {
         NSString *pid = [player objectAtIndex:0];
@@ -160,6 +164,7 @@
         float defint = [[player objectAtIndex:20] floatValue];
         float defsack = [[player objectAtIndex:21] floatValue];
         float defsafety = [[player objectAtIndex:22] floatValue];
+        float defsptd = [[player objectAtIndex:27] floatValue];
         
           float score = (PassingTdWeight + passtd) +
                         (PassingCompletionWeight * passcomp) +
@@ -178,7 +183,8 @@
                         (DefenseTdWeight * deftd) +
                         (DefenseInterceptionWeight * defint) +
                         (DefenseSackWeight * defsack) +
-                        (DefenseSafetyWeight);
+                        (DefenseSafetyWeight * defsafety)+
+                        (DefenseSpTdWeight * defsptd) ;
         
         NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
         
