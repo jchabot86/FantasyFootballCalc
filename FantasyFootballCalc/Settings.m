@@ -29,6 +29,7 @@
     NSString *const DEFENSE_INTERCEPTION = @"DefenseInterception";
     NSString *const DEFENSE_SACK = @"DefenseSack";
     NSString *const DEFENSE_SAFETY =@"DefenseSafety";
+    NSString *const DEFENSE_SPTD =@"DefSPTD";
 
     - (void) resetTable{
         [self setProperty:PASSING_YARDS:@".25"];
