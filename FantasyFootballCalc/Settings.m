@@ -32,17 +32,17 @@
     NSString *const DEFENSE_SPTD =@"DefSPTD";
 
     - (void) resetTable{
-        [self setProperty:PASSING_YARDS:@".25"];
+        [self setProperty:PASSING_YARDS:@"1"];
         [self setProperty:PASSING_COMPLETION:@".25"];
         [self setProperty:PASSING_ATTEMPTS:@".25"];
-        [self setProperty:PASSING_TD:@".25"];
+        [self setProperty:PASSING_TD:@"6"];
         [self setProperty:PASSING_INT:@".25"];
         [self setProperty:RUSHING_YARDS:@".25"];
         [self setProperty:RUSHING_TD:@".25"];
         [self setProperty:RUSHING_ATTEMPS:@".25"];
         [self setProperty:RECEIVING_YARDS:@".25"];
-        [self setProperty:RECEIVING_RECEPTIONS:@".25"];
-        [self setProperty:RECEIVING_TD:@".25"];
+        [self setProperty:RECEIVING_RECEPTIONS:@"0"];
+        [self setProperty:RECEIVING_TD:@"6"];
         [self setProperty:KICKING_XP:@".25"];
         [self setProperty:KICKING_FG:@".25"];
         [self setProperty:KICKING_FG50:@".25"];

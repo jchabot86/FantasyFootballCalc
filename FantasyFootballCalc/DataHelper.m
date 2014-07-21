@@ -182,13 +182,13 @@ float DefenseSpTdWeight;
         }
         
         
-        NSNumber *defenseSpTdNumber = [[_players objectAtIndex: i] objectForKey:@"RushSafety"];
-        if(defenseSafetyNumber != [NSNull null]){
+        NSNumber *defenseSpTdNumber = [[_players objectAtIndex: i] objectForKey:@"DefSP TD"];
+        if(defenseSpTdNumber != [NSNull null]){
             calcDefenseSpTd = DefenseSpTdWeight * [defenseSpTdNumber floatValue];
         }
 
         
-        float score = calcPassingYards + calcPassingTd + calcPassingCompletion + calcPassingAttempts + calcPassingInt + calcRushingYards +calcRushingTd + calcRushingAttempts + calcReceivingYards + calcReceivingReceptions + calcReceivingTd + calcKickingXp + calcKickingFg + calcKickingFg50 + calcDefenseTd + calcDefenseInterception + calcDefenseSack;
+        float score = calcPassingYards + calcPassingTd + calcPassingCompletion + calcPassingAttempts + calcPassingInt + calcRushingYards +calcRushingTd + calcRushingAttempts + calcReceivingYards + calcReceivingReceptions + calcReceivingTd + calcKickingXp + calcKickingFg + calcKickingFg50 + calcDefenseTd + calcDefenseInterception + calcDefenseSack + calcDefenseSpTd;
         
         NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
         
