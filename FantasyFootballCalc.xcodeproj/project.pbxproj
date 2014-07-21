@@ -16,6 +16,7 @@
 		10ED47081969EB9700927561 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ED47071969EB9700927561 /* Config.m */; };
 		F23543231966F8DD004CD0CE /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23543221966F8DD004CD0CE /* PlayersCell.m */; };
 		F23543251967167B004CD0CE /* KrunchProjections.json in Resources */ = {isa = PBXBuildFile; fileRef = F23543241967167B004CD0CE /* KrunchProjections.json */; };
+		F244AF49197CA06D0037E399 /* FantasyFootballCalc.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = F244AF48197C9F530037E399 /* FantasyFootballCalc.sqlite */; };
 		F245400D196B922900F01CAB /* MyTeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = F245400C196B922900F01CAB /* MyTeamController.m */; };
 		F2454010196B928200F01CAB /* MyTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F245400F196B928200F01CAB /* MyTeamCell.m */; };
 		F24BB04F196A150200A626E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BB04E196A150200A626E0 /* SettingsViewController.m */; };
@@ -89,10 +90,10 @@
 		10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		10ED47061969EB9700927561 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		10ED47071969EB9700927561 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
-		F22F104319755F6A00F119EB /* FantasyFootballCalc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FantasyFootballCalc.sqlite; sourceTree = "<group>"; };
 		F23543211966F8DD004CD0CE /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
 		F23543221966F8DD004CD0CE /* PlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersCell.m; sourceTree = "<group>"; };
 		F23543241967167B004CD0CE /* KrunchProjections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = KrunchProjections.json; path = ../../../../Desktop/KrunchProjections.json; sourceTree = "<group>"; };
+		F244AF48197C9F530037E399 /* FantasyFootballCalc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = FantasyFootballCalc.sqlite; path = FantasyFootballCalc/FantasyFootballCalc.sqlite; sourceTree = "<group>"; };
 		F245400B196B922900F01CAB /* MyTeamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTeamController.h; sourceTree = "<group>"; };
 		F245400C196B922900F01CAB /* MyTeamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTeamController.m; sourceTree = "<group>"; };
 		F245400E196B928200F01CAB /* MyTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTeamCell.h; sourceTree = "<group>"; };
@@ -182,7 +183,7 @@
 		1087318919687E4B005477C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F22F104319755F6A00F119EB /* FantasyFootballCalc.sqlite */,
+				F244AF48197C9F530037E399 /* FantasyFootballCalc.sqlite */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -411,6 +412,7 @@
 				F28D9F6F197C322E00050F91 /* search_icon.png in Resources */,
 				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
 				F28D9F70197C322E00050F91 /* Search_white@2x.png in Resources */,
+				F244AF49197CA06D0037E399 /* FantasyFootballCalc.sqlite in Resources */,
 				F28D9F77197C322E00050F91 /* Sync_white.png in Resources */,
 				F28D9F66197C322E00050F91 /* MyTeam_blue@2x.png in Resources */,
 				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
