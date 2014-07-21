@@ -39,6 +39,7 @@
 @synthesize DefenseSack;
 @synthesize DefenseSafety;
 @synthesize scrolldown;
+@synthesize DefenseSPTD;
 
 float PassingTdWeight;
 float PassingYardsWeight;
@@ -58,6 +59,7 @@ float DefenseTdWeight;
 float DefenseInterceptionWeight;
 float DefenseSackWeight;
 float DefenseSafetyWeight;
+float DefenseSpTdWeight;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -96,6 +98,7 @@ float DefenseSafetyWeight;
     [DefenseInterception resignFirstResponder];
     [DefenseSack resignFirstResponder];
     [DefenseSafety resignFirstResponder];
+    [DefenseSPTD resignFirstResponder];
     
     [self saveSettings];
     //PassingTd.inputAccessoryView = numberFromTheKeyboard;
@@ -143,7 +146,7 @@ float DefenseSafetyWeight;
     DefenseInterception.inputAccessoryView = numberToolbar;
     DefenseSack.inputAccessoryView = numberToolbar;
     DefenseSafety.inputAccessoryView = numberToolbar;
-    
+    DefenseSPTD.inputAccessoryView = numberToolbar;
     //[[Settings new] resetTable];
     
     [self loadSettings];
@@ -242,6 +245,7 @@ float DefenseSafetyWeight;
     [properties setProperty:DEFENSE_INTERCEPTION:DefenseInterception.text];
     [properties setProperty:DEFENSE_SACK:DefenseSack.text];
     [properties setProperty:DEFENSE_SAFETY:DefenseSafety.text];
+    [properties setProperty:DEFENSE_SPTD:DefenseSPTD.text];
     
     [properties refreshScores];
 }
@@ -270,6 +274,7 @@ float DefenseSafetyWeight;
     DefenseInterception.text = [properties getProperty:DEFENSE_INTERCEPTION];
     DefenseSack.text = [properties getProperty:DEFENSE_SACK];
     DefenseSafety.text = [properties getProperty:DEFENSE_SAFETY];
+    DefenseSPTD.text = [properties getProperty:DEFENSE_SPTD];
 }
 
 /*
