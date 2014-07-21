@@ -168,13 +168,13 @@
         
           float score = (PassingTdWeight + passtd) +
                         (PassingCompletionWeight * passcomp) +
-                        (PassingYardsWeight * passyds) +
+                        (PassingYardsWeight * (passyds/25)) +
                         (PassingAttemptsWeight * passatt) +
                         (PassingIntWeight * interceptions) +
-                        (RushingYardsWeight * rushyds) +
+                        (RushingYardsWeight * (rushyds / 10)) +
                         (RushingTdWeight * rushtd) +
                         (RushingAttemptsWeight * rushatt) +
-                        (ReceivingYardsWeight * recyds) +
+                        (ReceivingYardsWeight * (recyds / 10)) +
                         (ReceivingReceptionsWeight * passcomp) +
                         (ReceivingTdWeight * rectd) +
                         (KickingXpWeight * xp) +
