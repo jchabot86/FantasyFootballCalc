@@ -13,7 +13,7 @@
     //JON: /Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite
    // NSString *DBPATH = @"/Documents/FantasyFootballCalc.sqlite";
 //NSString *DBPATH = @"/Volumes/Macintosh HD/Users/jon2/Documents/Iphone Dev/FantasyFootballCalc/FantasyFootballCalc.sqlite";
-// NSString *DBPATH = @"/Documents/FantasyFootballCalc.sqlite";
-    NSString *DBPATH = @"/Users/justinport/Desktop/FantasyFootballCalc.sqlite";
-    BOOL FORCE_CREATE_DB_ON_LOAD = NO;
+     NSString *DBPATH = @"/Documents/FantasyFootballCalc.sqlite";
+    //NSString *DBPATH = @"/Users/justinport/Desktop/FantasyFootballCalc.sqlite";
+    BOOL FORCE_CREATE_DB_ON_LOAD = YES;
 @end
