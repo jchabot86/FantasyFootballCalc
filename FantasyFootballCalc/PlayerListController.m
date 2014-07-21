@@ -362,6 +362,9 @@
     } else {
         maxKey = 0;
     }
+    if([maxKey isKindOfClass:[NSNull class]]){//this can happen if there are no rows in team table
+        maxKey = 0;
+    }
     int value = [maxKey intValue];
     value = value +1;
     for(NSString *pid in _selectedIndexes){
