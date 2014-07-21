@@ -10,7 +10,6 @@
 #import "SQLite.h"
 #import "Config.h"
 #import "Settings.h"
-#import "DataHelper.h"
 
 @interface SettingsViewController ()
 {
@@ -185,8 +184,8 @@ float DefenseSpTdWeight;
     if([alertView.title isEqualToString:@"Reset Scoring"]){
     if(buttonIndex==0)
     {
-        DataHelper *dataHelper = [DataHelper new];
-        [dataHelper recalculatePlayerScores];
+        Settings *settings = [Settings new];
+        [settings refreshScores];
         [self loadSettings];
     }
     } else if ([alertView.title isEqualToString:@"Reset Players"]){
@@ -209,8 +208,9 @@ float DefenseSpTdWeight;
        // NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
         //NSURLRequest *request = [NSURLRequest requestWithURL:url];
        // [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        DataHelper *dataHelper = [DataHelper new];
-        [dataHelper importPlayerData];
+        Settings *settings = [Settings new];
+        [settings refreshScores];
+        [self loadSettings];
 
 
     

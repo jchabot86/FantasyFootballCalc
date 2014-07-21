@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1076F098196855B3002B7F2A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1076F097196855B3002B7F2A /* libsqlite3.dylib */; };
 		1076F09B196859AC002B7F2A /* SQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1076F09A196859AC002B7F2A /* SQLite.m */; };
-		1083893A197C8A1400CF67DD /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10838939197C8A1400CF67DD /* DataHelper.m */; };
 		108731931968BBF5005477C8 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 108731921968BBF5005477C8 /* Settings.m */; };
 		10E9661219702983008853C9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E9661119702983008853C9 /* TPKeyboardAvoidingScrollView.m */; };
 		10E96615197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E96614197029EB008853C9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -80,8 +79,6 @@
 		1076F097196855B3002B7F2A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1076F099196859AC002B7F2A /* SQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
 		1076F09A196859AC002B7F2A /* SQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLite.m; sourceTree = "<group>"; };
-		10838938197C8A1400CF67DD /* DataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHelper.h; sourceTree = "<group>"; };
-		10838939197C8A1400CF67DD /* DataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHelper.m; sourceTree = "<group>"; };
 		108731911968BBF5005477C8 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		108731921968BBF5005477C8 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		10E9661019702983008853C9 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -197,8 +194,6 @@
 				108731921968BBF5005477C8 /* Settings.m */,
 				10ED47061969EB9700927561 /* Config.h */,
 				10ED47071969EB9700927561 /* Config.m */,
-				10838938197C8A1400CF67DD /* DataHelper.h */,
-				10838939197C8A1400CF67DD /* DataHelper.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -461,7 +456,6 @@
 				1076F09B196859AC002B7F2A /* SQLite.m in Sources */,
 				F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */,
 				F2454010196B928200F01CAB /* MyTeamCell.m in Sources */,
-				1083893A197C8A1400CF67DD /* DataHelper.m in Sources */,
 				F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */,
 				F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */,
 				10ED47081969EB9700927561 /* Config.m in Sources */,
