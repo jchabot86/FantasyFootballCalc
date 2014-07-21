@@ -11,6 +11,10 @@
 @interface PlayerListController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSArray *players;
+@property (nonatomic, strong) NSMutableData *data;
+
 @property (nonatomic, strong) NSArray *PID;
 @property (nonatomic, strong) NSArray *Player;
 @property (nonatomic, strong) NSArray *Team;
