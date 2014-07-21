@@ -145,7 +145,7 @@
                     cell.stat3.text = [NSString stringWithFormat:@"%d", [[[myTeamPlayers objectAtIndex: indexPath.row] objectAtIndex:18] integerValue]];
                 }
                 else
-                    if([pos caseInsensitiveCompare:@"Def"] == NSOrderedSame){
+                    if([pos caseInsensitiveCompare:@"DST"] == NSOrderedSame){
                         cell.stat1Label.text = @"Def TDs:";
                         cell.stat2Label.text = @"Def Sacks:";
                         cell.stat3Label.text = @"Def Int:";
@@ -154,7 +154,7 @@
                         cell.stat3.text = [NSString stringWithFormat:@"%d", [[[myTeamPlayers objectAtIndex: indexPath.row] objectAtIndex:21] integerValue]];
                     }
     
-    cell.RemoveFromTeamBtn.accessibilityIdentifier = [[[myTeamPlayers objectAtIndex:indexPath.row] objectAtIndex:28] stringValue];
+    cell.RemoveFromTeamBtn.accessibilityIdentifier = [[[myTeamPlayers objectAtIndex:indexPath.row] objectAtIndex:29] stringValue];
     return cell;
     
 }
