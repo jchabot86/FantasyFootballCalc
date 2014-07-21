@@ -118,7 +118,7 @@
     NSArray *results = [database performQuery: sql];
     
     NSString *sqlUpdatePlayer = @"UPDATE player SET score = %@ WHERE pid = '%@';";
-    Settings* properties = [Settings new];
+    Settings* properties = self;
     float PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
     float PassingYardsWeight = [[properties getProperty:PASSING_YARDS] floatValue];
     float PassingCompletionWeight = [[properties getProperty:PASSING_COMPLETION] floatValue];
@@ -161,11 +161,26 @@
         float defsack = [[player objectAtIndex:21] floatValue];
         float defsafety = [[player objectAtIndex:22] floatValue];
         
-        float score = (PassingTdWeight * passtd) + 0;
+          float score = (PassingTdWeight + passtd) +
+                        (PassingCompletionWeight * passcomp) +
+                        (PassingYardsWeight * passyds) +
+                        (PassingAttemptsWeight * passatt) +
+                        (PassingIntWeight * interceptions) +
+                        (RushingYardsWeight * rushyds) +
+                        (RushingTdWeight * rushtd) +
+                        (RushingAttemptsWeight * rushatt) +
+                        (ReceivingYardsWeight * recyds) +
+                        (ReceivingReceptionsWeight * passcomp) +
+                        (ReceivingTdWeight * rectd) +
+                        (KickingXpWeight * xp) +
+                        (KickingFgWeight * fg) +
+                        (KickingFg50Weight * fg50) +
+                        (DefenseTdWeight * deftd) +
+                        (DefenseInterceptionWeight * defint) +
+                        (DefenseSackWeight * defsack) +
+                        (DefenseSafetyWeight);
         
-        
-        
-        NSString *scoreAsString = @"0";
+        NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
         
         
         sqlUpdatePlayer = [NSString stringWithFormat:sqlUpdatePlayer,scoreAsString,pid];

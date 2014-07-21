@@ -16,8 +16,8 @@
 @property (nonatomic, strong) NSArray *Team;
 @property (nonatomic, strong) NSArray *Pos;
 
-@property (nonatomic, strong) NSArray *players;
-@property (nonatomic, strong) NSMutableData *data;
+/*@property (nonatomic, strong) NSArray *players;
+@property (nonatomic, strong) NSMutableData *data;*/
 
 @property (nonatomic, strong) NSMutableArray *selectedIndexes;
 @property (strong, nonatomic) IBOutlet UIButton *calculateButton;

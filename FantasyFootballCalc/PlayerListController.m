@@ -11,6 +11,7 @@
 #import "SQLite.h"
 #import "Settings.h"
 #import "Config.h"
+#import "DataHelper.h"
 
 @interface PlayerListController ()
 {
@@ -142,9 +143,11 @@
     if(buttonIndex == 0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         //build connection - will need to replace URL String
-        NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
+       /* NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];*/
+        DataHelper *dataHelper = [DataHelper new];
+        [dataHelper importPlayerData];
     }
 }
 
@@ -165,7 +168,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+/*- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     _data = [[NSMutableData alloc] init];
 }
@@ -328,7 +331,7 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
 }
-
+*/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
