@@ -10,7 +10,7 @@
 
 @interface Settings : NSObject
     extern NSString *const PASSING_YARDS;
-    extern NSString *const PASSING_COMPLETION;
+    extern NSString *const DEFENSE_FUMREC;
     extern NSString *const PASSING_ATTEMPTS;
     extern NSString *const PASSING_TD;
     extern NSString *const PASSING_INT;

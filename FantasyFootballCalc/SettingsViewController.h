@@ -11,7 +11,6 @@
 @interface SettingsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *PassingYards;
-@property (strong, nonatomic) IBOutlet UITextField *PassingCompletion;
 @property (strong, nonatomic) IBOutlet UITextField *PassingAttempts;
 @property (strong, nonatomic) IBOutlet UITextField *PassingTd;
 @property (strong, nonatomic) IBOutlet UITextField *PassingInt;
@@ -29,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *DefenseSack;
 @property (strong, nonatomic) IBOutlet UITextField *DefenseSPTD;
 @property (strong, nonatomic) IBOutlet UITextField *DefenseSafety;
+@property (strong, nonatomic) IBOutlet UITextField *DefenseFumbleRecovery;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrolldown;
 @property (strong, nonatomic) IBOutlet UIButton *syncDataButton;
 
