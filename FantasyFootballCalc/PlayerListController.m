@@ -146,7 +146,7 @@
     if(buttonIndex == 0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         //build connection - will need to replace URL String
-       NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
+        NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
@@ -327,7 +327,7 @@
         float calcDefenseSack = 0;
         float calcDefenseSafety = 0;
         float calcDefenseSpTd = 0;
-        
+        //heyy
         NSNumber *passTdNumber = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
         if(passTdNumber != [NSNull null]){
             calcPassingTd = PassingTdWeight * [passTdNumber floatValue];
