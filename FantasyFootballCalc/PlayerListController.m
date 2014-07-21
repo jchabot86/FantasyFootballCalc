@@ -16,6 +16,7 @@
 @interface PlayerListController ()
 {
     NSArray *playerResults;
+    int selectedFilterRow;
     float PassingTdWeight;
     float PassingYardsWeight;
     float PassingCompletionWeight;
@@ -87,6 +88,7 @@
 
     //self.navigationController.navigationBar.opaque = YES;
     //self.navigationController.navigationBar.translucent = YES;
+    selectedFilterRow = 0;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:52.0f/255.0f green:111.0f/255.0f blue:200.0f/255.0f alpha:255.0f/255.0f];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
@@ -157,9 +159,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     //make sure it queries for the selected filter again
-    NSInteger *selectedFilter;
-    selectedFilter = [filterPicker selectedRowInComponent:0];
-    [filterPicker selectRow:selectedFilter inComponent:0 animated:NO];
+    [self refreshWithFilter];
 }
 
 - (void)didReceiveMemoryWarning
@@ -314,31 +314,27 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH];
+    selectedFilterRow = row;
+    [self refreshWithFilter];
+}
+
+- (void)refreshWithFilter{
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH];
     NSString *pos;
-    switch (row) {
-        case 0:
+    if(selectedFilterRow == 0) {
             pos = @"Any";
-            break;
-        case 1:
+    } else if (selectedFilterRow == 1) {
             pos = @"QB";
-            break;
-        case 2:
+    } else if (selectedFilterRow == 2) {
             pos = @"WR";
-            break;
-        case 3:
+    } else if (selectedFilterRow == 3) {
             pos = @"RB";
-            break;
-        case 4:
+    } else if (selectedFilterRow == 4) {
             pos = @"TE";
-            break;
-        case 5:
+    } else if (selectedFilterRow == 5) {
             pos = @"DST";
-            break;
-        case 6:
+    } else if (selectedFilterRow == 6) {
             pos = @"K";
-            break;
-        default:
-            break;
     }
     NSString *filterQuery;
     if([pos isEqualToString:@"Any"]){
@@ -349,10 +345,10 @@
     playerResults = [database performQuery: filterQuery];
     [database closeConnection];
     [_tableView reloadData];
-    [pickerView setHidden:YES];
+    [filterPicker setHidden:YES];
     [_selectAFilterBtn setTitle:pos forState:UIControlStateNormal];
+    
 }
-
 - (IBAction)calculateSelections:(id)sender {
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *result = [database performQuery:@"select max(key) from team"];
@@ -381,9 +377,8 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *addToTeamQuery = [NSString stringWithFormat: @"insert into team (pid, key) values (\"%@\",0)", button.accessibilityIdentifier];
     [database performQuery: addToTeamQuery];
-    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc"];
-    playerResults = [database performQuery: refreshQuery];
     [database closeConnection];
+    [self refreshWithFilter];
     [_tableView reloadData];
 }
 - (IBAction)removeFromPlayerList:(id)sender {
@@ -391,9 +386,8 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *scratchFromTeamQuery = [NSString stringWithFormat: @"insert into removed_players (pid) values(\"%@\")", button.accessibilityIdentifier];
     [database performQuery: scratchFromTeamQuery];
-    NSString *refreshQuery = [NSString stringWithFormat:@"SELECT * FROM player where pid not in (select pid from team where key = 0) and pid not in (select pid from removed_players) order by score desc"];
-    playerResults = [database performQuery: refreshQuery];
     [database closeConnection];
+    [self refreshWithFilter];
     [_tableView reloadData];
 }
 
