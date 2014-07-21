@@ -21,7 +21,6 @@
 @implementation SettingsViewController
 
 @synthesize PassingYards;
-@synthesize PassingCompletion;
 @synthesize PassingAttempts;
 @synthesize PassingTd;
 @synthesize PassingInt;
@@ -40,10 +39,11 @@
 @synthesize DefenseSafety;
 @synthesize scrolldown;
 @synthesize DefenseSPTD;
+@synthesize DefenseFumbleRecovery;
 
 float PassingTdWeight;
 float PassingYardsWeight;
-float PassingCompletionWeight;
+float DefenseFumbleRecoveryWeight;
 float PassingAttemptsWeight;
 float PassingIntWeight;
 float RushingYardsWeight;
@@ -82,7 +82,7 @@ float DefenseSpTdWeight;
     [PassingTd resignFirstResponder];
     [PassingTd resignFirstResponder];
     [PassingYards resignFirstResponder];
-    [PassingCompletion resignFirstResponder];
+    [DefenseFumbleRecovery resignFirstResponder];
     [PassingAttempts resignFirstResponder];
     [PassingInt resignFirstResponder];
     [RushingYards resignFirstResponder];
@@ -130,7 +130,7 @@ float DefenseSpTdWeight;
 
     PassingTd.inputAccessoryView = numberToolbar;
     PassingYards.inputAccessoryView = numberToolbar;
-    PassingCompletion.inputAccessoryView = numberToolbar;
+    DefenseFumbleRecovery.inputAccessoryView = numberToolbar;
     PassingAttempts.inputAccessoryView = numberToolbar;
     PassingInt.inputAccessoryView = numberToolbar;
     RushingYards.inputAccessoryView = numberToolbar;
@@ -229,7 +229,7 @@ float DefenseSpTdWeight;
     
     [properties setProperty:PASSING_TD:PassingTd.text];
     [properties setProperty:PASSING_YARDS:PassingYards.text];
-    [properties setProperty:PASSING_COMPLETION:PassingCompletion.text];
+    [properties setProperty:DEFENSE_FUMREC:DefenseFumbleRecovery.text];
     [properties setProperty:PASSING_ATTEMPTS:PassingAttempts.text];
     [properties setProperty:PASSING_INT:PassingInt.text];
     [properties setProperty:RUSHING_YARDS:RushingYards.text];
@@ -258,7 +258,7 @@ float DefenseSpTdWeight;
     Settings* properties = [Settings new];
     PassingTd.text = [properties getProperty:PASSING_TD];
     PassingYards.text = [properties getProperty:PASSING_YARDS];
-    PassingCompletion.text = [properties getProperty:PASSING_COMPLETION];
+    DefenseFumbleRecovery.text = [properties getProperty:DEFENSE_FUMREC];
     PassingAttempts.text = [properties getProperty:PASSING_ATTEMPTS];
     PassingInt.text = [properties getProperty:PASSING_INT];
     RushingYards.text = [properties getProperty:RUSHING_YARDS];

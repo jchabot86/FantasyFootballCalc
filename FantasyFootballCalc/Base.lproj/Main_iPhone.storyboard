@@ -884,8 +884,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passing Completion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Iw-jG-0Y3">
-                                                <rect key="frame" x="20" y="169" width="154" height="21"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Defense Fumble Recovery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Iw-jG-0Y3">
+                                                <rect key="frame" x="17" y="172" width="202" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
@@ -1091,6 +1091,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" id="gOS-Hj-Zgc"/>
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="3FC-hX-hcV"/>
                     <connections>
+                        <outlet property="DefenseFumbleRecovery" destination="fqZ-qJ-wzA" id="YfB-Wj-h2w"/>
                         <outlet property="DefenseInterception" destination="SS3-ZT-GkX" id="CG8-9N-G5M"/>
                         <outlet property="DefenseSPTD" destination="OyW-Qa-AbZ" id="ZO1-ub-b8W"/>
                         <outlet property="DefenseSack" destination="NWB-Hm-wNx" id="pnq-8f-zjt"/>
@@ -1099,7 +1100,6 @@
                         <outlet property="KickingFg" destination="toD-jb-4nz" id="0aD-MM-7na"/>
                         <outlet property="KickingFg50" destination="aWG-nN-k4f" id="QMJ-Sa-zsR"/>
                         <outlet property="KickingXp" destination="IJL-Rt-c3T" id="3ub-nv-xlY"/>
-                        <outlet property="PassingCompletion" destination="fqZ-qJ-wzA" id="dP7-Ss-qfO"/>
                         <outlet property="PassingInt" destination="oGf-Uo-1Sc" id="kLF-jY-934"/>
                         <outlet property="PassingTd" destination="Djh-34-eq1" id="8y8-gR-zoc"/>
                         <outlet property="PassingYards" destination="qca-0t-2nY" id="lGH-K6-89n"/>

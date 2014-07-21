@@ -12,7 +12,6 @@
 
 @implementation Settings
     NSString *const PASSING_YARDS = @"PassingYards";
-    NSString *const PASSING_COMPLETION = @"PassingCompletion";
     NSString *const PASSING_ATTEMPTS = @"PassingAttempts";
     NSString *const PASSING_TD = @"PassingTd";
     NSString *const PASSING_INT = @"PassingInt";
@@ -30,11 +29,13 @@
     NSString *const DEFENSE_SACK = @"DefenseSack";
     NSString *const DEFENSE_SAFETY =@"DefenseSafety";
     NSString *const DEFENSE_SPTD =@"DefSPTD";
+    NSString *const DEFENSE_FUMREC = @"DefenseFumbleRecovery";
+
 
     - (void) resetTable{
         [self setProperty:PASSING_YARDS:@"1"];
-        [self setProperty:PASSING_COMPLETION:@".25"];
-        [self setProperty:PASSING_ATTEMPTS:@".25"];
+        //[self setProperty:PASSING_COMPLETION:@".25"];
+        //[self setProperty:PASSING_ATTEMPTS:@".25"];
         [self setProperty:PASSING_TD:@"6"];
         [self setProperty:PASSING_INT:@"-2"];
         [self setProperty:RUSHING_YARDS:@"1"];
@@ -47,10 +48,11 @@
         [self setProperty:KICKING_FG:@"3"];
         [self setProperty:KICKING_FG50:@"5"];
         [self setProperty:DEFENSE_TD:@"6"];
-        [self setProperty:DEFENSE_INTERCEPTION:@".25"];
+        [self setProperty:DEFENSE_INTERCEPTION:@"2"];
         [self setProperty:DEFENSE_SACK:@"1"];
         [self setProperty:DEFENSE_SAFETY:@"2"];
         [self setProperty:DEFENSE_SPTD:@"6"];
+        [self setProperty:DEFENSE_FUMREC:@"2"];
     }
 
     - (void) setProperty:(NSString *)property:(NSString *)value{
@@ -123,7 +125,7 @@
     Settings* properties = self;
     float PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
     float PassingYardsWeight = [[properties getProperty:PASSING_YARDS] floatValue];
-    float PassingCompletionWeight = [[properties getProperty:PASSING_COMPLETION] floatValue];
+    float DefenseFumbleRecoveryWeight = [[properties getProperty:DEFENSE_FUMREC] floatValue];
     float PassingAttemptsWeight = [[properties getProperty:PASSING_ATTEMPTS] floatValue];
     float PassingIntWeight = [[properties getProperty:PASSING_INT] floatValue];
     float RushingYardsWeight = [[properties getProperty:RUSHING_YARDS] floatValue];
@@ -167,7 +169,7 @@
         float defsptd = [[player objectAtIndex:27] floatValue];
         
           float score = (PassingTdWeight + passtd) +
-                        (PassingCompletionWeight * passcomp) +
+                        (DefenseFumbleRecoveryWeight * deffum) +
                         (PassingYardsWeight * (passyds/25)) +
                         (PassingAttemptsWeight * passatt) +
                         (PassingIntWeight * interceptions) +

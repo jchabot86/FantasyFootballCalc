@@ -19,7 +19,7 @@
     int selectedFilterRow;
     float PassingTdWeight;
     float PassingYardsWeight;
-    float PassingCompletionWeight;
+    float DefenseFumbleRecoveryWeight;
     float PassingAttemptsWeight;
     float PassingIntWeight;
     float RushingYardsWeight;
@@ -50,7 +50,7 @@
     Settings* properties = [Settings new];
     PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
     PassingYardsWeight = [[properties getProperty:PASSING_YARDS] floatValue];
-    PassingCompletionWeight = [[properties getProperty:PASSING_COMPLETION] floatValue];
+    DefenseFumbleRecoveryWeight = [[properties getProperty:DEFENSE_FUMREC] floatValue];
     PassingAttemptsWeight = [[properties getProperty:PASSING_ATTEMPTS] floatValue];
     PassingIntWeight = [[properties getProperty:PASSING_INT] floatValue];
     RushingYardsWeight = [[properties getProperty:RUSHING_YARDS] floatValue];
