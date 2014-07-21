@@ -44,6 +44,7 @@ float DefenseSpTdWeight;
 
 - (void)recalculatePlayerScores{
     Settings *settings = [Settings new];
+    [settings resetTable];
     [settings refreshScores];
 }
 
