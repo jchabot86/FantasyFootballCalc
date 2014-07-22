@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Config.h"
+#import "Settings.h"
 
 @implementation AppDelegate
 
@@ -65,6 +66,10 @@
         NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
     }
     DBPATH = writableDBPath;
+    
+    
+    Settings *settings = [Settings new];
+    [settings resetTable];
 }
 
 							
