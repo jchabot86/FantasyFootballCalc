@@ -328,7 +328,6 @@
         float calcDefenseSpTd = 0;
         float calcDefenseFumRec = 0;
         
-        //heyy
         NSNumber *passTdNumber = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
         if(passTdNumber != [NSNull null]){
             calcPassingTd = PassingTdWeight * [passTdNumber floatValue];
