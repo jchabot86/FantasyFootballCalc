@@ -116,11 +116,6 @@
     }
 
 - (void) refreshScores{
-    NSString *sql = @"SELECT * FROM player";
-    
-    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    NSArray *results = [database performQuery: sql];
-    
     
     Settings* properties = self;
     float PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
@@ -142,8 +137,12 @@
     float DefenseSackWeight = [[properties getProperty:DEFENSE_SACK] floatValue];
     float DefenseSafetyWeight = [[properties getProperty:DEFENSE_SAFETY] floatValue];
     float DefenseSpTdWeight = [[properties getProperty:DEFENSE_SPTD] floatValue];
-
-
+    
+    NSString *sql = @"SELECT * FROM player";
+    
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    NSArray *results = [database performQuery: sql];
+    
     for (NSArray *player in results) {
         NSString *sqlUpdatePlayer = @"UPDATE player SET score = %@ WHERE pid = '%@';";
         NSString *pid = [player objectAtIndex:0];
@@ -157,29 +156,29 @@
         float rushatt = [[player objectAtIndex:10] floatValue];
         float rushyds = [[player objectAtIndex:11] floatValue];
         float rushtd = [[player objectAtIndex:12] floatValue];
-        float recyds = [[player objectAtIndex:13] floatValue];
-        float rectd = [[player objectAtIndex:14] floatValue];
-        float xp = [[player objectAtIndex:15] floatValue];
-        float fg = [[player objectAtIndex:16] floatValue];
-        float fg50 = [[player objectAtIndex:17] floatValue];
-        float deftd = [[player objectAtIndex:18] floatValue];
-        float deffum = [[player objectAtIndex:19] floatValue];
-        float defint = [[player objectAtIndex:20] floatValue];
-        float defsack = [[player objectAtIndex:21] floatValue];
-        float defsafety = [[player objectAtIndex:22] floatValue];
-        float defsptd = [[player objectAtIndex:27] floatValue];
+        float rec = [[player objectAtIndex:13] floatValue];
+        float recyds = [[player objectAtIndex:14] floatValue];
+        float rectd = [[player objectAtIndex:15] floatValue];
+        float xp = [[player objectAtIndex:16] floatValue];
+        float fg = [[player objectAtIndex:17] floatValue];
+        float fg50 = [[player objectAtIndex:18] floatValue];
+        float deftd = [[player objectAtIndex:19] floatValue];
+        float deffum = [[player objectAtIndex:20] floatValue];
+        float defint = [[player objectAtIndex:21] floatValue];
+        float defsack = [[player objectAtIndex:22] floatValue];
+        float defsafety = [[player objectAtIndex:23] floatValue];
+        float defsptd = [[player objectAtIndex:28] floatValue];
         
-          float score = (PassingTdWeight + passtd) +
-                        (DefenseFumbleRecoveryWeight * deffum) +
+       float score = (PassingTdWeight * passtd) +
+                        (PassingIntWeight * interceptions) +
                         (PassingYardsWeight * (passyds/25)) +
-                        (PassingAttemptsWeight * passatt) +
                         (PassingIntWeight * interceptions) +
                         (RushingYardsWeight * (rushyds / 10)) +
                         (RushingTdWeight * rushtd) +
                         (RushingAttemptsWeight * rushatt) +
                         (ReceivingYardsWeight * (recyds / 10)) +
-                        (ReceivingReceptionsWeight * passcomp) +
                         (ReceivingTdWeight * rectd) +
+                        (ReceivingReceptionsWeight * rec) +
                         (KickingXpWeight * xp) +
                         (KickingFgWeight * fg) +
                         (KickingFg50Weight * fg50) +
@@ -187,13 +186,16 @@
                         (DefenseInterceptionWeight * defint) +
                         (DefenseSackWeight * defsack) +
                         (DefenseSafetyWeight * defsafety)+
-                        (DefenseSpTdWeight * defsptd) ;
+                        (DefenseSpTdWeight * defsptd)+
+                        (DefenseFumbleRecoveryWeight * deffum);
+
         
         NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
         
         
         sqlUpdatePlayer = [NSString stringWithFormat:sqlUpdatePlayer,scoreAsString,pid];
         [database performQuery: sqlUpdatePlayer];
+        
     
 
         
