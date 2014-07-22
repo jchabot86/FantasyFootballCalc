@@ -99,7 +99,7 @@
     _tableView.allowsMultipleSelection = YES;
     
     _pickerData = [[NSArray alloc] initWithObjects:@"Any", @"QB",@"WR",@"RB",@"TE",@"DST",@"K", nil];
-    
+    [_activityIndicator setHidesWhenStopped:YES];
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *lastSyncDate = [database performQuery:@"select date from last_sync_date"];
     BOOL *syncLongTime = NO;
@@ -146,6 +146,8 @@
 {
     if(buttonIndex == 0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [_activityIndicator setHidden:NO];
+        [_activityIndicator startAnimating];
         //build connection - will need to replace URL String
         NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -329,7 +331,6 @@
         float calcDefenseSpTd = 0;
         float calcDefenseFumRec = 0;
         
-        //heyy
         NSNumber *passTdNumber = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
         if(passTdNumber != [NSNull null]){
             calcPassingTd = PassingTdWeight * [passTdNumber floatValue];
@@ -455,6 +456,7 @@
     }
     [database closeConnection];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [_activityIndicator stopAnimating];
     [self refreshWithFilter];
 }
 
@@ -465,6 +467,7 @@
     //NSLog(@"Failed!!!");
     //stop the networkActivityIndicator
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [_activityIndicator stopAnimating];
     
 }
 

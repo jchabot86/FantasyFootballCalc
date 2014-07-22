@@ -285,12 +285,17 @@
                                     <outlet property="delegate" destination="eG3-h2-bxN" id="xVW-FA-ljN"/>
                                 </connections>
                             </pickerView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sWg-We-Rc4">
+                                <rect key="frame" x="139" y="139" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Players List" id="h1I-AB-i4d"/>
                     <navigationItem key="navigationItem" title="Draft Cruncher '14" id="2EY-Gi-HNG"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="sWg-We-Rc4" id="bYm-hT-s8C"/>
                         <outlet property="calculateButton" destination="otT-Iu-wQ1" id="SZ8-Tg-lK1"/>
                         <outlet property="filterPicker" destination="SRW-Wr-GrK" id="zgp-fx-W9w"/>
                         <outlet property="selectAFilterBtn" destination="HD1-7T-2ca" id="uuR-xY-qru"/>
