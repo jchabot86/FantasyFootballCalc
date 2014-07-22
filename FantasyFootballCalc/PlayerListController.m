@@ -99,7 +99,7 @@
     _tableView.allowsMultipleSelection = YES;
     
     _pickerData = [[NSArray alloc] initWithObjects:@"Any", @"QB",@"WR",@"RB",@"TE",@"DST",@"K", nil];
-    
+    [_activityIndicator setHidesWhenStopped:YES];
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *lastSyncDate = [database performQuery:@"select date from last_sync_date"];
     BOOL *syncLongTime = NO;
@@ -146,6 +146,8 @@
 {
     if(buttonIndex == 0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [_activityIndicator setHidden:NO];
+        [_activityIndicator startAnimating];
         //build connection - will need to replace URL String
         NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -182,14 +184,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PlayersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayersCell" forIndexPath:indexPath];
-    NSLog(@"The row: %d",indexPath.row);
     if(indexPath.row % 2 == 0){
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     } else {
         cell.backgroundColor = [UIColor whiteColor];
     }
     NSString *pid = [[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
-    NSLog(@"Player: %@", pid);
     [cell.AddToTeamButton setTitleColor:[UIColor greenColor] forState:(UIControlStateNormal)];
     [cell.ScratchFromTeamButton setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
 
@@ -437,7 +437,6 @@
         
         NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
         
-        NSLog(@"Score... %@",scoreAsString);
         
         NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news, score,defsptd) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"],scoreAsString,[[_players objectAtIndex: i] objectForKey:@"DefSP TD"]];
         [database performQuery:refreshPlayers];
@@ -453,6 +452,7 @@
     }
     [database closeConnection];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [_activityIndicator stopAnimating];
     [self refreshWithFilter];
 }
 
@@ -463,6 +463,7 @@
     NSLog(@"Failed!!!");
     //stop the networkActivityIndicator
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [_activityIndicator stopAnimating];
     
 }
 

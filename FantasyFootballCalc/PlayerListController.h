@@ -26,5 +26,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *selectAFilterBtn;
 @property (strong, nonatomic) IBOutlet UIPickerView *filterPicker;
 @property (strong, nonatomic) NSArray *pickerData;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
