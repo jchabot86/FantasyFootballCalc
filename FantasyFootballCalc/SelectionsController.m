@@ -103,8 +103,8 @@
 
     cell.TitleLabel.text = [NSString stringWithFormat:@"%@%@",@"Selection ",selectionKey];
     cell.TotalPtsLabel.text = [NSString stringWithFormat:@"%d%@", totalPts, @" Pts"];
-    NSLog(@"%@", numPlayers);
-    NSLog(@"%@", selectionKey);
+    //NSLog(@"%@", numPlayers);
+    //NSLog(@"%@", selectionKey);
     cell.NumPlayersLabel.text = [NSString stringWithFormat:@"%@%@", numPlayers, @" Players"];
     cell.RemoveButton.accessibilityIdentifier = selectionKey;
     return cell;
@@ -130,7 +130,7 @@
     [self.tableView reloadData];}
 
 - (IBAction)editButtonClick:(id)sender {
-    NSLog(@"editButtonClick");
+    //NSLog(@"editButtonClick");
     
     UIButton *button = (UIButton *) sender;
     if([button.currentTitle isEqualToString:@"Edit"]){

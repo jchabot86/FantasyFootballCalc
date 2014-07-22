@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UIViewController
-
+@property (nonatomic, strong) NSArray *players;
+@property (nonatomic, strong) NSMutableData *data;
 @property (strong, nonatomic) IBOutlet UITextField *PassingYards;
 @property (strong, nonatomic) IBOutlet UITextField *PassingAttempts;
 @property (strong, nonatomic) IBOutlet UITextField *PassingTd;

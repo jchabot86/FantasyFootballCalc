@@ -162,7 +162,7 @@
 // MyTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyTeamCell" forIndexPath:indexPath];
 
 - (IBAction)editButtonClick:(id)sender {
-    NSLog(@"editButtonClick");
+    //NSLog(@"editButtonClick");
     
     UIButton *button = (UIButton *) sender;
     if([button.currentTitle isEqualToString:@"Edit"]){

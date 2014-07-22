@@ -121,7 +121,7 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *results = [database performQuery: sql];
     
-    NSString *sqlUpdatePlayer = @"UPDATE player SET score = %@ WHERE pid = '%@';";
+    
     Settings* properties = self;
     float PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
     float PassingYardsWeight = [[properties getProperty:PASSING_YARDS] floatValue];
@@ -145,6 +145,7 @@
 
 
     for (NSArray *player in results) {
+        NSString *sqlUpdatePlayer = @"UPDATE player SET score = %@ WHERE pid = '%@';";
         NSString *pid = [player objectAtIndex:0];
         NSString *name = [player objectAtIndex:1];
         float adp = [[player objectAtIndex:4] floatValue];
@@ -193,8 +194,10 @@
         
         sqlUpdatePlayer = [NSString stringWithFormat:sqlUpdatePlayer,scoreAsString,pid];
         [database performQuery: sqlUpdatePlayer];
+    
+
         
-        NSLog(@"%@",sqlUpdatePlayer);
+        NSLog(@"%@ %@",sqlUpdatePlayer,name);
        
     }
     

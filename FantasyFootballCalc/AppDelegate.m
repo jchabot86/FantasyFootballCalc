@@ -15,9 +15,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSLog(@"App loaded.");
+    //NSLog(@"App loaded.");
     [self createEditableCopyOfDatabaseIfNeeded];
-    NSLog(@"Database ready.");
+    //NSLog(@"Database ready.");
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     

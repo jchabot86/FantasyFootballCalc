@@ -23,7 +23,7 @@
      const char *sql = [query UTF8String];
     
      if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) != SQLITE_OK) {
-         NSLog(@"[SQLITE] Error when preparing query!");
+         //NSLog(@"[SQLITE] Error when preparing query!");
          return false;
      }
     return true;
@@ -35,7 +35,7 @@
         sqlite3 *dbConnection;
         if (sqlite3_open([path UTF8String], &dbConnection) != SQLITE_OK) {
             
-            NSLog(@"[SQLITE] Unable to open database!");
+            //NSLog(@"[SQLITE] Unable to open database!");
             return nil; // if it fails, return nil obj
         }
         database = dbConnection;
@@ -47,7 +47,7 @@
     sqlite3_stmt *statement = nil;
     const char *sql = [query UTF8String];
     if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) != SQLITE_OK) {
-        NSLog(@"Error while creating add statement. '%s'", sqlite3_errmsg(database));
+        //NSLog(@"Error while creating add statement. '%s'", sqlite3_errmsg(database));
     } else {
         NSMutableArray *result = [NSMutableArray array];
         while (sqlite3_step(statement) == SQLITE_ROW) {
@@ -67,7 +67,7 @@
                 } else if (colType == SQLITE_NULL) {
                     value = [NSNull null];
                 } else {
-                    NSLog(@"[SQLITE] UNKNOWN DATATYPE");
+                    //NSLog(@"[SQLITE] UNKNOWN DATATYPE");
                 }
                 
                 [row addObject:value];

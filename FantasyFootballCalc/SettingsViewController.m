@@ -104,6 +104,32 @@ float DefenseSpTdWeight;
 }
 
 
+- (void) loadSettingsInMemory{
+    Settings* properties = [Settings new];
+    PassingTdWeight = [[properties getProperty:PASSING_TD] floatValue];
+    PassingYardsWeight = [[properties getProperty:PASSING_YARDS] floatValue];
+    DefenseFumbleRecoveryWeight = [[properties getProperty:DEFENSE_FUMREC] floatValue];
+    PassingAttemptsWeight = [[properties getProperty:PASSING_ATTEMPTS] floatValue];
+    PassingIntWeight = [[properties getProperty:PASSING_INT] floatValue];
+    RushingYardsWeight = [[properties getProperty:RUSHING_YARDS] floatValue];
+    RushingTdWeight = [[properties getProperty:RUSHING_TD] floatValue];
+    RushingAttemptsWeight = [[properties getProperty:RUSHING_ATTEMPS] floatValue];
+    ReceivingYardsWeight = [[properties getProperty:RECEIVING_YARDS] floatValue];
+    ReceivingReceptionsWeight = [[properties getProperty:RECEIVING_RECEPTIONS] floatValue];
+    ReceivingTdWeight = [[properties getProperty:RECEIVING_TD] floatValue];
+    KickingXpWeight = [[properties getProperty:KICKING_XP] floatValue];
+    KickingFgWeight = [[properties getProperty:KICKING_FG] floatValue];
+    KickingFg50Weight = [[properties getProperty:KICKING_FG50] floatValue];
+    DefenseTdWeight = [[properties getProperty:DEFENSE_TD] floatValue];
+    DefenseInterceptionWeight = [[properties getProperty:DEFENSE_INTERCEPTION] floatValue];
+    DefenseSackWeight = [[properties getProperty:DEFENSE_SACK] floatValue];
+    DefenseSafetyWeight = [[properties getProperty:DEFENSE_SAFETY] floatValue];
+    DefenseSpTdWeight = [[properties getProperty:DEFENSE_SPTD] floatValue];
+    
+    
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -149,6 +175,7 @@ float DefenseSpTdWeight;
     //[[Settings new] resetTable];
     
     [self loadSettings];
+    [self loadSettingsInMemory];
 
 }
 
@@ -205,14 +232,9 @@ float DefenseSpTdWeight;
     } else if([alertView.title isEqualToString:@"Sync Data"]) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         //build connection - will need to replace URL String
-       // NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
-        //NSURLRequest *request = [NSURLRequest requestWithURL:url];
-       // [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        Settings *settings = [Settings new];
-        [settings refreshScores];
-        [self loadSettings];
-
-
+        NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     }
     
@@ -248,10 +270,11 @@ float DefenseSpTdWeight;
     [properties setProperty:DEFENSE_SPTD:DefenseSPTD.text];
     
     [properties refreshScores];
+    [self loadSettingsInMemory];
 }
 
 - (IBAction)saveButtonClick:(id)sender {
-       //NSLog(@"Test: %@",PassingTd.text);
+       ////NSLog(@"Test: %@",PassingTd.text);
 }
 
 - (void) loadSettings{
@@ -275,6 +298,185 @@ float DefenseSpTdWeight;
     DefenseSack.text = [properties getProperty:DEFENSE_SACK];
     DefenseSafety.text = [properties getProperty:DEFENSE_SAFETY];
     DefenseSPTD.text = [properties getProperty:DEFENSE_SPTD];
+}
+
+
+
+#pragma mark - methods for connecting to feed
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    _data = [[NSMutableData alloc] init];
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData
+{
+    [_data appendData:theData];
+}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    
+    _players = [NSJSONSerialization JSONObjectWithData:_data options:0 error:nil];
+    SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
+    [database performQuery:@"delete from player"];
+    for(int i = 0; i< _players.count; i++)
+    {
+        
+        
+        float calcPassingYards = 0;
+        float calcPassingTd = 0;
+        float calcPassingAttempts = 0;
+        float calcPassingInt = 0;
+        float calcRushingYards = 0;
+        float calcRushingTd = 0;
+        float calcRushingAttempts = 0;
+        float calcReceivingYards = 0;
+        float calcReceivingReceptions = 0;
+        float calcReceivingTd = 0;
+        float calcKickingXp = 0;
+        float calcKickingFg =0;
+        float calcKickingFg50 = 0;
+        float calcDefenseTd = 0;
+        float calcDefenseInterception = 0;
+        float calcDefenseSack = 0;
+        float calcDefenseSafety = 0;
+        float calcDefenseSpTd = 0;
+        float calcDefenseFumRec = 0;
+        
+        //heyy
+        NSNumber *passTdNumber = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
+        if(passTdNumber != [NSNull null]){
+            calcPassingTd = PassingTdWeight * [passTdNumber floatValue];
+        }
+        
+        
+        NSNumber *passYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Yds"];
+        if(passYardsNumber != [NSNull null]){
+            calcPassingYards = PassingYardsWeight * ([passYardsNumber floatValue] / 25);
+        }
+        
+        
+        NSNumber *passingAttemptsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Att"];
+        if(passingAttemptsNumber != [NSNull null]){
+            calcPassingAttempts = PassingAttemptsWeight * [passingAttemptsNumber floatValue];
+        }
+        
+        NSNumber *passingIntNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Int"];
+        if(passingIntNumber != [NSNull null]){
+            calcPassingInt = PassingIntWeight * [passingIntNumber floatValue];
+        }
+        
+        NSNumber *rushingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Yds"];
+        if(rushingYardsNumber != [NSNull null]){
+            calcRushingYards = PassingYardsWeight * ([rushingYardsNumber floatValue] / 10);
+        }
+        
+        NSNumber *rushingTdNumber = [[_players objectAtIndex: i] objectForKey:@"Rush TD"];
+        if(rushingTdNumber != [NSNull null]){
+            calcRushingTd = RushingTdWeight * [rushingTdNumber floatValue];
+        }
+        
+        NSNumber *rushingAttempsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Att"];
+        if(rushingAttempsNumber != [NSNull null]){
+            calcRushingAttempts = RushingAttemptsWeight * [rushingAttempsNumber floatValue];
+        }
+        
+        NSNumber *receivingYardsNumber = [[_players objectAtIndex: i] objectForKey:@"Rec Yds"];
+        if(receivingYardsNumber != [NSNull null]){
+            calcReceivingYards = ReceivingYardsWeight * ([receivingYardsNumber floatValue] / 10);
+        }
+        
+        
+        NSNumber *receivingReceptionsNumber = [[_players objectAtIndex: i] objectForKey:@"Rush Att"];
+        if(receivingReceptionsNumber != [NSNull null]){
+            calcReceivingReceptions = ReceivingReceptionsWeight * [receivingReceptionsNumber floatValue];
+        }
+        
+        NSNumber *receivingTdNumber = [[_players objectAtIndex: i] objectForKey:@"Rec TD"];
+        if(receivingTdNumber != [NSNull null]){
+            calcReceivingTd = ReceivingTdWeight * [receivingTdNumber floatValue];
+        }
+        
+        NSNumber *kickingXpNumber = [[_players objectAtIndex: i] objectForKey:@"XP"];
+        if(kickingXpNumber != [NSNull null]){
+            calcKickingXp = KickingXpWeight * [kickingXpNumber floatValue];
+        }
+        
+        
+        NSNumber *kickingFgNumber = [[_players objectAtIndex: i] objectForKey:@"FG"];
+        if(kickingFgNumber != [NSNull null]){
+            calcKickingFg = KickingFgWeight * [kickingFgNumber floatValue];
+        }
+        
+        NSNumber *kickingFg50Number = [[_players objectAtIndex: i] objectForKey:@"FG50"];
+        if(kickingFg50Number != [NSNull null]){
+            calcKickingFg50 = KickingFg50Weight * [kickingFg50Number floatValue];
+        }
+        
+        NSNumber *defenseTdNumber = [[_players objectAtIndex: i] objectForKey:@"DefTD"];
+        if(defenseTdNumber != [NSNull null]){
+            calcDefenseTd = DefenseTdWeight * [defenseTdNumber floatValue];
+        }
+        
+        NSNumber *defenseInterceptionNumber = [[_players objectAtIndex: i] objectForKey:@"DefInt"];
+        if(defenseInterceptionNumber != [NSNull null]){
+            calcDefenseInterception = DefenseInterceptionWeight * [defenseInterceptionNumber floatValue];
+        }
+        
+        NSNumber *defenseSackNumber = [[_players objectAtIndex: i] objectForKey:@"DefSack"];
+        if(defenseSackNumber != [NSNull null]){
+            calcDefenseSack = DefenseSackWeight * [defenseSackNumber floatValue];
+        }
+        
+        
+        NSNumber *defenseSafetyNumber = [[_players objectAtIndex: i] objectForKey:@"RushSafety"];
+        if(defenseSafetyNumber != [NSNull null]){
+            calcDefenseSafety = DefenseSafetyWeight * [defenseSafetyNumber floatValue];
+        }
+        
+        
+        NSNumber *defenseSpTdNumber = [[_players objectAtIndex: i] objectForKey:@"DefSP TD"];
+        if(defenseSpTdNumber != [NSNull null]){
+            calcDefenseSpTd = DefenseSpTdWeight * [defenseSpTdNumber floatValue];
+        }
+        
+        NSNumber *defenseFumRecNumber = [[_players objectAtIndex: i] objectForKey:@"DefFum"];
+        if(defenseFumRecNumber != [NSNull null]){
+            calcDefenseFumRec = DefenseFumbleRecoveryWeight * [defenseFumRecNumber floatValue];
+        }
+        
+        
+        
+        float score = calcPassingYards + calcPassingTd + calcPassingInt + calcRushingYards +calcRushingTd + calcRushingAttempts + calcReceivingYards + calcReceivingReceptions + calcReceivingTd + calcKickingXp + calcKickingFg + calcKickingFg50 + calcDefenseTd + calcDefenseInterception + calcDefenseSack + calcDefenseSpTd +calcDefenseFumRec;
+        
+        
+        NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
+        
+        NSLog(@"Score... %@",scoreAsString);
+        
+        NSString *refreshPlayers = [NSString stringWithFormat:@"insert into player (pid, player, pos, team, adp, passcomp,passatt, passyds, passtd,int,rushatt,rushyds,rushtd,rec,recyds, rectd, xp, fg, fg50, deftd, deffum, defint,defsack, defsafety, bye, opponent, news, score,defsptd) values (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[[_players objectAtIndex: i] objectForKey:@"PID"], [[_players objectAtIndex: i] objectForKey:@"Player"], [[_players objectAtIndex: i] objectForKey:@"Pos"], [[_players objectAtIndex: i] objectForKey:@"Team"], [[_players objectAtIndex: i] objectForKey:@"ADP"], [[_players objectAtIndex: i] objectForKey:@"Pass Comp"], [[_players objectAtIndex: i] objectForKey:@"Pass Att"], [[_players objectAtIndex: i] objectForKey:@"Pass Yds"], [[_players objectAtIndex: i] objectForKey:@"Pass TD"], [[_players objectAtIndex: i] objectForKey:@"INT"], [[_players objectAtIndex: i] objectForKey:@"Rush Att"], [[_players objectAtIndex: i] objectForKey:@"Rush Yds"], [[_players objectAtIndex: i] objectForKey:@"Rush TD"], [[_players objectAtIndex: i] objectForKey:@"Rec"], [[_players objectAtIndex: i] objectForKey:@"Rec Yds"], [[_players objectAtIndex: i] objectForKey:@"Rec TD"], [[_players objectAtIndex: i] objectForKey:@"XP"], [[_players objectAtIndex: i] objectForKey:@"FG"], [[_players objectAtIndex: i] objectForKey:@"FG50"], [[_players objectAtIndex: i] objectForKey:@"DefTD"], [[_players objectAtIndex: i] objectForKey:@"DefFum"], [[_players objectAtIndex: i] objectForKey:@"DefInt"], [[_players objectAtIndex: i] objectForKey:@"DefSack"], [[_players objectAtIndex: i] objectForKey:@"DefSafety"], [[_players objectAtIndex: i] objectForKey:@"Bye"], [[_players objectAtIndex: i] objectForKey:@"Opponent"], [[_players objectAtIndex: i] objectForKey:@"News"],scoreAsString,[[_players objectAtIndex: i] objectForKey:@"DefSP TD"]];
+        [database performQuery:refreshPlayers];
+         //NSLog(@"%@",refreshPlayers);
+    }
+    NSArray *lastSyncDate = [database performQuery:@"select date from last_sync_date"];
+    NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currDateString = [DateFormatter stringFromDate:[NSDate date]];
+    if(lastSyncDate.count == 0) {
+        [database performQuery:[NSString stringWithFormat:@"insert into last_sync_date (date) values (\"%@\")",currDateString]];
+    } else {
+        [database performQuery:[NSString stringWithFormat:@"update last_sync_date set date = \"%@\"",currDateString]];
+    }
+    [database closeConnection];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    //TODO do something here
+    //NSLog(@"Failed!!!");
+    //stop the networkActivityIndicator
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
 }
 
 /*
