@@ -310,7 +310,6 @@
         
         float calcPassingYards = 0;
         float calcPassingTd = 0;
-        float calcPassingCompletion = 0;
         float calcPassingAttempts = 0;
         float calcPassingInt = 0;
         float calcRushingYards = 0;
@@ -327,6 +326,8 @@
         float calcDefenseSack = 0;
         float calcDefenseSafety = 0;
         float calcDefenseSpTd = 0;
+        float calcDefenseFumRec = 0;
+        
         //heyy
         NSNumber *passTdNumber = [[_players objectAtIndex: i] objectForKey:@"Pass TD"];
         if(passTdNumber != [NSNull null]){
@@ -339,15 +340,10 @@
             calcPassingYards = PassingYardsWeight * ([passYardsNumber floatValue] / 25);
         }
         
-        NSNumber *passCompletionNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Comp"];
-        if(passCompletionNumber != [NSNull null]){
-            calcPassingCompletion = PassingCompletionWeight * [passCompletionNumber floatValue];
-        }
-        
         
         NSNumber *passingAttemptsNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Att"];
         if(passingAttemptsNumber != [NSNull null]){
-            calcPassingAttempts = PassingCompletionWeight * [passingAttemptsNumber floatValue];
+            calcPassingAttempts = PassingAttemptsWeight * [passingAttemptsNumber floatValue];
         }
         
         NSNumber *passingIntNumber = [[_players objectAtIndex: i] objectForKey:@"Pass Int"];
@@ -429,8 +425,15 @@
             calcDefenseSpTd = DefenseSpTdWeight * [defenseSpTdNumber floatValue];
         }
         
+        NSNumber *defenseFumRecNumber = [[_players objectAtIndex: i] objectForKey:@"DefFum"];
+        if(defenseFumRecNumber != [NSNull null]){
+            calcDefenseFumRec = DefenseFumbleRecoveryWeight * [defenseFumRecNumber floatValue];
+        }
         
-        float score = calcPassingYards + calcPassingTd + calcPassingCompletion + calcPassingAttempts + calcPassingInt + calcRushingYards +calcRushingTd + calcRushingAttempts + calcReceivingYards + calcReceivingReceptions + calcReceivingTd + calcKickingXp + calcKickingFg + calcKickingFg50 + calcDefenseTd + calcDefenseInterception + calcDefenseSack + calcDefenseSpTd;
+        
+        
+        float score = calcPassingYards + calcPassingTd + calcPassingInt + calcRushingYards +calcRushingTd + calcRushingAttempts + calcReceivingYards + calcReceivingReceptions + calcReceivingTd + calcKickingXp + calcKickingFg + calcKickingFg50 + calcDefenseTd + calcDefenseInterception + calcDefenseSack + calcDefenseSpTd +calcDefenseFumRec;
+        
         
         NSString *scoreAsString = [[NSNumber numberWithFloat:score] stringValue];
         
