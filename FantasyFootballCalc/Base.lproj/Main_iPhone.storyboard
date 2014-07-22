@@ -1069,6 +1069,10 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView appearanceType="aqua" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Iz5-KQ-PTL">
+                                                <rect key="frame" x="140" y="49" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1114,6 +1118,7 @@
                         <outlet property="RushingAttempts" destination="Qmk-CU-nfL" id="ixM-ug-FEh"/>
                         <outlet property="RushingTd" destination="8au-0v-u7g" id="Ro0-37-KqT"/>
                         <outlet property="RushingYards" destination="0TZ-uu-1jw" id="b7B-XK-cCb"/>
+                        <outlet property="activityIndicator" destination="Iz5-KQ-PTL" id="EcJ-EI-RQw"/>
                         <outlet property="scrolldown" destination="bQ6-4f-DH9" id="J0t-E7-4dT"/>
                         <outlet property="syncDataButton" destination="t9Q-ag-XBx" id="zEz-YK-WMZ"/>
                     </connections>

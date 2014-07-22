@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *DefenseFumbleRecovery;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrolldown;
 @property (strong, nonatomic) IBOutlet UIButton *syncDataButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 @end

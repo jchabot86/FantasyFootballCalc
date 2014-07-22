@@ -133,6 +133,8 @@ float DefenseSpTdWeight;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_activityIndicator setHidesWhenStopped:YES];
+
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:52.0f/255.0f green:111.0f/255.0f blue:200.0f/255.0f alpha:255.0f/255.0f];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
@@ -212,8 +214,12 @@ float DefenseSpTdWeight;
     if(buttonIndex==0)
     {
         Settings *settings = [Settings new];
+        [_activityIndicator setHidden:NO];
+        [_activityIndicator startAnimating];
         [settings refreshScores];
         [self loadSettings];
+        [_activityIndicator stopAnimating];
+
     }
     } else if ([alertView.title isEqualToString:@"Reset Players"]){
         if(buttonIndex == 0){
@@ -232,6 +238,8 @@ float DefenseSpTdWeight;
     } else if([alertView.title isEqualToString:@"Sync Data"]) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         //build connection - will need to replace URL String
+        [_activityIndicator setHidden:NO];
+        [_activityIndicator startAnimating];
         NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -246,7 +254,9 @@ float DefenseSpTdWeight;
 }
 
 - (void) saveSettings{
-    
+    [_activityIndicator setHidden:NO];
+    [_activityIndicator startAnimating];
+
     Settings* properties = [Settings new];
     
     [properties setProperty:PASSING_TD:PassingTd.text];
@@ -271,6 +281,8 @@ float DefenseSpTdWeight;
     
     [properties refreshScores];
     [self loadSettingsInMemory];
+    [_activityIndicator stopAnimating];
+
 }
 
 - (IBAction)saveButtonClick:(id)sender {
@@ -467,6 +479,8 @@ float DefenseSpTdWeight;
     }
     [database closeConnection];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [_activityIndicator stopAnimating];
+
 }
 
 
@@ -476,6 +490,8 @@ float DefenseSpTdWeight;
     //NSLog(@"Failed!!!");
     //stop the networkActivityIndicator
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [_activityIndicator stopAnimating];
+
     
 }
 
