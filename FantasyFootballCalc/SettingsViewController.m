@@ -71,9 +71,27 @@ float DefenseSpTdWeight;
 
 
 -(void)cancelNumberPad{
+    [PassingTd resignFirstResponder];
+    [PassingTd resignFirstResponder];
+    [PassingYards resignFirstResponder];
+    [DefenseFumbleRecovery resignFirstResponder];
+    [PassingAttempts resignFirstResponder];
+    [PassingInt resignFirstResponder];
+    [RushingYards resignFirstResponder];
+    [RushingTd resignFirstResponder];
+    [RushingAttempts resignFirstResponder];
+    [ReceivingYards resignFirstResponder];
+    [ReceivingReceptions resignFirstResponder];
+    [ReceivingTd resignFirstResponder];
+    [KickingXp resignFirstResponder];
+    [KickingFg resignFirstResponder];
+    [KickingFg50 resignFirstResponder];
+    [DefenseTd resignFirstResponder];
+    [DefenseInterception resignFirstResponder];
+    [DefenseSack resignFirstResponder];
+    [DefenseSafety resignFirstResponder];
+    [DefenseSPTD resignFirstResponder];
     [self loadSettings];
-    //[PassingTd resignFirstResponder];
-    //PassingTd.text = @"";
 }
 
 -(void)doneWithNumberPad{
@@ -148,6 +166,7 @@ float DefenseSpTdWeight;
                            nil];*/
     
     numberToolbar.items = [NSArray arrayWithObjects:
+                            [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelNumberPad)],
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                            [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
                            nil];
@@ -214,7 +233,9 @@ float DefenseSpTdWeight;
     if(buttonIndex==0)
     {
         Settings *settings = [Settings new];
+        [alertView addSubview:_activityIndicator];
         [_activityIndicator setHidden:NO];
+        [alertView bringSubviewToFront:_activityIndicator];
         [_activityIndicator startAnimating];
         [settings refreshScores];
         [self loadSettings];

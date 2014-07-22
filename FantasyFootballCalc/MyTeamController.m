@@ -43,7 +43,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
-    NSString *myTeamQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = 0"];
+    NSString *myTeamQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = 0 order by score desc"];
     myTeamPlayers = [database performQuery: myTeamQuery];
     NSArray *totalScoreArray;
     if(myTeamPlayers.count > 0){
@@ -202,7 +202,7 @@
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSString *deleteSelectedPlayer = [NSString stringWithFormat:@"delete from team where tid = %@", tid];
     [database performQuery: deleteSelectedPlayer];
-    NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = 0"];
+    NSString *selectionQuery = [NSString stringWithFormat:@"select p.*, tid from team t join player p on t.pid =p.pid where key = 0 order by score desc"];
     myTeamPlayers = [database performQuery: selectionQuery];
     NSArray *totalScoreArray;
     if(myTeamPlayers.count > 0){
