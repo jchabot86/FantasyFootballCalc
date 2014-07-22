@@ -257,13 +257,15 @@ float DefenseSpTdWeight;
 
         }
     } else if([alertView.title isEqualToString:@"Sync Data"]) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        //build connection - will need to replace URL String
-        [_activityIndicator setHidden:NO];
-        [_activityIndicator startAnimating];
-        NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        if(buttonIndex == 0){
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            //build connection - will need to replace URL String
+            [_activityIndicator setHidden:NO];
+            [_activityIndicator startAnimating];
+            NSURL *url = [NSURL URLWithString:@"http://www.profootballfocus.com/toolkit/export/RyanWetter/?password=sdhjgkd5j45jhdgfyh4fhdf5h"];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        }
     
     }
     
