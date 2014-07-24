@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -409,28 +410,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button hidden="YES" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNm-g6-yek">
-                                            <rect key="frame" x="0.0" y="19" width="40" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <accessibility key="accessibilityConfiguration">
-                                                <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
-                                            </accessibility>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="22" id="CeF-3T-Ig7"/>
-                                                <constraint firstAttribute="height" constant="22" id="wYD-hs-0lc"/>
-                                            </constraints>
-                                            <state key="normal" backgroundImage="Minus@2x.png">
-                                                <color key="titleColor" red="0.82745098039215681" green="0.050980392156862744" blue="0.25490196078431371" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="removePlayerFromSelection:" destination="7L3-ej-HeT" eventType="touchUpInside" id="Nnl-ue-biT"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw7-xn-3MR">
                                             <rect key="frame" x="42" y="20" width="125" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Proj Pts.:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guP-rw-tyX">
@@ -507,12 +490,23 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI1-XN-daR">
+                                            <rect key="frame" x="0.0" y="14" width="40" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" backgroundImage="Minus@2x.png">
+                                                <color key="titleColor" red="0.82745098039999998" green="0.050980392159999999" blue="0.25490196079999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="removePlayerFromSelection:" destination="7L3-ej-HeT" eventType="touchUpInside" id="EAj-R4-dak"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="PlayerLabel" destination="kw7-xn-3MR" id="g0u-El-toT"/>
                                     <outlet property="PosLabel" destination="b8F-qE-pUj" id="cZz-CH-oMn"/>
-                                    <outlet property="RemoveFromSelectionBtn" destination="rNm-g6-yek" id="n9c-ZT-wc5"/>
+                                    <outlet property="RemoveFromSelectionBtn" destination="rI1-XN-daR" id="lYe-ID-Aiq"/>
                                     <outlet property="TeamLabel" destination="r2f-th-gYV" id="h8C-f1-X5j"/>
                                     <outlet property="byeLabel" destination="7bN-1Z-6xN" id="LpF-Zj-M6c"/>
                                     <outlet property="projPts" destination="d70-ih-p4b" id="umj-rk-KxE"/>
@@ -613,21 +607,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="319" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button hidden="YES" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SP-Cr-2Yk">
-                                                    <rect key="frame" x="3" y="17" width="40" height="38"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="22" id="tgU-rd-itc"/>
-                                                        <constraint firstAttribute="height" constant="22" id="uAv-E4-ib5"/>
-                                                    </constraints>
-                                                    <state key="normal" backgroundImage="Minus@2x.png">
-                                                        <color key="titleColor" red="0.82745098039215681" green="0.050980392156862744" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="removePlayerFromTeam:" destination="AQn-iA-vbz" eventType="touchUpInside" id="UTm-fA-jZi"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jg-bY-SRL">
                                                     <rect key="frame" x="47" y="20" width="118" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -708,12 +687,24 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyS-MG-aJJ">
+                                                    <rect key="frame" x="3" y="20" width="40" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="Minus@2x.png">
+                                                        <color key="titleColor" red="0.82745098039999998" green="0.050980392159999999" blue="0.25490196079999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="removePlayerFromTeam:" destination="AQn-iA-vbz" eventType="touchUpInside" id="pRJ-bw-ucd"/>
+                                                        <action selector="removeSelection:" destination="KOl-bG-nxh" eventType="touchUpInside" id="UAh-u0-6hd"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="PlayerLabel" destination="6jg-bY-SRL" id="CPc-ei-PSJ"/>
                                             <outlet property="PosLabel" destination="uVB-Mq-eJh" id="HsU-wJ-fen"/>
-                                            <outlet property="RemoveFromTeamBtn" destination="4SP-Cr-2Yk" id="9lP-0g-vj7"/>
+                                            <outlet property="RemoveFromTeamBtn" destination="hyS-MG-aJJ" id="oCE-iT-bGi"/>
                                             <outlet property="TeamLabel" destination="cmp-Oa-AzN" id="sDA-eG-wwq"/>
                                             <outlet property="byeLabel" destination="PDA-1S-cYf" id="o4p-bV-D0I"/>
                                             <outlet property="projPts" destination="uxf-nN-cI0" id="la5-h4-4eB"/>
