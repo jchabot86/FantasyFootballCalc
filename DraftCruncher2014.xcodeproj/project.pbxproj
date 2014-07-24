@@ -503,7 +503,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FantasyFootballCalc/DraftCruncher2014-Prefix.pch";
 				INFOPLIST_FILE = "FantasyFootballCalc/DraftCruncher2014-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = DraftCruncher2014;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -518,7 +518,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FantasyFootballCalc/DraftCruncher2014-Prefix.pch";
 				INFOPLIST_FILE = "FantasyFootballCalc/DraftCruncher2014-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = DraftCruncher2014;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
