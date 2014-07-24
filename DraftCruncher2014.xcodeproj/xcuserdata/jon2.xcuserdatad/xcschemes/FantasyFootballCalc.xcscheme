@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F2CEFF8219571B0F00C937F1"
-            BuildableName = "FantasyFootballCalc.app"
-            BlueprintName = "FantasyFootballCalc"
-            ReferencedContainer = "container:FantasyFootballCalc.xcodeproj">
+            BuildableName = "DraftCruncher2014.app"
+            BlueprintName = "DraftCruncher2014"
+            ReferencedContainer = "container:DraftCruncher2014.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F2CEFF8219571B0F00C937F1"
-            BuildableName = "FantasyFootballCalc.app"
-            BlueprintName = "FantasyFootballCalc"
-            ReferencedContainer = "container:FantasyFootballCalc.xcodeproj">
+            BuildableName = "DraftCruncher2014.app"
+            BlueprintName = "DraftCruncher2014"
+            ReferencedContainer = "container:DraftCruncher2014.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

@@ -101,7 +101,7 @@
     NSInteger *totalPts = [[[selections objectAtIndex: indexPath.row] objectAtIndex:2] integerValue];
     
 
-    cell.TitleLabel.text = [NSString stringWithFormat:@"%@%@",@"Selection ",selectionKey];
+    cell.TitleLabel.text = [NSString stringWithFormat:@"%@%@",@"Scenario ",selectionKey];
     cell.TotalPtsLabel.text = [NSString stringWithFormat:@"%d%@", totalPts, @" Pts"];
     //NSLog(@"%@", numPlayers);
     //NSLog(@"%@", selectionKey);
@@ -116,7 +116,7 @@
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         NSString *selectionKey = [[[selections objectAtIndex: myIndexPath.row] objectAtIndex:0] stringValue];
         selDetailController.SelectionID = selectionKey;
-        selDetailController.SelectionTitle = [NSString stringWithFormat:@"%@%@",@"Selection ",selectionKey];
+        selDetailController.SelectionTitle = [NSString stringWithFormat:@"%@%@",@"Scenario  ",selectionKey];
     }
 }
 - (IBAction)removeSelection:(id)sender {

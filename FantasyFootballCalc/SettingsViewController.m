@@ -10,6 +10,7 @@
 #import "SQLite.h"
 #import "Config.h"
 #import "Settings.h"
+#define ACCEPTABLE_CHARACTERS @"0123456789-"
 
 @interface SettingsViewController ()
 {
@@ -175,24 +176,43 @@ float DefenseSpTdWeight;
     [numberToolbar sizeToFit];
 
     PassingTd.inputAccessoryView = numberToolbar;
+    PassingTd.delegate = self;
     PassingYards.inputAccessoryView = numberToolbar;
+    PassingYards.delegate = self;
     DefenseFumbleRecovery.inputAccessoryView = numberToolbar;
+    DefenseFumbleRecovery.delegate = self;
     PassingAttempts.inputAccessoryView = numberToolbar;
+    PassingAttempts.delegate = self;
     PassingInt.inputAccessoryView = numberToolbar;
+    PassingInt.delegate = self;
     RushingYards.inputAccessoryView = numberToolbar;
+    RushingYards.delegate = self;
     RushingTd.inputAccessoryView = numberToolbar;
+    RushingTd.delegate = self;
     RushingAttempts.inputAccessoryView = numberToolbar;
+    RushingAttempts.delegate = self;
     ReceivingYards.inputAccessoryView = numberToolbar;
+    ReceivingYards.delegate = self;
     ReceivingReceptions.inputAccessoryView = numberToolbar;
+    ReceivingReceptions.delegate = self;
     ReceivingTd.inputAccessoryView = numberToolbar;
+    ReceivingTd.delegate = self;
     KickingXp.inputAccessoryView = numberToolbar;
+    KickingXp.delegate = self;
     KickingFg.inputAccessoryView = numberToolbar;
+    KickingFg.delegate = self;
     KickingFg50.inputAccessoryView = numberToolbar;
+    KickingFg50.delegate = self;
     DefenseTd.inputAccessoryView = numberToolbar;
+    DefenseTd.delegate = self;
     DefenseInterception.inputAccessoryView = numberToolbar;
+    DefenseInterception.delegate = self;
     DefenseSack.inputAccessoryView = numberToolbar;
+    DefenseSack.delegate = self;
     DefenseSafety.inputAccessoryView = numberToolbar;
+    DefenseSafety.delegate = self;
     DefenseSPTD.inputAccessoryView = numberToolbar;
+    DefenseSPTD.delegate = self;
     //[[Settings new] resetTable];
     
     [self loadSettings];
@@ -518,6 +538,29 @@ float DefenseSpTdWeight;
     
 }
 
+#pragma mark - text fields
+-(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    BOOL *validLength = YES;
+    BOOL *validChar = NO;
+    NSString *newString = [textField. text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSUInteger newLength = [newString length]  + [string length] - range.length;
+    if(newLength > 2) {
+        validLength = NO;
+    }
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS] invertedSet];
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs]componentsJoinedByString:@""];
+    if([string isEqualToString:filtered]){
+        validChar = YES;
+    }
+    return (validLength && validChar) ? YES :NO;
+}
+-(void) textFieldDidEndEditing:(UITextField *)textField {
+    [self doneWithNumberPad];
+}
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [self doneWithNumberPad];
+    return YES;
+}
 /*
 #pragma mark - Navigation
 

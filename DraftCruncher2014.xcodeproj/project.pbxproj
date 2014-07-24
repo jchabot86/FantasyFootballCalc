@@ -38,6 +38,7 @@
 		F2CEFFC919571F0900C937F1 /* SelectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFC819571F0900C937F1 /* SelectionsCell.m */; };
 		F2CEFFCC195721D700C937F1 /* SelectionDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFCB195721D700C937F1 /* SelectionDetailController.m */; };
 		F2CEFFCF195722B100C937F1 /* SelectionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CEFFCE195722B100C937F1 /* SelectionDetailCell.m */; };
+		F2D1B137198121D200E15B1C /* Minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D1B136198121D200E15B1C /* Minus@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		F2CEFFCB195721D700C937F1 /* SelectionDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionDetailController.m; sourceTree = "<group>"; };
 		F2CEFFCD195722B100C937F1 /* SelectionDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionDetailCell.h; sourceTree = "<group>"; };
 		F2CEFFCE195722B100C937F1 /* SelectionDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionDetailCell.m; sourceTree = "<group>"; };
+		F2D1B136198121D200E15B1C /* Minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Minus@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 		F2CEFF8D19571B0F00C937F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F2D1B136198121D200E15B1C /* Minus@2x.png */,
 				F23543241967167B004CD0CE /* KrunchProjections.json */,
 				F2CEFF8E19571B0F00C937F1 /* DraftCruncher2014-Info.plist */,
 				F2CEFF8F19571B0F00C937F1 /* InfoPlist.strings */,
@@ -326,6 +329,7 @@
 				F2CEFF9D19571B0F00C937F1 /* Main_iPad.storyboard in Resources */,
 				F244AF49197CA06D0037E399 /* FantasyFootballCalc.sqlite in Resources */,
 				F2CEFFA519571B0F00C937F1 /* Images.xcassets in Resources */,
+				F2D1B137198121D200E15B1C /* Minus@2x.png in Resources */,
 				F27B59E919798D7000001540 /* Main_iPhone.storyboard in Resources */,
 				F2CEFF9119571B0F00C937F1 /* InfoPlist.strings in Resources */,
 			);

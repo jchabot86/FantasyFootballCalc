@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UITextFieldDelegate>
 @property (nonatomic, strong) NSArray *players;
 @property (nonatomic, strong) NSMutableData *data;
 @property (strong, nonatomic) IBOutlet UITextField *PassingYards;

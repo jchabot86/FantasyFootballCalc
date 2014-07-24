@@ -98,7 +98,7 @@
     _selectedIndexes = [[NSMutableArray alloc] init];
     _tableView.allowsMultipleSelection = YES;
     
-    _pickerData = [[NSArray alloc] initWithObjects:@"Any", @"QB",@"WR",@"RB",@"TE",@"DST",@"K", nil];
+    _pickerData = [[NSArray alloc] initWithObjects:@"Any", @"QB",@"RB",@"WR",@"TE",@"DST",@"K", nil];
     [_activityIndicator setHidesWhenStopped:YES];
     SQLite *database = [[SQLite alloc] initWithPath: DBPATH]; //SEE Config.m for DBPATH
     NSArray *lastSyncDate = [database performQuery:@"select date from last_sync_date"];
@@ -192,9 +192,6 @@
     }
     NSString *pid = [[playerResults objectAtIndex: indexPath.row]objectAtIndex:0];
     //NSLog(@"Player: %@", pid);
-    [cell.AddToTeamButton setTitleColor:[UIColor greenColor] forState:(UIControlStateNormal)];
-    [cell.ScratchFromTeamButton setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
-
     // Configure the cell...
     NSString *pos = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:2];
     cell.PlayerLabel.text = [[playerResults objectAtIndex: indexPath.row] objectAtIndex:1];
@@ -508,9 +505,9 @@
     } else if (selectedFilterRow == 1) {
             pos = @"QB";
     } else if (selectedFilterRow == 2) {
-            pos = @"WR";
-    } else if (selectedFilterRow == 3) {
             pos = @"RB";
+    } else if (selectedFilterRow == 3) {
+            pos = @"WR";
     } else if (selectedFilterRow == 4) {
             pos = @"TE";
     } else if (selectedFilterRow == 5) {
@@ -553,6 +550,7 @@
     [_selectedIndexes removeAllObjects];
     [database closeConnection];
     [_tableView reloadData];
+    [self.tabBarController setSelectedIndex:1];
 }
 
 - (IBAction)addToTeam:(id)sender {
