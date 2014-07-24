@@ -540,22 +540,54 @@ float DefenseSpTdWeight;
 
 #pragma mark - text fields
 -(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    BOOL *validLength = YES;
-    BOOL *validChar = NO;
-    NSString *newString = [textField. text stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    NSUInteger newLength = [newString length]  + [string length] - range.length;
+    BOOL validLength = YES;
+    BOOL validChar = NO;
+    BOOL isNumber = NO;
+    NSString *newString = [[textField.text stringByAppendingString:string]
+                           stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    if(newString.length != 0){
+    NSUInteger newLength = [newString length]  - range.length;
     if(newLength > 2) {
         validLength = NO;
+    }
     }
     NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS] invertedSet];
     NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs]componentsJoinedByString:@""];
     if([string isEqualToString:filtered]){
         validChar = YES;
     }
-    return (validLength && validChar) ? YES :NO;
+    isNumber = isNumeric([textField.text stringByAppendingString:string]);
+    return (validLength && validChar && isNumber) ? YES :NO;
 }
+
+BOOL isNumeric(NSString *s)
+{
+    NSUInteger len = [s length];
+    NSUInteger i;
+    BOOL status = NO;
+    
+    for(i=0; i < len; i++)
+    {
+        unichar singlechar = [s characterAtIndex: i];
+        if ( (singlechar == ' ') && (!status) )
+        {
+            continue;
+        }
+        if ( ( singlechar == '+' ||
+              singlechar == '-' ) && (!status) ) { status=YES; continue; }
+        if ( ( singlechar >= '0' ) &&
+            ( singlechar <= '9' ) )
+        {
+            status = YES;
+        } else {
+            return NO;
+        }
+    }
+    return (i == len) && status;
+}
+
 -(void) textFieldDidEndEditing:(UITextField *)textField {
-    [self doneWithNumberPad];
+    [self cancelNumberPad];
 }
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     [self doneWithNumberPad];
