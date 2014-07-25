@@ -60,6 +60,7 @@ float DefenseInterceptionWeight;
 float DefenseSackWeight;
 float DefenseSafetyWeight;
 float DefenseSpTdWeight;
+bool didClickDone = false;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -96,6 +97,7 @@ float DefenseSpTdWeight;
 }
 
 -(void)doneWithNumberPad{
+    NSLog(@"doneWithNumberPad");
     //NSString *numberFromTheKeyboard = PassingTd.text;
     [PassingTd resignFirstResponder];
     [PassingTd resignFirstResponder];
@@ -152,6 +154,7 @@ float DefenseSpTdWeight;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [_activityIndicator setHidesWhenStopped:YES];
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:52.0f/255.0f green:111.0f/255.0f blue:200.0f/255.0f alpha:255.0f/255.0f];
@@ -586,14 +589,11 @@ BOOL isNumeric(NSString *s)
     }
     return (i == len) && status;
 }
-/*
--(void) textFieldDidEndEditing:(UITextField *)textField {
-    NSLog(@"loadSettings from textFieldDidEndEditing");
-    [self loadSettings];
-}*/
+
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"doneithNumberPad from textFieldShouldReturn");
+    NSLog(@"doneWithNumberPad from textFieldShouldReturn");
     [self doneWithNumberPad];
+    didClickDone = true;
     return YES;
 }
 /*
