@@ -199,7 +199,7 @@
     
 
         
-        NSLog(@"%@ %@",sqlUpdatePlayer,name);
+        //NSLog(@"%@ %@",sqlUpdatePlayer,name);
        
     }
     

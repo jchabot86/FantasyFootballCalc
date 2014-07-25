@@ -169,7 +169,6 @@ float DefenseSpTdWeight;
     numberToolbar.items = [NSArray arrayWithObjects:
                             [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelNumberPad)],
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
                            nil];
 
     
@@ -585,11 +584,13 @@ BOOL isNumeric(NSString *s)
     }
     return (i == len) && status;
 }
-
+/*
 -(void) textFieldDidEndEditing:(UITextField *)textField {
-    [self cancelNumberPad];
-}
+    NSLog(@"loadSettings from textFieldDidEndEditing");
+    [self loadSettings];
+}*/
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"doneithNumberPad from textFieldShouldReturn");
     [self doneWithNumberPad];
     return YES;
 }
