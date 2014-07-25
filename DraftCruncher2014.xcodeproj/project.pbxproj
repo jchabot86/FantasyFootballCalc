@@ -294,7 +294,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Chabot;
+				ORGANIZATIONNAME = QuantumFantatics;
 				TargetAttributes = {
 					F2CEFFA919571B0F00C937F1 = {
 						TestTargetID = F2CEFF8219571B0F00C937F1;

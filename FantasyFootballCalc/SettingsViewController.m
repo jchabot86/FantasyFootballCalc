@@ -256,8 +256,10 @@ float DefenseSpTdWeight;
         [_activityIndicator setHidden:NO];
         [alertView bringSubviewToFront:_activityIndicator];
         [_activityIndicator startAnimating];
-        [settings refreshScores];
+        [settings resetTable];
+        [self loadSettingsInMemory];
         [self loadSettings];
+        [settings refreshScores];
         [_activityIndicator stopAnimating];
 
     }
