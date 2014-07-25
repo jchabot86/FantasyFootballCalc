@@ -1102,7 +1102,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="1zh-1H-vab"/>
-                                            <constraint firstAttribute="height" constant="800" id="alZ-Xs-CBP"/>
+                                            <constraint firstAttribute="height" constant="950" id="alZ-Xs-CBP"/>
                                         </constraints>
                                     </view>
                                 </subviews>
